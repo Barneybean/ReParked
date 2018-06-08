@@ -1,0 +1,28 @@
+{
+  "name": "reparked",
+  "version": "1.0.0",
+  "description": "A parking spot sharing app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barneybean/ReParked.git"
+  },
+  "keywords": [
+    "reparked"
+  ],
+  "author": "Chunjin (William)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Barneybean/ReParked/issues"
+  },
+  "homepage": "https://github.com/Barneybean/ReParked#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10"
+  }
+}
