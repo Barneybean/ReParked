@@ -12,24 +12,26 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // index route loads index.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  // user route loads user.html
+  app.get("/user/:id", function(req, res) {
+    var userId=req.params.id;
+    res.sendFile(path.join(__dirname, "../public/user"+userId+".html"));
   });
 
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  // owner route loads owner.html
+  app.get("/owner/:id", function(req, res) {
+    var OwnerId=req.params.id;
+    res.sendFile(path.join(__dirname, "../public/owner"+ownerId+".html"));
   });
 
-  // authors route loads author-manager.html
-  app.get("/authors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
+  // this is optional if we have time
+  app.get("/admin", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/admin.html"));
   });
 
 };
