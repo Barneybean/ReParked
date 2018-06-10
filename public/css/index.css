@@ -142,7 +142,11 @@ body {
 
 /* header */
 
-
+#cityInput {
+    width: 60rem;
+    height: 6rem;
+    margin: 0 auto;
+}
 
 /* footer */
 footer {

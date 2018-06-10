@@ -1,4 +1,4 @@
-{/* <style>
+/* <style>
 
 </style>
 <ul class="nav justify-content-end">
@@ -16,4 +16,21 @@
     <li class="nav-item">
       <a class="nav-link" href="#">Login</a>
     </li>
-</ul> */}
+</ul> */
+$(document).ready(function() {
+  
+  $("#searchBar").on("submit", function(event) {
+    //to prevent submission without value
+    event.preventDefault();
+
+    var searchString = $("#cityInput").val().trim();
+    console.log(searchString);
+  })
+
+
+
+
+});
+
+
+
