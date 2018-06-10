@@ -16,6 +16,13 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/htmls/index.html"));
   });
-
+  //listing page 
+  app.get("/listings", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/htmls/listings.html"));
+  });
+  //host admin and posting page
+  app.get("/hosts", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/htmls/hosts.html"));
+  });
 
 };
