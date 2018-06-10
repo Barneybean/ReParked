@@ -1,9 +1,67 @@
 #map {
-    height: 400px;
-    width: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: red;
   }
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
   } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* This is the Footer at the bottom */
+  footer {
+    background-color: rgba(44, 62, 80, 1.0);
+
+    width: 100%;
+    bottom: 0;
+    font-weight: lighter;
+    color: white;
+}
+.footerHeader{
+    width:100%;
+    padding:1em;
+    background-color:rgba(52, 73, 94,1.0);
+    text-align:center;
+    color:white;
+}
+footer h3{
+    font-weight:lighter;
+}
+footer ul{
+    padding-left:5px;
+    list-style:none;
+}
+footer p{
+    text-align : justify;
+    font-size : 12px;
+}
+footer iframe {
+    width:100%;
+    position:relative;
+    height:170px;
+}
+.sm{
+    list-style:none;
+    overflow:auto;
+}
+.sm li {
+    display: inline;
+    padding:5px;
+    float:left;
+} 
+.sm li a img {
+    width:32px;
+}
