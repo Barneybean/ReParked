@@ -14,24 +14,8 @@ module.exports = function(app) {
 
   // index route loads index.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/htmls/index.html"));
   });
 
-  // user route loads user.html
-  app.get("/user/:id", function(req, res) {
-    var userId=req.params.id;
-    res.sendFile(path.join(__dirname, "../public/user"+userId+".html"));
-  });
-
-  // owner route loads owner.html
-  app.get("/owner/:id", function(req, res) {
-    var OwnerId=req.params.id;
-    res.sendFile(path.join(__dirname, "../public/owner"+ownerId+".html"));
-  });
-
-  // this is optional if we have time
-  app.get("/admin", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/admin.html"));
-  });
 
 };
