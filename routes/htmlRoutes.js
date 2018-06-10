@@ -16,13 +16,21 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/htmls/index.html"));
   });
-  //listing page 
+  //listings page that contains matching listings
   app.get("/listings", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/htmls/listings.html"));
   });
-  //host admin and posting page
+  //hosts admin and create listings and show listings
   app.get("/hosts", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/htmls/hosts.html"));
+  });
+  //renters's profile and reservation page
+  app.get("/rentersinterface", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/htmls/renters.html"));
+  });
+  //checkout
+  app.get("/hosts", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/htmls/checkout.html"));
   });
 
 };
