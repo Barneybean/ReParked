@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": null,
     "database": "reparked_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -16,7 +16,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "reparked_production_db",
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
