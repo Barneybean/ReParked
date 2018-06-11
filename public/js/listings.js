@@ -146,3 +146,15 @@
       }
     });
   };
+
+
+
+// this is so when you hover over it displays it without clicking it
+  marker.addListener('mouseover', function() {
+    infowindow.open(map, this);
+});
+
+// assuming you also want to hide the infowindow when user mouses-out
+marker.addListener('mouseout', function() {
+    infowindow.close();
+});
