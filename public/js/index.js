@@ -22,9 +22,20 @@ $(document).ready(function() {
   $("#searchBar").on("submit", function(event) {
     //to prevent submission without value
     event.preventDefault();
-
+    // get the searched string
     var searchString = $("#cityInput").val().trim();
-    console.log(searchString);
+    // console.log(searchString);
+    var citySearched = {
+      city: searchString
+    }
+
+    $.ajax("/api/citysearched", {
+      type: "post",
+      data: citySearched
+    }).then(function(result) {
+      console.log ("searched")
+    });
+
   })
 
 
