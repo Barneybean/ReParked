@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Host = sequelize.define("Host", {
+  var Host = sequelize.define("hostsProfile", {
     // Giving the Host model a name of type STRING
     hostName: {
       type: DataTypes.STRING,
