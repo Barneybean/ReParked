@@ -1,12 +1,11 @@
 USE reparked_db;
 
-INSERT INTO Renters_Profile(user_name, user_email) VALUES ('Ralph', 'ralph@email.com')
-INSERT INTO Renters_Profile(user_name, user_email) VALUES ('Jack', 'ralph@email.com')
+INSERT INTO rentersProfiles (RenterName, RenterEmail, password, createdAt, updatedAt ) VALUES ("Ralph", "ralph@gmail.com", "q12345", NOW(), NOW());
+INSERT INTO rentersProfiles (RenterName, RenterEmail, password, createdAt, updatedAt) VALUES ("Jack", "jack@gmail.com", "q12345", NOW(), NOW());
 
-INSERT INTO Hosts_Profile(host_name, host_email) VALUES ('Sam', 'sam@email.com')
-INSERT INTO Hosts_Profile(host_name, host_email) VALUES ('Elzabeth', 'elizabeth@email.com')
+INSERT INTO hostsProfiles (hostName, hostEmail, password) VALUES ("Sam", "sam@email.com", "q12345");
+INSERT INTO hostsProfiles (hostName, hostEmail, password) VALUES ("Elzabeth", "elizabeth@email.com", "q12345");
 
-INSERT INTO Listing(street_number, street_name, city, post_type, hourly_rate) VALUES (1909, 'Sacramento Avenue', 'Berkeley', 'driveway', 1.50)
-INSERT INTO Listing(street_number, street_name, city, post_type, hourly_rate) VALUES (1801, 'Berkeley Way', 'Berkeley', 'carport', 3)
-
+INSERT INTO Listings (streetNumber, streetName, city, state, type, rate) VALUES (1909, "Sacramento Avenue", "Berkeley", "CA", "driveway", 1.50);
+INSERT INTO Listings (streetNumber, streetName, city, state, type, rate) VALUES (1801, "Berkeley Way", "Berkeley", "CA", "carport", 3);
 

@@ -30,10 +30,9 @@ $(document).ready(function() {
     }
 
     $.ajax("/api/citysearched", {
-      type: "post",
-      data: citySearched
+      type: "get"
     }).then(function(result) {
-      console.log ("searched")
+      console.log ("result")
     });
 
   })

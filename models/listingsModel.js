@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes) {
   var Listing = sequelize.define("Listing", {
     // Giving the Listings model a name of type STRING
       //id will be auto assigned 
-      streetNumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-        len: [1]
-        }
+    streetNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+      len: [1]
+      }
     },
     streetName: {
         type: DataTypes.STRING,
@@ -37,8 +37,8 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
       }
     },
-    rate: {
-      type: DataTypes.FLOAT,
+    hourlyRate: {
+      type: DataTypes.FLOAT(10,2),
       allowNull: false,
       validate: {
       len: [1]
