@@ -1,35 +1,3 @@
-// $( function() {
-//     var dateFormat = "mm/dd/yy",
-//       from = $( "#from" )
-//         .datepicker({
-//           defaultDate: "+1w",
-//           changeMonth: true,
-//           numberOfMonths: 1
-//         })
-//         .on( "change", function() {
-//           to.datepicker( "option", "minDate", getDate( this ) );
-//         }),
-//       to = $( "#to" ).datepicker({
-//         defaultDate: "+1w",
-//         changeMonth: true,
-//         numberOfMonths: 1
-//       })
-//       .on( "change", function() {
-//         from.datepicker( "option", "maxDate", getDate( this ) );
-//       });
- 
-//     function getDate( element ) {
-//       var date;
-//       try {
-//         date = $.datepicker.parseDate( dateFormat, element.value );
-//       } catch( error ) {
-//         date = null;
-//       }
- 
-//       return date;
-//     }
-
-
 
 // This code makes the card clickable
  function addClick(){
@@ -37,105 +5,41 @@
      card.innerHTML = "Hello"
  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // geo code begin
 
-window.onscroll = function() {myFunction()};
+// window.onscroll = function() {myFunction()};
 
-var header = document.getElementById('map');
-var sticky = header.offsetTop;
+// var header = document.getElementById('map');
+// var sticky = header.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-
-
-
-  
-
-// function initMap() {
-//   // The location of Uluru
-//   var uluru = [{lat: 37.874537, lng: -122.275694, 
-//                 lat:37.872578, lng:-122.272927,
-//                 lat: 37.873827, lng:-122.270386 }];
-//     for(var i = 0; i < uluru.length; i++){
-//         console.log(uluru[1]);
-//     }
-//   // The map, centered at Uluru
-//   var map = new google.maps.Map(
-//       document.getElementById('map'), {zoom: 13, center: uluru[1]});
-//   // The marker, positioned at Uluru
-//   var marker = new google.maps.Marker({position: uluru[1] , map: map});
+// function myFunction() {
+//   if (window.pageYOffset >= sticky) {
+//     header.classList.add("sticky");
+//   } else {
+//     header.classList.remove("sticky");
+//   }
 // }
 
-  
-  function geocode(){
-          var location = '22 Main st Boston MA';
-      axios.get('https://maps.googleapis.com/maps/api/geocode/json?',{
-          params:{
-              address: location,
-              key:'AIzaSyA2n1eGuHjUHi0ZhQeolicSpu2RrmhQoCg'
-          }
-  
-      }).then(function(response){
-          console.log(response);
-          
-          var address = response.data.results[0].formatted_address ;
-  
-      })
-      .catch(function(error){
-          conosle.log(error)
-      })
-  
-  
-  };
-
 //geo code end 
+  var neighborhoods = [
+    {lat:37.872578,lng: -122.272927},
+    {lat:37.873827,lng: -122.270386},
+    {lat:37.874790, lng:-122.276636},
+    {lat:37.875035,lng:-122.274702},
+    {lat:37.873845,lng: -122.276870},
+    {lat:37.874537, lng:-122.275694}
 
-// });
-
-var neighborhoods = [
-    {lat: 37.873827, lng: -122.270386},
-    {lat: 37.872578, lng: -122.272927},
-    {lat: 37.874790, lng: -122.276636 },
-    {lat:37.875035, lng: -122.274702},
-    {lat:37.873845, lng: -122.276870},
-    {lat:37.875035, lng: -122.275694}
   ];
 
   var markers = [];
-  var map;
 
   function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: {lat: 37.8720, lng: -122.2713}
+    var map = new google.maps.Map(document.getElementById('map'), {
+      mapTypeControl: false,
+      center: {lat: 37.8720, lng: -122.2713},
+      zoom: 14
     });
-  }
-
-  function drop() {
+ function drop() {
     clearMarkers();
     for (var i = 0; i < neighborhoods.length; i++) {
       addMarkerWithTimeout(neighborhoods[i], i * 200);
@@ -158,3 +62,87 @@ var neighborhoods = [
     }
     markers = [];
   }
+  drop();
+    new AutocompleteDirectionsHandler(map);
+  }
+
+   /**
+    * @constructor
+   */
+  function AutocompleteDirectionsHandler(map) {
+    this.map = map;
+    this.originPlaceId = null;
+    this.destinationPlaceId = null;
+    this.travelMode = 'WALKING';
+    var originInput = document.getElementById('origin-input');
+    var destinationInput = document.getElementById('destination-input');
+    var modeSelector = document.getElementById('mode-selector');
+    this.directionsService = new google.maps.DirectionsService;
+    this.directionsDisplay = new google.maps.DirectionsRenderer;
+    this.directionsDisplay.setMap(map);
+
+    var originAutocomplete = new google.maps.places.Autocomplete(
+        originInput, {placeIdOnly: true});
+    var destinationAutocomplete = new google.maps.places.Autocomplete(
+        destinationInput, {placeIdOnly: true});
+
+    this.setupClickListener('changemode-walking', 'WALKING');
+    this.setupClickListener('changemode-transit', 'TRANSIT');
+    this.setupClickListener('changemode-driving', 'DRIVING');
+
+    this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+    this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+  }
+
+  // Sets a listener on a radio button to change the filter type on Places
+  // Autocomplete.
+  AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+    var radioButton = document.getElementById(id);
+    var me = this;
+    radioButton.addEventListener('click', function() {
+      me.travelMode = mode;
+      me.route();
+    });
+  };
+
+  AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+    var me = this;
+    autocomplete.bindTo('bounds', this.map);
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+      if (mode === 'ORIG') {
+        me.originPlaceId = place.place_id;
+      } else {
+        me.destinationPlaceId = place.place_id;
+      }
+      me.route();
+    });
+
+  };
+
+  AutocompleteDirectionsHandler.prototype.route = function() {
+    if (!this.originPlaceId || !this.destinationPlaceId) {
+      return;
+    }
+    var me = this;
+
+    this.directionsService.route({
+      origin: {'placeId': this.originPlaceId},
+      destination: {'placeId': this.destinationPlaceId},
+      travelMode: this.travelMode
+    }, function(response, status) {
+      if (status === 'OK') {
+        me.directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+  };
