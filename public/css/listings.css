@@ -1,7 +1,8 @@
 /* maps css */
 #map {
-    height: 30%;
+    height: 100%;
     width: 100%;
+    position: fixed!important;
 }
 .sticky {
     position: fixed;
@@ -20,6 +21,41 @@ body{
  /* maps above */
 
 
+
+
+hr{
+    margin-top:0;
+    margin-bottom:0;
+    background-color:#ccc;
+}
+
+
+/* padding for image */
+.card-img-top{
+    width: 100%;
+    height: 100%;
+}
+.col-sm-6{
+
+padding-right:5px;
+padding-left:5px;
+/* padding: 0px;     */
+}
+/* ////////////// */
+
+
+
+
+
+
+
+/* this is the top h3 */
+.topH{
+margin-left: 15px;
+}
+
+
+
 /* top search button */
 .btn-outline-success{
 color:white;
@@ -31,17 +67,24 @@ border-color:#f64c72 ;
 background-color:#f64c72;
 border-color:#f64c72 ;
 }
+
+
 /* 3 links at the top  */
 a{
     color: White;
 }
+/* //////////////////////// */
 
 
 
 
-
-
-
+/* li with 3 photos on bottome */
+.sm li {
+    display: inline;
+    padding: 5px;
+    float: right!important;
+}
+/* ////////////////////////////// */
 
 
 
@@ -52,22 +95,20 @@ a{
     color: orange;
 }
 /* the css for input table that displays the calendar  */
-#from{
- /* css 3 */
- border: 2px solid #aaa;
- margin: 8px 0;
- outline: none;
+
+
+
+
+/* //// color for bottom text in footer */
+li{
+    display:inline;
+    margin: 5px;
+    font-weight: 700;
 }
-#to{
-    border: 2px solid #aaa;
-    margin: 8px 0;
-    outline: none;
-/* display: none; */
+.aclass{
+    color: #ccc
 }
-
-
-
-
+/* ////////////// */
 
 
 
@@ -77,11 +118,16 @@ a{
   /* This is the Footer at the bottom */
   footer {
     background-color: rgba(44, 62, 80, 1.0);
-
+    
     width: 100%;
     bottom: 0;
     font-weight: lighter;
     color: white;
+}
+.clearfix::after{
+    content: "";
+    clear:both;
+    display:table;
 }
 .footerHeader{
     width:100%;
@@ -117,4 +163,8 @@ footer iframe {
 } 
 .sm li a img {
     width:32px;
+}
+
+.pushLeft {
+     margin-left: 0px;
 }
