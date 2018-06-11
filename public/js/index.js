@@ -18,6 +18,7 @@
     </li>
 </ul> */
 $(document).ready(function() {
+  console.log("loded")
   //----------Sign up & log in------------------------------
   $("#beHost").on("click", function() {
      //to prevent submission without value
@@ -46,6 +47,7 @@ $(document).ready(function() {
   var usernameInput = $("input#comfirmName")
   var emailInput = $("input#comfirmEmail");
   var passwordInput = $("input#comfirmPw");
+
  $("#userBack").on("click", function(event) {
    event.preventDefault();
     var userData = {
@@ -70,19 +72,19 @@ $(document).ready(function() {
 //-------------Create Account Ends---------------------------------
 
   //---------------------search Bar----------------------------- 
-  $("#searchBar").on("submit", function(event) {
+  $("#searchBar").on("click", function(event) {
     //to prevent submission without value
     event.preventDefault();
     // get the searched string
-    var searchString = $("#cityInput").val().trim();
-    // console.log(searchString);
-    var citySearched = {
-      city: searchString
+    var searchString = $("#address").val().trim();
+    console.log(searchString);
+    var addressSearched = {
+      address: searchString
     }
 
-    $.ajax("/api/citysearched", {
+    $.ajax("/api/address", {
       type: "post",
-      data: citySearched
+      data: addressSearched
     }).then(function(result) {
       console.log ("searched")
     });
