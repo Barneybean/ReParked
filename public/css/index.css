@@ -113,3 +113,15 @@ footer iframe {
 }
 
 /*feedback*/
+
+#hostModal {
+    display: none;
+}
+
+#renterModal {
+    display:none;
+}
+
+#logInModal {
+    display: none;
+}

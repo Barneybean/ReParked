@@ -30,6 +30,20 @@ module.exports = function(sequelize, DataTypes) {
       len: [2]
       }
     },
+    latitude: {
+      type: DataTypes.FLOAT(10,2),
+      allowNull: false,
+      validate: {
+      len: [1]
+      }
+    },
+    longitude: {
+      type: DataTypes.FLOAT(10,2),
+      allowNull: false,
+      validate: {
+      len: [1]
+      }
+    },
     type: {
       type: DataTypes.STRING,
       allowNull: false,
