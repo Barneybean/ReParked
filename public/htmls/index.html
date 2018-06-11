@@ -13,247 +13,217 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fjord+One" rel="stylesheet">
     <!-- custom css -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/index.css" media="screen" title="no title">
-
 </head>  
 
 <body>
-        <div class="header-parking">
-                <nav class="navbar navbar-default">
-                    <div class="container">
-                        <!-- <img src="../img/logo.png" alt="logo"> -->
-                        <!-- <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div> -->
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">HOME</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">NEWS <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Page 1-1</a></li>
-                                        <li><a href="#">Page 1-2</a></li>
-                                        <li><a href="#">Page 1-3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">FEATURES <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Page 1-1</a></li>
-                                        <li><a href="#">Page 1-2</a></li>
-                                        <li><a href="#">Page 1-3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">DEMOS<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Page 1-1</a></li>
-                                        <li><a href="#">Page 1-2</a></li>
-                                        <li><a href="#">Page 1-3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="login-btn">
-                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN<span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                          <li class="px-3 py-2">
-                                              <form class="form" role="form">
-                                                   <div class="form-group">
-                                                       <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
-                                                   </div>
-                                                   <div class="form-group">
-                                                       <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" required="">
-                                                   </div>
-                                                   <div class="form-group">
-                                                       <button type="submit" class="btn btn-primary btn-block btn-sm">Login</button>
-                                                   </div>
-                                                   <div class="form-group text-center">
-                                                       <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
-                                                   </div>
-                                               </form>
-                                           </li>
-                                       </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div class="hero">
-                    <h1>REPARKED</h1>
-                    <h3 class="font-weight-bold">Looking for hourly parking in someone's drive ways, carports, or garages?</h3>
-                    <form id="searchBar">
-                        <div class="form-group">
-                            <label for="cityInput font-weight-bold">What City and State are you going?</label>
-                            <input type="text" class="form-control" id="cityInput" placeholder="ex: Berkeley CA">
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
-                    </form>
-                </div>
-            </div>
-            <br><br><br>
-            <!--Info-->
-            <div class="container">
-                <section>
-                  <div class="page-header" id="feedback">
-                    <h2>How to Use.<small>check it</small></h2>
-                  </div>
+    <div class="header-parking">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index.html">REPARKED</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <h3>Blalalalal</h3>
-                      </blockquote>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="becomeahost">Become A Host<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Log In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- end nav bar -->
+        <div class="container">   
+            <div class="hero">
+                <h1>REPARKED</h1>
+                <h3 class="font-weight-bold">Looking for hourly parking in someone's drive ways, carports, or garages?</h3>
+                <form id="searchBar">
+                    <div class="form-group">
+                        <label for="cityInput font-weight-bold">What City and State are you going?</label>
+                        <input type="text" class="form-control" id="cityInput" placeholder="ex: Berkeley CA">
                     </div>
-                    <div class="col-lg-4">
-                      <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <h3>Blalalalal</h3>
-                      </blockquote>
-                    </div>
-                    <div class="col-lg-4">
-                      <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <h3>Blalalalal</h3>
-                      </blockquote>
-                    </div>
-                  </div><!--End Row-->
-                </section>
-              </div><!--End Container-->
-            <!--Info Ends-->
-            <br><br><br><br><br>
-      
+                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <!--Info-->
+    <div class="container">
+        <section>
+            <div class="page-header" id="feedback">
+            <h2>How to Use.<small>check it</small></h2>
+            </div>
+            <div class="row">
+            <div class="col-lg-4">
+                <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3>Blalalalal</h3>
+                </blockquote>
+            </div>
+            <div class="col-lg-4">
+                <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3>Blalalalal</h3>
+                </blockquote>
+            </div>
+            <div class="col-lg-4">
+                <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3>Blalalalal</h3>
+                </blockquote>
+            </div>
+            </div><!--End Row-->
+        </section>
+    </div><!--End Container-->
+    <br><br><br>
+    <!--Info-->
+    <div class="container">
+        <section>
+            <div class="page-header" id="feedback">
+                <h2>How to Use.<small>check it</small></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Blalalalal</h3>
+                </blockquote>
+                </div>
+                <div class="col-lg-4">
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Blalalalal</h3>
+                </blockquote>
+                </div>
+                <div class="col-lg-4">
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Blalalalal</h3>
+                </blockquote>
+                </div>
+            </div><!--End Row-->
+        </section>
+    </div>
+    <!--Info Ends-->
+    <br><br><br><br><br>
+    <div class="container">
+        <section>
+            <div class="page-header" id="features">
+                <h2>Why You Choose Us.<small>Some of the coolest Features of this web</small></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Garage Parking - The Ultimate Protection</h3>
+                    <p>Give yourself the peace of mind that you have a guaranteed parking spot protected from the elements and criminals. </p>
+                </div>	
+                <div class="col-lg-4">
+                    <img src="http://2.bp.blogspot.com/-qvQMzNvitmE/T8VKjHFSMBI/AAAAAAAAGcQ/fA0DvpVKm9Q/s1600/parked+car.jpg" class="img.img-responsive" style="width: 350px; height: 200px " alt="image">	
+                </div>		
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Carport Parking - Protection from the Elements</h3>
+                    <p>Relax knowing that you have guarnateed parking and that your vehicle is safe from the harmful effects of the sun, rain, sleet, and snow.</p>
+                </div>	
+                <div class="col-lg-4">
+                    <img src="http://www.miamiawning.com/wp-content/uploads/2017/03/Custom-Carport-waiting-for-custom-cladding-by-others-Miami-Awning-800px.jpg" class="img.img-responsive" style="width: 350px; height: 200px; padding-top: 10px;" alt="image">	
+                </div>		
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Driveway Parking - Basic Parking</h3>
+                    <p>Take away the stress of worrying about whether or not you will be able to find parking. </p>
+                </div>	
+                <div class="col-lg-4">
+                    <img src="http://pilotproject.org/images/i.kinja-img.com/gawker-media/image/upload/s--KjA2WYQv--/c_scale,fl_progressive,q_80,w_800/653325409961383750.jpg" class="img.img-responsive" style="width: 350px; height: 200px; padding-top: 10px;" alt="image">	
+                </div>		
+            </div>
+            <hr>
+            </div><!--End ROW-->
+        </section>
+    </div><!--end of container-->
+    <br><br><br><br>
+    <!--feedback-->
+    <section class="feedback">
+        <!--title-->
+        <div class="fb-card">
+            <div class="col-xs-12 text-xs-center">
+                <h3 class="fb-card-title">WHAT USERS SAY ABOUT REPARKED</h3>     
+            </div>
+        </div>
+        <div class="fb-card-users">
             <div class="container">
-              <section>
-                  <div class="page-header" id="features">
-                      <h2>Why You Choose Us.<small>Some of the coolest Features of this web</small></h2>
-                  </div><!--End Container-->
-      
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h3>This is the heading</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </div>	
-                      <div class="col-lg-4">
-                          <img src="../images/map3.png" class="img.img-responsive" style="width: 350px; height: 200px " alt="image">	
-                      </div>		
-                  </div>
-      
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h3>This is the heading</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </div>	
-                      <div class="col-lg-4">
-                          <img src="../images/pexels-photo-139303.png" class="img.img-responsive" style="width: 350px; height: 200px; padding-top: 10px;" alt="image">	
-                      </div>		
-                  </div>
-      
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h3>This is the heading</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </div>	
-                      <div class="col-lg-4">
-                          <img src="../images/map2.png" class="img.img-responsive" style="width: 350px; height: 200px; padding-top: 10px;" alt="image">	
-                      </div>		
-                  </div>
-      
-                  <hr>
-      
-                  </div><!--End ROW-->
-              </section>
-          </div><!--end of container-->
-          <br><br><br><br>
-      
-      
-          <!--feedback-->
-          <section class="feedback">
-              <!--title-->
-              <div class="fb-card">
-                  <div class="col-xs-12 text-xs-center">
-                      <h3 class="fb-card-title">WHAT USERS SAY ABOUT REPARKED</h3>     
-                  </div>
-              </div>
-      
-              <div class="fb-card-users">
-                  <div class="container">
-                      <div class="row">
-      
-                          <div class="col-xs-12 col-lg-4">
-      
-                              <div class="fb-users">
-                                  <div class="card-block"><p>"Good!"</p></div>
-                                  <div class=" card-footer">
-                                  --William
-                                  </div>
-                              </div>
-                          </div>
-      
-                          <div class="col-xs-12 col-lg-4">
-                              <div class="fb-users">
-                                  <div class="card-block"><p>"Perfect!"</p></div>
-                                  <div class=" card-footer">
-                                  --Jose
-                                  </div>
-                                  
-                              </div>
-                          </div>
-      
-                          <div class="col-xs-12 col-lg-4">
-                              <div class="fb-users">
-                                  <div class="card-block"><p>"Wonderful!"</p></div>
-                                  
-                                  <div class=" card-footer">
-                                  --jonathan
-                                  </div>
-                              </div>
-                          </div>
-      
-                      </div><!--row-->
-      
-                  </div><!--container-->
-      
-              </div><!--div fb-card-users-->
-      
-          </section>
-    
-          <footer>
-              <div class="footerHeader" ></div>
-              <div class="container">
-                  <div class="col-md-4" >
-                      <h3>About us</h3>
-                      <p>
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                      </p>
-                  </div>
-                  
-                  <div class="col-md-4">
-                      <h3>Our Location </h3>
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                  </div>
-                  <div class="col-md-4" >
-                      <h3>Contact Us</h3>
-                      <ul>
-                          <li>Phone : 123 - 456 - 789</li>
-                          <li>E-mail : info@comapyn.com</li>
-                          <li>Fax : 123 - 456 - 789</li>
-                      </ul>
-                      <p>
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                      </p>
-                      <ul class="sm">
-                          <li><a href="#" ><img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"></a></li>
-                          <li><a href="#" ><img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive" ></a></li>
-                          <li><a href="#" ><img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"  ></a></li>
-                      </ul>
-                  </div>
-              </div>
-          </footer>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fb-users">
+                            <div class="card-block"><p>"The greatest!"</p></div>
+                            <div class=" card-footer">
+                            --William
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fb-users">
+                            <div class="card-block"><p>"Simply perfect!"</p></div>
+                            <div class=" card-footer">
+                            --Jose
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fb-users">
+                            <div class="card-block"><p>"Absolutely wonderful!"</p></div>
+                            
+                            <div class=" card-footer">
+                            --Jonathan
+                            </div>
+                        </div>
+                    </div>
+                </div><!--row-->
+            </div><!--container-->
+        </div><!--div fb-card-users-->
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="footerHeader" ></div>
+        <div class="container">
+            <div class="row">
+            <div class="col-md-4" >
+                <h3>Our Mission</h3>
+                <p>
+                We are here to Change the Industry Parking garage industry , and help you avoid those insane Parking prices by giving you the power of being able to park in any Host's Drive way. Saving you money , and also making you income if you choose to become a REPARK HOST Member! 
+                </p>
+            </div>
+            
+            <div class="col-md-4">
+                <h3>Our Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4" >
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Phone: 510-REP-ARKED</li>
+                    <li>E-mail: Reparked@gmail.com </li>
+                    <li>Fax: 123-REP-ARKED</li>
+                </ul>
+                <ul class="sm">
+                    <li><a href="#" ><img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"></a></li>
+                    <li><a href="#" ><img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive" ></a></li>
+                    <li><a href="#" ><img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"  ></a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
