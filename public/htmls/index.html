@@ -190,12 +190,13 @@
                     <div class="hero">
                             <h1>REPARKED</h1>
                             <h3 class="font-weight-bold">Looking for hourly parking in someone's drive ways, carports, or garages?</h3>
-                            <form id="searchBar">
+                            <form >
                                 <div class="form-group">
                                     <label for="cityInput font-weight-bold">What City and State are you going?</label>
-                                    <input type="text" class="form-control" id="cityInput" placeholder="ex: Berkeley CA">
+                                    <input type="text" class="form-control" id="address" placeholder="ex: Berkeley CA">
                                 </div>
-                                <button type="submit" class="btn btn-success btn-lg" href="listings">Submit</button>
+                                <a id="searchBar" type="submit" class="btn btn-success btn-lg" href="/listings">Submit</a>
+                                <!-- button is not hyperlink -->
                             </form>
                     </div>
                 </div>
@@ -378,8 +379,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <!-- google api -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2n1eGuHjUHi0ZhQeolicSpu2RrmhQoCg&callback=initMap"></script>             
+    
     <!-- Custom Script -->
     <script src="../js/index.js" type="text/javascript"></script>
 

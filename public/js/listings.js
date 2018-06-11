@@ -31,12 +31,7 @@ $( function() {
 
 
 
-    //apicalls
-    $.ajax("/api/citysearched", {
-      type: "get"
-    }).then(function(result) {
-      console.log(result);
-    });
+  
 
 
 //geo code begin
