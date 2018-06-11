@@ -17,7 +17,7 @@ body{
     background-color:#659dbd;
 
 }
-
+ /* maps above */
 
 
 /* top search button */
@@ -36,20 +36,17 @@ a{
     color: White;
 }
 
-.container{
-    /* background-color: #c2cad0 */
-
-}
 
 
 
 
 
-/* height for all the photos in the text */
-/* .card-img-top{
-    width: 280px;
-    height: 214px;
-} */
+
+
+
+
+
+
 /* this is the color for the ratings stars  */
 .checked {
     color: orange;
