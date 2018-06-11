@@ -74,6 +74,12 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
         }
       });
+      //reservation also belongs to listing table
+      Reservation.belongsTo(models.Listing, {    //many to one  models.table name not variable name 
+        foreignKey: {  //foreign key is default to id
+          allowNull: false
+        }
+      });
     };
   
     //!!!Need to include a second belongsTo with Reservation so that if user deletes profile any of their reservation are also deleted!!!

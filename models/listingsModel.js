@@ -30,6 +30,13 @@ module.exports = function(sequelize, DataTypes) {
       len: [2]
       }
     },
+    zipcode: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1,5]
+      }
+    },
     latitude: {
       type: DataTypes.FLOAT(10,2),
       allowNull: false,
@@ -67,6 +74,10 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {  //foreign key is default to id
         allowNull: false
       }
+    });
+
+    Listing.hasMany(models.Reservation, {
+      onDelete: "cascade"
     });
   };
 
