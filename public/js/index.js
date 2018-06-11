@@ -18,7 +18,58 @@
     </li>
 </ul> */
 $(document).ready(function() {
-  
+  //----------Sign up & log in------------------------------
+  $("#beHost").on("click", function() {
+     //to prevent submission without value
+    //  event.preventDefault();
+    $("#renterModal").hide();
+    $("#logInModal").hide();
+    $("#hostModal").show();
+  });
+
+  $("#beRenter").on("click", function() {
+    //to prevent submission without value
+    // event.preventDefault();
+    $("#hostModal").hide();
+    $("#logInModal").hide();
+    $("#renterModal").show();
+ });
+
+ $("#userBack").on("click", function() {
+  //to prevent submission without value
+  // event.preventDefault();
+  $("#logInModal").show();
+});
+//-------------sign up & log in ends----------------------------------
+    
+  var loginForm = $("personalModal");
+  var usernameInput = $("input#comfirmName")
+  var emailInput = $("input#comfirmEmail");
+  var passwordInput = $("input#comfirmPw");
+ $("#userBack").on("click", function(event) {
+   event.preventDefault();
+    var userData = {
+      username: usernameInput.val().trim(),
+      email: emaulInput.val().trim(),
+      password: passwordInput.val().trim()
+    };
+
+    if (!userData.email || !userData.password) {
+      return;
+    }
+ 
+   window.location.reload()
+   
+
+ })
+//-------------Create Account---------------------------------
+  $("#submit-host").on("click", function() {
+     
+  })
+
+//-------------Create Account Ends---------------------------------
+
+  //---------------------search Bar----------------------------- 
   $("#searchBar").on("submit", function(event) {
     //to prevent submission without value
     event.preventDefault();
@@ -30,11 +81,12 @@ $(document).ready(function() {
     }
 
     $.ajax("/api/citysearched", {
-      type: "get"
+      type: "post",
+      data: citySearched
     }).then(function(result) {
-      console.log ("result")
+      console.log ("searched")
     });
-
+  
   })
 
 
