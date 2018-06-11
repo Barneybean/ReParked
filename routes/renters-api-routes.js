@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-var NodeGeocoder = require('node-geocoder');
+var geocoder = require('geocoder');
 
 // Routes
 // =============================================================

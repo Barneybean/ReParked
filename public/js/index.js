@@ -82,11 +82,19 @@ $(document).ready(function() {
       address: searchString
     }
 
+    console.log(addressSearched)
+
     $.ajax("/api/address", {
-      type: "post",
+      type: "POST",
       data: addressSearched
-    }).then(function(result) {
-      console.log ("searched")
+    }).then(function(cityName) {
+      
+    //   // once I get city name then aoi route
+    //   $.ajax("api/listings/"+cityName, {
+    //     type: "get"
+    //   }).then(function (data) {
+    //     console.log("go to lisitngs.html")
+    //   })
     });
   
   })
