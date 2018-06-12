@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var geocoder = require('geocoder');
 
 // Sets up the Express App
 // =============================================================
@@ -27,9 +28,10 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./routes/htmlRoutes.js")(app);
-require("./routes/author-api-routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/listings-api-routes")(app);
+require("./routes/owners-api-routes")(app);
+require("./routes/renters-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

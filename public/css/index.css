@@ -2,89 +2,32 @@ body {
     font-family: 'Montserrat', sans-serif;
     position: relative;
 }
-
-/*header*/
-.header-parking {
-    color: white;
-    background: url("../images/chris-leipelt-176595-unsplash.jpg") no-repeat;
+.jumbotron {
+    background-image:url("../images/chris-leipelt-176595-unsplash.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    height: 700px;
     padding-bottom: 100px;
 }
 
-.header-parking .navbar-nav>li>a {
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
-}
-
-.header-parking .navbar {
-    margin-bottom: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    border-bottom:none;
-    background-color: transparent;
-    min-width: 300px;
-    border: none;
-}
-
-.header-parking .navbar-default .navbar-nav>.open>a,
-.header-parking .navbar-default .navbar-nav>.open>a:focus,
-.header-parking .navbar-default .navbar-nav>.open>a:hover {
-    color: #ccc;
-    background-color: transparent;
-}
-
-.header-parking .nav>li>a:focus,
-.header-parking .nav>li>a:hover {
-    color: #ccc;
-    background-color: transparent;
-}
-
-.header-parking .navbar-nav>li {
-    margin-right: 20px;
-}
-
-.header-parking .navbar-nav {
-   margin-top: 12px;
-}
-
-.header-parking .navbar-toggle {
-    margin-top: 20px;
-    border: 1px solid #fff;
-}
-
-.header-parking .navbar-toggle .icon-bar {
-    background-color: white;
-}
-
-.header-parking .navbar-brand {
-    color: white;
-    font-size: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.header-parking .navbar-brand:hover {
-    color: #ccc;
-}
-
-.header-parking .hero {
+.jumbotron .hero {
     text-align: center;
     margin-top: 80px;
     margin-bottom: 100px;
 }
 
-.header-parking .hero h1 {
-    color: white;
+.jumbotron .hero h1 {
+    color: black;
     font-weight: bold;
     font-size: 60px;
     margin-bottom: 36px;
 }
+.jumbotron .hero .form-control {
+    width: 800px;
+    margin: 0 auto;
+}
 
-
-.header-parking .hero p {
+.jumbotron .hero p {
     color: rgba(255, 255, 255, 0.6);
     font-size: 22px;
     max-width: 660px;
@@ -93,56 +36,13 @@ body {
     line-height: 1.5;
 }
 
-.header-parking .btn-primary {
-    color: #fff;
-    background-color: transparent;
-    border-color: #fffbfb ;
-    outline:none;
-    margin-right: 20px;
-    margin-top: 20px;
-    font-size: 24px;
-    padding: 18px 24px;
-    transition:0.2s background-color;
-}
-
-.header-parking .btn-primary:hover {
-    background-color:rgba(255,255,255,0.1);
-}
-
-.header-parking .btn-primary:active {
-    transform:translateY(1px);
-}
-
-@media screen and (max-width: 767px) {
-
-    .header-parking .navbar-default .navbar-nav .open .dropdown-menu>li>a{
-        color: #fff;
-        font-size: 16px;
-    }
-
-    .header-parking .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
-        color: #ccc;
-    }
-
-    .header-parking .navbar-collapse {
-        margin-left: 20px;
-        border-top: none;
-        box-shadow: none;
-    }
-
-    .header-parking .hero{
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
-    .header-parking .hero h1{
-        font-size: 42px;
-    }
-}
-
 /* header */
 
-
+#cityInput {
+    width: 60rem;
+    height: 3rem;
+    margin: 0 auto;
+}
 
 /* footer */
 footer {
@@ -213,3 +113,15 @@ footer iframe {
 }
 
 /*feedback*/
+
+#hostModal {
+    display: none;
+}
+
+#renterModal {
+    display:none;
+}
+
+#logInModal {
+    display: none;
+}
