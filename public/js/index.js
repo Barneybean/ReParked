@@ -18,7 +18,6 @@
     </li>
 </ul> */
 $(document).ready(function() {
-  console.log("loded")
   //----------Sign up & log in------------------------------
   $("#beHost").on("click", function() {
      //to prevent submission without value
@@ -36,65 +35,91 @@ $(document).ready(function() {
     $("#renterModal").show();
  });
 
- $("#userBack").on("click", function() {
+ $("#logInBtn").on("click", function() {
   //to prevent submission without value
   // event.preventDefault();
   $("#logInModal").show();
 });
+
+ $("#hostLogInBtn").on("click", function() {
+   $("#hostLogInModal").show();
+ })
 //-------------sign up & log in ends----------------------------------
     
   var loginForm = $("personalModal");
-  var usernameInput = $("input#comfirmName")
-  var emailInput = $("input#comfirmEmail");
-  var passwordInput = $("input#comfirmPw");
+  var usernameInput = $("#comfirmName")
+  var emailInput = $("#comfirmEmail");
+  var passwordInput = $("#comfirmPw");
 
  $("#userBack").on("click", function(event) {
    event.preventDefault();
+  //  window.location.reload();
+   $("#logInBtn").css("display", "none");
+   $("<div>", {
+     id:"renterInfo",
+     text:"Welcome back, "
+   }).css({
+
+   })
     var userData = {
       username: usernameInput.val().trim(),
-      email: emaulInput.val().trim(),
+      email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password) {
+    if (!userData.username || !userData.email || !userData.password) {
       return;
     }
- 
-   window.location.reload()
-   
 
- })
+    loginUser(userData.username, userData.email, userData.password);
+    emailInput.val("");
+    emailInput.val("");
+    passwordInput.val("");
+    // window.location.reload();
+  });
+   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  function loginUser(username, email, password) {
+    $.post("/api/login", {
+      username: username,
+      email: email,
+      password: password
+    }).then(function(data) {
+      window.location.replace(data);
+      // If there's an error, log the error
+    }).catch(function(err) {
+      console.log(err);
+    });
+  //  window.location.reload()
+ }
+
+
 //-------------Create Account---------------------------------
   $("#submit-host").on("click", function() {
      
   })
 
+  $("submit-renter").on("click", function() {
+
+
+  })
 //-------------Create Account Ends---------------------------------
 
   //---------------------search Bar----------------------------- 
-  $("#searchBar").on("click", function(event) {
+  $("#searchBar").on("submit", function(event) {
     //to prevent submission without value
     event.preventDefault();
     // get the searched string
     var searchString = $("#address").val().trim();
-    console.log(searchString);
-    var addressSearched = {
+    // console.log(searchString);
+    var addressString = {
       address: searchString
     }
 
-    console.log(addressSearched)
-
     $.ajax("/api/address", {
-      type: "POST",
-      data: addressSearched
-    }).then(function(cityName) {
-      
-    //   // once I get city name then aoi route
-    //   $.ajax("api/listings/"+cityName, {
-    //     type: "get"
-    //   }).then(function (data) {
-    //     console.log("go to lisitngs.html")
-    //   })
+      type: "post",
+      data: addressString
+    }).then(function(result) {
+      console.log ("searched")
     });
   
   })

@@ -1,22 +1,196 @@
+/* maps css */
 #map {
     height: 100%;
     width: 100%;
-    background-color: red;
+    position: fixed!important;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
   } 
+  .controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  #origin-input,
+  #destination-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+
+  #origin-input:focus,
+  #destination-input:focus {
+    border-color: #4d90fe;
+  }
+
+  #mode-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    margin-left: 12px;
+    padding: 5px 11px 0px 11px;
+  }
+
+  #mode-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+body{
+    background-color:#659dbd;
+
+}
+ /* maps above */
+
+
+
+
+hr{
+    margin-top:0;
+    margin-bottom:0;
+    background-color:#ccc;
+}
+
+
+/* padding for image and image text */
+.card-img-top{
+    width: 260px;
+    height: 210px;
+}
+.col-sm-6{
+
+padding-right:5px;
+padding-left:5px;
+}
+
+
+.bottom-left {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    color: #ccc;
+    font-weight: 900;
+}
+
+/* .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+} */
+
+.bottom-right {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #ccc;
+}
+
+/* ////////////// */
+
+
+
+
+
+
+
+/* this is the top h3 */
+.topH{
+margin-left: 15px;
+}
+
+
+
+/* top search button */
+.btn-outline-success{
+color:white;
+background-color:#f64c72;
+border-color:#f64c72 ;
+}
+.btn-outline-success:hover{
+    color:white;
+background-color:#f64c72;
+border-color:#f64c72 ;
+}
+
+
+/* 3 links at the top  */
+a{
+    color: White;
+}
+/* //////////////////////// */
+
+
+
+
+/* li with 3 photos on bottome */
+.sm li {
+    display: inline;
+    padding: 5px;
+    float: right!important;
+}
+/* ////////////////////////////// */
+
+
+
+
+
+/* this is the color for the ratings stars  */
+.checked {
+    color: orange;
+}
+/* the css for input table that displays the calendar  */
+
+
+
+
+/* //// color for bottom text in footer */
+li{
+    display:inline;
+    margin: 5px;
+    font-weight: 700;
+}
+.aclass{
+    color: #ccc
+}
+/* ////////////// */
+
+
+
+
+
 
   /* This is the Footer at the bottom */
   footer {
     background-color: rgba(44, 62, 80, 1.0);
-
+    
     width: 100%;
     bottom: 0;
     font-weight: lighter;
     color: white;
+}
+.clearfix::after{
+    content: "";
+    clear:both;
+    display:table;
 }
 .footerHeader{
     width:100%;
@@ -52,4 +226,8 @@ footer iframe {
 } 
 .sm li a img {
     width:32px;
+}
+
+.pushLeft {
+     margin-left: 0px;
 }

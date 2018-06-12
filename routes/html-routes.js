@@ -25,12 +25,12 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/htmls/hosts.html"));
   });
   //renters's profile and reservation page
-  app.get("/rentersinterface", function(req, res) {
+  app.get("/renters", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/htmls/renters.html"));
   });
   //checkout
-  app.get("/hosts", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/htmls/checkout.html"));
+  app.get("/details", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/htmls/details.html"));
   });
   
 };
