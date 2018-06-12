@@ -1,32 +1,23 @@
 {
-  "name": "reparked",
+  "name": "post-author-joins",
   "version": "1.0.0",
-  "description": "a parking sharing app",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Barneybean/ReParked.git"
-  },
-  "keywords": [
-    "parking"
-  ],
-  "author": "Chunjin Gao, Jonathan laner, Zhiye Mo, Jose Castellanos",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Barneybean/ReParked/issues"
-  },
-  "homepage": "https://github.com/Barneybean/ReParked#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "geocoder": "^0.2.3",
-    "mysql2": "^1.5.3",
+    "mysql2": "^1.3.6",
+    "node-geocoder": "^3.22.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^4.37.10"
