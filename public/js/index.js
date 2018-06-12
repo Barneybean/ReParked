@@ -1,3 +1,4 @@
+// var express = require("express");
 
 $(document).ready(function() {
   //----------Sign up & log in------------------------------
@@ -32,15 +33,17 @@ $(document).ready(function() {
  
  //-------------sign up for host---------------------
  var hostSignUp = $("#submit-host");
- var newHostEmail = $("newHostEmail");
- var newHostPw = $("newHostPw");
- 
+ var newHostEmail = $("#newHostEmail");
+ var newHostPw = $("#newHostPw");
+ console.log(newHostEmail);
  hostSignUp.on("click", function(event) {
+   
      event.preventDefault();
      var newHost = {
        email: newHostEmail.val().trim(),
        password: newHostPw.val().trim()
      };
+     
 
      if (!newHost.email || !newHost.password) {
       return;
@@ -48,27 +51,26 @@ $(document).ready(function() {
     // If we have an email and password, run the signUpUser function
     signUpHost(newHost.email, newHost.password);
     
+    newHostEmail.val("");
+    newHostPw.val("");
 });
 
   function signUpHost(email, password) {
-    $.post("/api/signUp", {
-      email: email,
+
+    var hostInfo = {
+      email:email,
       password: password
+    }
+
+    $.ajax("/api/hostSignUp", {
+      type: "post",
+      data: hoscleartInfo
     }).then(function(data) {
-      window.location.replace(data);
-      // If there's an error, log the error
+      console.log ("posted");
     }).catch(function(err) {
       console.log(err);
     });
-  //  window.location.reload()
   }
-
-
-
-
-
-
-
 
 
 //----------Renter login---------------------------------
@@ -76,45 +78,11 @@ $(document).ready(function() {
   var emailInput = $("#comfirmEmail");
   var passwordInput = $("#comfirmPw");
 
- $("#userBack").on("click", function(event) {
-   event.preventDefault();
-  //  window.location.reload();
-   $("#logInBtn").css("display", "none");
-   $("<div>", {
-     id:"renterInfo",
-     text:"Welcome back, "
-   }).css({
+ $("#userBack").on("click", renterBack());
 
-   })
-    var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
+ function renterBack() {
 
-    if (!userData.email || !userData.password) {
-      return;
-    }
-
-    loginUser( userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
-    // window.location.reload();
-  });
-   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
-    $.post("/api/login", {
-      email: email,
-      password: password
-    }).then(function(data) {
-      window.location.replace(data);
-      // If there's an error, log the error
-    }).catch(function(err) {
-      console.log(err);
-    });
-  //  window.location.reload()
  }
-
-
 
   //---------------------search Bar----------------------------- 
   //send search result to cookie and redirect to another page
@@ -129,8 +97,6 @@ $(document).ready(function() {
     sessionStorage.search = searchString;    
 
   });
-
-
 
 });
 

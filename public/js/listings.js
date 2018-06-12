@@ -295,7 +295,7 @@ $.ajax("/api/address", {
   }
   else {
     // $("#display").prepend("success")
-    console.log (result.city.address_components[3].long_name);
+    console.log ("from homepage", result.city.address_components[3].long_name);
   }
 });
 //-------------------end home page--------------------
@@ -324,7 +324,7 @@ $("#search").on("submit", function(event) {
     }
     else {
       $("#display").prepend("success")
-      console.log (result.city.address_components[3].long_name);
+      console.log ("from listing", result.city.address_components[3].long_name);
     }
   });
  

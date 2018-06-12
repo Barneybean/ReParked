@@ -6,7 +6,5 @@ for(var i = 0; i < reservations.bookedHour; i++){
     $('#1-'+hour).attr('class', highlight)
 }
 
-.highlight {
-  background: yellow;
-}
+
 

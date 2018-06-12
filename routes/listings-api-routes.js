@@ -16,8 +16,7 @@ module.exports = function(app) {
             if(err) {
                 res.redirect("/");
             };
-            //get the city name
-            console.log(data.results[0]); 
+            
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
             cityName = data.results[0];
             // console.log(cityName);
