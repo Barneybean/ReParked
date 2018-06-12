@@ -7,6 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================

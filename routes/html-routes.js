@@ -5,6 +5,8 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================

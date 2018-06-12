@@ -1,5 +1,7 @@
 var db = require("../models");
 var geocoder = require('geocoder');
+var passport = require("../config/passport");
+
 
 module.exports = function(app) {
     //to retrieve data from listing table and display
