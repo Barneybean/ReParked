@@ -19,22 +19,179 @@
 
 <body>
         <nav class="navbar navbar-light">
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>       
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Become a Host</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
-                </li>
-            </ul>
-        </nav>
+            <form id="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="listingsAddress" placeholder="ex: 1995 university ave Berkeley">
+                <button type="submit" class="btn btn-success btn-lg">Search</button>
+                </div>
+            </form>    
+            <span>
+                <button type="button" id="hostLogInBtn"class="btn btn-outline-secondary" href="becomehost" data-toggle="modal" data-target="#hostLogInModal">Host Login</button>
+                <button type="button" id="logInBtn" class="btn btn-outline-warning" href="login" data-toggle="modal" data-target="#logInModal">Login</button>
+                <button type="button" id="signUpBtn" class="btn btn-outline-primary" href="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                </span>
+            </nav>
+                    
+            <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="signUpModalLabel">Sign Up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--form one-->
+                                <div id="hostModal" class="login">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="text-center text-primary">Join Us</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Host Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Location">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Zip code">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                I agree to the REPARKED's <a href="#">Terms of Servise</a> and <a href="#">Privary Policy</a>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="submit-host" class="btn btn-primary btn-lg btn-block" href="/hosts">Create Account</a>
+                                            <!-- <span><a href="#">找回密码</a></span>
+                                            <span><a href="#" class="pull-right">注册</a></span> -->
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            <!--form two-->
+                            <div id="renterModal" class="login">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="text-center text-primary">Join Us</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Renter Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Location">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Zip code">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                I agree to the REPARKED's <a href="#">Terms of Servise</a> and <a href="#">Privary Policy</a>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="submit-renter" class="btn btn-primary btn-lg btn-block" href="/index">Create Account</a>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="beHost" class="btn btn-danger">BECOME A HOST</button>
+                            <button type="button" id="beRenter" class="btn btn-primary">I AM A RENTER</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    
+                <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title text-primary" id="logInModalLabel">Log In</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <!--personal information-->
+                                <div id="personalModal" class="login">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="text-center text-warming">Welcome</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" class="form col-md-12 center-block">
+                                            <div class="form-group">
+                                                <input type="text" id="comfirmName"class="form-control input-lg" placeholder="renter name">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
+                                            </div>
+                                            <div class="form-group">
+                                                <a id="userBack"href="#">I'm Back</a>
+                                            <hr>
+                                            <button class="loginBtn loginBtn--google">
+                                                Login with Google
+                                            </button>
+                                            <br>
+                                                <span><a href="#">Forgot Password </a></span>
+                                                <span><a href="#" id="findPw" class="pull-right">Sign Up</a></span>
+                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
         <!-- this is where the dates are at  -->
         <hr class="top">
         
@@ -44,7 +201,7 @@
             <div class="row">
                 <h3 class="topH">Search Results</h3>
             </div>
-        <div class="row">
+        <div class="row" id="display">
                         <div class="row pushLeft">
                             <div class="col-sm-6">
                                     <div class="card-sm">

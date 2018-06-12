@@ -1,23 +1,7 @@
-/* <style>
-
-</style>
-<ul class="nav justify-content-end">
-
-    <li class="nav-item">
-      <a class="nav-link" href="#">yo</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Become a Host</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Sign Up</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Login</a>
-    </li>
-</ul> */
 $(document).ready(function() {
+  //clear session storage on load
+  // sessionStorage.clear();
+
   //----------Sign up & log in------------------------------
   $("#beHost").on("click", function() {
      //to prevent submission without value
@@ -105,24 +89,21 @@ $(document).ready(function() {
 //-------------Create Account Ends---------------------------------
 
   //---------------------search Bar----------------------------- 
+  //send search result to cookie and redirect to another page
+
   $("#searchBar").on("submit", function(event) {
     //to prevent submission without value
     event.preventDefault();
     // get the searched string
     var searchString = $("#address").val().trim();
     // console.log(searchString);
-    var addressString = {
-      address: searchString
-    }
+    
+    //write city name to session storage *****************
+    sessionStorage.search = searchString;    
 
-    $.ajax("/api/address", {
-      type: "post",
-      data: addressString
-    }).then(function(result) {
-      console.log (result.listings)
-    });
-  
-  })
+  });
+
+
 
 });
 
