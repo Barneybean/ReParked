@@ -277,16 +277,15 @@ marker.addListener('click', function() {
   
     })
 
-    //william
+//william
+//-------------------from home page--------------------
 //retrieve session storage - search string *******************
 var searchString = sessionStorage.search;
 // console.log(searchString);
-
 // send it back to get city name
 var addressString = {
   address: searchString
-}
-
+};
 $.ajax("/api/address", {
   type: "post",
   data: addressString
@@ -295,15 +294,16 @@ $.ajax("/api/address", {
     $("#display").html("API Error, Please Search Again");
   }
   else {
+    // $("#display").prepend("success")
     console.log (result.city.address_components[3].long_name);
   }
 });
-
+//-------------------end home page--------------------
+//-------------------from listing page--------------------
 $("#search").on("submit", function(event) {
   //to prevent submission without value
   event.preventDefault();
   console.log("clicked");
-
   //clear sessino storage
   sessionStorage.clear();
   // get the searched string
@@ -320,13 +320,13 @@ $("#search").on("submit", function(event) {
   }).then(function(result) {
     console.log(result);
     if(result.city === undefined){
-      $("#display").html("API Error, Please Search Again");
+      $("#display").prepend("API Error, Please Search Again");
     }
     else {
-      
-      $("#display").html("success")
+      $("#display").prepend("success")
       console.log (result.city.address_components[3].long_name);
     }
   });
  
 });
+//-------------------end listing search-----------------
