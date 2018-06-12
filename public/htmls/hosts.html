@@ -17,7 +17,268 @@
 </head>  
 
 <body>
-    
+
+
+        <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand col-xs-4 col-md-4">REPARKED</a>
+                
+                <span>
+                <button type="button" id="hostLogInBtn"class="btn btn-outline-secondary" href="becomehost" data-toggle="modal" data-target="#hostLogInModal">I'm Host Login</button>
+                <button type="button" id="logInBtn" class="btn btn-outline-warning" href="login" data-toggle="modal" data-target="#logInModal">Renter Login</button>
+                <button type="button" id="signUpBtn" class="btn btn-outline-primary" href="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                </span>
+            </nav>
+                
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--form one-->
+                            <div id="hostModal" class="login">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="text-center text-primary">Join Us</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" class="form col-md-12 center-block">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Host Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Location">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Zip code">
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            I agree to the REPARKED's <a href="#">Terms of Servise</a> and <a href="#">Privary Policy</a>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <a id="submit-host" class="btn btn-primary btn-lg btn-block" href="/hosts">Create Account</a>
+                                        <!-- <span><a href="#">找回密码</a></span>
+                                        <span><a href="#" class="pull-right">注册</a></span> -->
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        <!--form two-->
+                        <div id="renterModal" class="login">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="text-center text-primary">Join Us</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" class="form col-md-12 center-block">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Renter Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Location">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Zip code">
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            I agree to the REPARKED's <a href="#">Terms of Servise</a> and <a href="#">Privary Policy</a>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <a id="submit-renter" class="btn btn-primary btn-lg btn-block" href="/index">Create Account</a>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="beHost" class="btn btn-danger">BECOME A HOST</button>
+                        <button type="button" id="beRenter" class="btn btn-primary">I AM A RENTER</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="logInModalLabel">Log In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--personal information-->
+                            <div id="personalModal" class="login">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="text-center text-warming">Welcome</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmName"class="form-control input-lg" placeholder="renter name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="userBack"href="#">I'm Back</a>
+                                        <hr>
+                                        <button class="loginBtn loginBtn--google">
+                                            Login with Google
+                                        </button>
+                                        <br>
+                                            <span><a href="#">Forgot Password </a></span>
+                                            <span><a href="#" id="findPw" class="pull-right">Sign Up</a></span>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="hostLogInModal" tabindex="-1" role="dialog" aria-labelledby="hostlogInModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="hostlogInModalLabel">Log In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--personal information-->
+                            <div id="hostPersonalModal" class="login">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="text-center text-warming">Welcome</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmName"class="form-control input-lg" placeholder="host userName">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="host password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="hostBack" href="/hosts">I'm Back</a>
+                                        <hr>
+                                        <button class="loginBtn loginBtn--google">
+                                            Login with Google
+                                        </button>
+                                        <br>
+                                            <span><a href="#">Forgot Password </a></span>
+                                            <span><a href="#" class="pull-right">Sign Up</a></span>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!--sign in & new accuout-->
+        <!--DIV for host information-->
+        <section id="hostsInfo">
+            <div class="container">
+                <!--known-->
+                <div class="row">
+                    <!--personal info-->
+                    <div></div>
+                    <!--posted garage-->
+                    <div></div>
+                </div>
+                <!--input new-->
+                <div class="row">
+                    <form class="mx-auto">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Choose the number of garages you want to post</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <form class="newGarage">
+                        <div class="form-group">
+                            <label for="inputAddress">Location</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Example file input</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

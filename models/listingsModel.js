@@ -38,14 +38,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     latitude: {
-      type: DataTypes.FLOAT(10,2),
+      type: DataTypes.FLOAT(10,6),
       allowNull: false,
       validate: {
       len: [1]
       }
     },
     longitude: {
-      type: DataTypes.FLOAT(10,2),
+      type: DataTypes.FLOAT(10,6),
       allowNull: false,
       validate: {
       len: [1]
@@ -60,6 +60,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     hourlyRate: {
       type: DataTypes.FLOAT(10,2),
+      allowNull: false,
+      validate: {
+      len: [1]
+      }
+    },
+    url: {
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
       len: [1]

@@ -1,24 +1,18 @@
 
-// This code makes the card clickable
- function addClick(){
-     var card = document.getElementsByClassName("click");
-     card.innerHTML = "Hello"
- }
+// Makes the map set sticky class
 
-// geo code begin
+window.onscroll = function() {myFunction()};
 
-// window.onscroll = function() {myFunction()};
+var header = document.getElementById('map');
+var sticky = header.offsetTop;
 
-// var header = document.getElementById('map');
-// var sticky = header.offsetTop;
-
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     header.classList.add("sticky");
-//   } else {
-//     header.classList.remove("sticky");
-//   }
-// }
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }  
+}
 
 //geo code end 
   var neighborhoods = [
@@ -27,7 +21,11 @@
     {lat:37.874790, lng:-122.276636},
     {lat:37.875035,lng:-122.274702},
     {lat:37.873845,lng: -122.276870},
-    {lat:37.874537, lng:-122.275694}
+    {lat:37.874537, lng:-122.275694},
+    {lat:37.87942,lng:-122.2597241},
+    {lat:37.8775201,lng:-122.2592817},
+    {lat:37.8683052,lng:-122.2768382},
+    {lat:37.8645197,lng:-122.2784767}
 
   ];
 
@@ -36,15 +34,56 @@
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
-      center: {lat: 37.8720, lng: -122.2713},
+      center: {lat: 37.875717, lng: -122.232614},
       zoom: 14
     });
+    // 37.875717,-122.232614
+    var street = "hayward,Ca 94544"
+    // test
+    var contentString = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<div id="bodyContent">'+
+    '<p>' + 
+    street
+    +'</p>' +
+    '<p>Berkeley Ca</p>'
+    '</div>'+
+    '</div>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    
+    var marker = new google.maps.Marker({
+      position: {lat: 37.875717, lng: -122.2713},
+      map: map,
+    });
+    
+    marker.addListener('mouseover', function() {
+      infowindow.open(map, marker);
+  });
+  marker.addListener('mouseout', function() {
+    infowindow.close();
+
+    // On click marker will put that address inside the destination location inside the google maps. then u can enter your location
+marker.addListener('click', function() {
+  document.getElementById('destination-input').value = street;
+});
+    
+
+
+
+
+});
+
+  
  function drop() {
     clearMarkers();
     for (var i = 0; i < neighborhoods.length; i++) {
       addMarkerWithTimeout(neighborhoods[i], i * 200);
     }
   }
+  
 
   function addMarkerWithTimeout(position, timeout) {
     window.setTimeout(function() {
@@ -65,6 +104,7 @@
   drop();
     new AutocompleteDirectionsHandler(map);
   }
+
 
    /**
     * @constructor
@@ -146,15 +186,3 @@
       }
     });
   };
-
-
-
-// this is so when you hover over it displays it without clicking it
-  marker.addListener('mouseover', function() {
-    infowindow.open(map, this);
-});
-
-// assuming you also want to hide the infowindow when user mouses-out
-marker.addListener('mouseout', function() {
-    infowindow.close();
-});
