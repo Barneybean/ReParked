@@ -55,13 +55,13 @@
                                         <input type="text" class="form-control input-lg" placeholder="Host Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="password">
+                                        <input type="text" id="newHostPw" class="form-control input-lg" placeholder="password">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control input-lg" placeholder="confirm password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="Email Address">
+                                        <input type="text" id="newHostEmail" class="form-control input-lg" placeholder="Email Address">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control input-lg" placeholder="Location">
@@ -76,9 +76,7 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <a id="submit-host" class="btn btn-primary btn-lg btn-block" href="/hosts">Create Account</a>
-                                        <!-- <span><a href="#">找回密码</a></span>
-                                        <span><a href="#" class="pull-right">注册</a></span> -->
+                                        <a id="submit-host" href="/hosts">Create Account</a>
                                     </div>
                                     </form>
                                 </div>
@@ -170,7 +168,7 @@
                                             <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
                                         </div>
                                         <div class="form-group">
-                                            <a id="userBack"href="#">I'm Back</a>
+                                            <a id="userBack"href="/">I'm Back</a>
                                         <hr>
                                         <button class="loginBtn loginBtn--google">
                                             Login with Google
@@ -252,7 +250,7 @@
                             <form id="searchBar">
                                 <div class="form-group">
                                     <label for="cityInput font-weight-bold">What City and State are you going?</label>
-                                    <input type="text" class="form-control" id="address" placeholder="ex: Berkeley CA">
+                                    <input type="text" class="form-control" id="address" placeholder="ex: 1995 University Ave Berkeley">
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg" onClick="window.location='listings';" >Search</button>
                             </form>

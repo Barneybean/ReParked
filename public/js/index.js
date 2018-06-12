@@ -1,22 +1,5 @@
-/* <style>
+// var express = require("express");
 
-</style>
-<ul class="nav justify-content-end">
-
-    <li class="nav-item">
-      <a class="nav-link" href="#">yo</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Become a Host</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Sign Up</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Login</a>
-    </li>
-</ul> */
 $(document).ready(function() {
   //----------Sign up & log in------------------------------
   $("#beHost").on("click", function() {
@@ -44,65 +27,105 @@ $(document).ready(function() {
  $("#hostLogInBtn").on("click", function() {
    $("#hostLogInModal").show();
  })
-//-------------sign up & log in ends----------------------------------
-    
-  var loginForm = $("personalModal");
-  var usernameInput = $("#comfirmName")
-  var emailInput = $("#comfirmEmail");
-  var passwordInput = $("#comfirmPw");
 
- $("#userBack").on("click", function(event) {
-   event.preventDefault();
-  //  window.location.reload();
-   $("#logInBtn").css("display", "none");
-   $("<div>", {
-     id:"renterInfo",
-     text:"Welcome back, "
-   }).css({
 
-   })
-    var userData = {
-      username: usernameInput.val().trim(),
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
+ //---------------------New user sign up-----------------------------
+ 
+ //-------------sign up for host---------------------
+ var hostSignUp = $("#submit-host");
+ var newHostEmail = $("#newHostEmail");
+ var newHostPw = $("#newHostPw");
+ console.log(newHostEmail);
+ hostSignUp.on("click", function(event) {
+   
+     event.preventDefault();
+     var newHost = {
+       email: newHostEmail.val().trim(),
+       password: newHostPw.val().trim()
+     };
+     
 
-    if (!userData.username || !userData.email || !userData.password) {
+     if (!newHost.email || !newHost.password) {
       return;
     }
+    // If we have an email and password, run the signUpUser function
+    signUpHost(newHost.email, newHost.password);
+    
+    newHostEmail.val("");
+    newHostPw.val("");
+});
 
-    loginUser(userData.username, userData.email, userData.password);
-    emailInput.val("");
-    emailInput.val("");
-    passwordInput.val("");
-    // window.location.reload();
-  });
-   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(username, email, password) {
-    $.post("/api/login", {
-      username: username,
-      email: email,
+  function signUpHost(email, password) {
+
+    var hostInfo = {
+      email:email,
       password: password
+    }
+
+    $.ajax("/api/hostSignUp", {
+      type: "post",
+      data: hoscleartInfo
     }).then(function(data) {
-      window.location.replace(data);
-      // If there's an error, log the error
+      console.log ("posted");
     }).catch(function(err) {
       console.log(err);
     });
-  //  window.location.reload()
+  }
+
+
+
+
+
+
+
+
+
+//----------Renter login---------------------------------
+  var loginForm = $("personalModal");
+  var emailInput = $("#comfirmEmail");
+  var passwordInput = $("#comfirmPw");
+
+ $("#userBack").on("click", renterBack());
+
+ function renterBack() {
+
  }
+//    $("<div>", {
+//      id:"renterInfo",
+//      text:"Welcome back, "
+//    }).css({
+
+//    })
+//     var userData = {
+//       email: emailInput.val().trim(),
+//       password: passwordInput.val().trim()
+//     };
+
+//     if (!userData.email || !userData.password) {
+//       return;
+//     }
+
+//     loginUser( userData.email, userData.password);
+//     emailInput.val("");
+//     passwordInput.val("");
+//     // window.location.reload();
+//   });
+//    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+//   function loginUser(email, password) {
+    
+//     $.ajax("/api/login", {
+//       type: "post",
+//       email:email,
+//       password: password
+//     }).then(function(data) {
+//       console.log ("posted");
+//     }).catch(function(err) {
+//       console.log(err);
+//     });
+  // }
 
 
-//-------------Create Account---------------------------------
-  $("#submit-host").on("click", function() {
-     
-  })
 
-  $("submit-renter").on("click", function() {
-
-
-  })
-//-------------Create Account Ends---------------------------------
 
   //---------------------search Bar----------------------------- 
   $("#searchBar").on("submit", function(event) {

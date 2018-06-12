@@ -7,10 +7,25 @@
 
 // Requiring our models
 var db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
- 
+    // app.post("/api/hostSignUp", function(req, res) {
+
+    //     // var hostPw = req.body.password;
+    //     // var hostEmail = req.body.email;
+    //     // console.log(hostPw);
+    //     // console.log(hostEmail);
+    //     console.log(req.body.email);
+    // });
+    app.post('/api/hostSignUp', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/api/hostSignUp' }), function(req, res) {
+
+        console.log(req.body.email);
+    });
+
+
+
 };
