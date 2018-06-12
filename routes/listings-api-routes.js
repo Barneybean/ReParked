@@ -16,14 +16,34 @@ module.exports = function(app) {
             //get the city name
             // console.log(data.results[0].address_components[3].long_name); 
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
-            cityName = data.results[0].address_components[3].long_name;
-            console.log(cityName);
-            
+            // cityName = data.results[0].address_components[3].long_name;
+            // console.log(cityName);
+
+           
+
         });
+
+       //use city Name to do search 
+       db.Listing.findAll({
+        // where: query,
+    }).then(function(listings) {
+        // res.json({listings: listings});
+        console.log(listings)
+    });
       
     });
 
-    // app.post("")
+    
 
+    app.get("/api/search+results", function (req, res) {
+        console.log(req.body);
+        db.Listing.findAll({
+            // where: query,
+        }).then(function(listings) {
+            // res.json({listings: listings});
+            console.log(listings)
+        });
+       
+    })
     
 };

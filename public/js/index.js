@@ -119,15 +119,14 @@ $(document).ready(function() {
       type: "post",
       data: addressString
     }).then(function(result) {
-      console.log ("searched")
+      console.log (result.listings)
     });
   
   })
 
-
-
-
 });
+
+
 
 
 
