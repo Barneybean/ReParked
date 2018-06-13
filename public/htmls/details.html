@@ -2,19 +2,18 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>REPARKED</title>
-    <link rel="shortcut icon" href="#">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Skranji" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <meta name="google-signin-client_id" content="274598130725-nk0khv3afpqu5sg3hlctn1b7va5vgr5b.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fjord+One" rel="stylesheet">
     <!-- custom css -->
-    <link rel="stylesheet" href="../css/checkout.css" media="screen" title="no title">
-</head>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css" media="screen" title="no title">
+
+</head>  
 
 <body>
         <nav class="navbar navbar-light bg-light">
@@ -24,33 +23,15 @@
                 </form>       
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Become a Host</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
-                </li>
+                  <a class="nav-link active btn btn-success" href="/">Home</a>
             </ul>
         </nav>
-        <!-- this is where the dates are at  -->
-        <!-- <hr>
-        <label for="from">From</label>
-        <input type="text" id="from" name="from">
-        <label for="to">to</label>  
-        <input type="text" id="to" name="to">
-        <hr> -->
-
-
-
-
+        <hr>
 <div class="container">
-   
 <!-- Row 1 -->
   <div class="row">
     <div class="col-md-12 p-3 mb-2 bg-primary text-white text-center">
-        <h1>This is the address of the parking spot</h1>
+        <h1>Listing Details - Make Reservation here</h1>
     </div>
   </div>
 
@@ -59,43 +40,125 @@
           <button type="button" class="btn btn-danger btn-lg btn-block">$30 Book Now!</button>
           <br>
           <h2>Available Dates and Times</h2>
-          
           <table class="table">
                 <thead>
                   <tr id="columnName">
-                    <!-- <th scope="col">Time</th>
-                    <th scope="col" id='day1'></th>
-                    <th scope="col" id='day2'></th>
-                    <th scope="col" id='day3'></th> -->
-                    <!-- <th scope="col" id='4'></th> -->
-                    <!-- <th scope="col" id='5'></th> -->
-                    <!-- <th scope="col" id='6'></th> -->
-                    <!-- <th scope="col" id='7'></th> -->
                   </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <tr id="tableRow"></tr>
-                  <!-- <tr>
-                    <th scope="row">1</th>
-                    <td id='1-1'>0-1am</td>
-                    <td id='2-1'>0-1am</td>
-                    <td id='3-1'>0-1am</td>
-                  </tr>
-                       -->
                 </tbody>
               </table>
-          
           <br>
-
         </div>
         <div class="col-lg-6">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417" width="725" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="row">
+                <div class="showImage">
+                    <!-- placeholder -->
+                    <img src="../images/placeholder.jpg">
+                </div>
+            </div>   
+            <div class="row">
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label for="vehicleMake">Vehicle Make</label>
+                            <input type="text" class="form-control" id="vehicleMake" placeholder="Audi">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleModel">Vehicle Model</label>
+                            <input type="text" class="form-control" id="vehicleModel" placeholder="A4">
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate">License Plate</label>
+                            <input type="text" class="form-control" id="LicensePlate" placeholder="JXB625">
+                        </div>
+                        <div class="form-group">
+                            <label for="startDates">Select Start Day</label>
+                            <select class="form-control" id="startDates">
+                                <option id="today"></option>
+                                <option id="tomorrow"></option>
+                                <option id="tomorrowPlus"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDates">Select End Date (must be same or later than start date)</label>
+                            <select class="form-control" id="endDates">
+                                <option id="today"></option>
+                                <option id="tomorrow"></option>
+                                <option id="tomorrowPlus"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startHours">Starting Hour</label>
+                            <select class="form-control" id="startHours">
+                                <option>00:00 - 01:00</option>
+                                <option>01:00 - 02:00</option>
+                                <option>02:00 - 03:00</option>
+                                <option>03:00 - 04:00</option>
+                                <option>04:00 - 05:00</option>
+                                <option>05:00 - 06:00</option>
+                                <option>06:00 - 07:00</option>
+                                <option>07:00 - 08:00</option>
+                                <option>08:00 - 09:00</option>
+                                <option>09:00 - 10:00</option>
+                                <option>10:00 - 11:00</option>
+                                <option>11:00 - 12:00</option>
+                                <option>12:00 - 13:00</option>
+                                <option>13:00 - 14:00</option>
+                                <option>14:00 - 15:00</option>
+                                <option>15:00 - 16:00</option>
+                                <option>16:00 - 17:00</option>
+                                <option>17:00 - 18:00</option>
+                                <option>18:00 - 19:00</option>
+                                <option>19:00 - 20:00</option>
+                                <option>20:00 - 21:00</option>
+                                <option>21:00 - 22:00</option>
+                                <option>22:00 - 23:00</option>
+                                <option>23:00 - 24:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="endHour">Ending Hour (must be later than starting hour)</label>
+                            <select class="form-control" id="endHour">
+                                <option>00:00 - 01:00</option>
+                                <option>01:00 - 02:00</option>
+                                <option>02:00 - 03:00</option>
+                                <option>03:00 - 04:00</option>
+                                <option>04:00 - 05:00</option>
+                                <option>05:00 - 06:00</option>
+                                <option>06:00 - 07:00</option>
+                                <option>07:00 - 08:00</option>
+                                <option>08:00 - 09:00</option>
+                                <option>09:00 - 10:00</option>
+                                <option>10:00 - 11:00</option>
+                                <option>11:00 - 12:00</option>
+                                <option>12:00 - 13:00</option>
+                                <option>13:00 - 14:00</option>
+                                <option>14:00 - 15:00</option>
+                                <option>15:00 - 16:00</option>
+                                <option>16:00 - 17:00</option>
+                                <option>17:00 - 18:00</option>
+                                <option>18:00 - 19:00</option>
+                                <option>19:00 - 20:00</option>
+                                <option>20:00 - 21:00</option>
+                                <option>21:00 - 22:00</option>
+                                <option>22:00 - 23:00</option>
+                                <option>23:00 - 24:00</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="note">Note for Host</label>
+                            <textarea class="form-control" id="note" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>   
         </div>
       </div>
-
-      
-
-<footer>
+    <!-- footer -->
+    <footer>
         <div class="footerHeader" ></div>
         <div class="container">
             <div class="row">
@@ -126,16 +189,13 @@
         </div>
         </div>
     </footer>
-
-   
     <!-- js -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <!-- Custom Script -->
     <script src="../js/details.js" type="text/javascript"></script>
-
 </body>
-
 
 </html>
