@@ -139,3 +139,7 @@ var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + 
 $(".today").text(date);
 $(".tomorrow").text(tomorrow);
 $(".twoDaysFromToday").text(twoDaysFromToday);
+
+//Need to prevent user from submitting end date later than start date
+
+
