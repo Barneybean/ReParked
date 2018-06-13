@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Listing = sequelize.define("Listing", {
+  var Listing = sequelize.define("listing", {
     // Giving the Listings model a name of type STRING
       //id will be auto assigned 
     streetNumber: {
@@ -77,13 +77,13 @@ module.exports = function(sequelize, DataTypes) {
   Listing.associate = function(models) {
     // We're saying that a Listing should belong to an Host
     // A Listing can't be created without an Host due to the foreign key constraint
-    Listing.belongsTo(models.hostsProfile, {    //many to one  models.table name not variable name 
+    Listing.belongsTo(models.hostsprofile, {    //many to one  models.table name not variable name 
       foreignKey: {  //foreign key is default to id
         allowNull: false
       }
     });
 
-    Listing.hasMany(models.Reservation, {
+    Listing.hasMany(models.reservation, {
       onDelete: "cascade"
     });
   };

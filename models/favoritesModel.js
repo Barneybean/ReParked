@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Favorite = sequelize.define("RenterFavorite", {
+    var Favorite = sequelize.define("renterfavorite", {
       // Giving the Host model a name of type STRING
       listingsId: {
         type: DataTypes.INTEGER,
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     Favorite.associate = function(models) {
       // Associating Host with Listings
       // When an Host is deleted, also delete any associated Listings
-      Favorite.belongsTo(models.rentersProfile, {
+      Favorite.belongsTo(models.rentersprofile, {
         foreignKey: {
           allowNull: false
         }

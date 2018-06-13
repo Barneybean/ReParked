@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Reservation = sequelize.define("Reservation", {
+    var Reservation = sequelize.define("reservation", {
       // Giving the Reservation model a name of type STRING
       //id will be auto assigned 
       vehicleMake: {
@@ -70,19 +70,19 @@ module.exports = function(sequelize, DataTypes) {
     Reservation.associate = function(models) {
       // Associating Reservation with hosts
       // When an Host is deleted, also delete any associated Reservation
-      Reservation.belongsTo(models.hostsProfile, {
+      Reservation.belongsTo(models.hostsprofile, {
         foreignKey: {
           allowNull: false
         }
       });
 
-      Reservation.belongsTo(models.rentersProfile, {
+      Reservation.belongsTo(models.rentersprofile, {
         foreignKey: {
           allowNull: false
         }
       });
       //reservation also belongs to listing table
-      Reservation.belongsTo(models.Listing, {    //many to one  models.table name not variable name 
+      Reservation.belongsTo(models.listing, {    //many to one  models.table name not variable name 
         foreignKey: {  //foreign key is default to id
           allowNull: false
         }
