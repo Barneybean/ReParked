@@ -2,22 +2,22 @@
 var resultFromDB = [
   {
     id: 1,
-    bookedDates: "20180612",
+    bookedDates: "2018-06-12",
     bookedHours: [2, 4, 5]
   },
   {
     id:2,
-    bookedDates: "20180613",
+    bookedDates: "2018-06-13",
     bookedHours: [2, 3, 5, 6]
   },
   {
     id:3,
-    bookedDates: "20180614",
+    bookedDates: "2018-06-14",
     bookedHours: [2, 3, 5, 7]
   },
   {
     id:4,
-    bookedDates: "20180615",
+    bookedDates: "2018-06-15",
     bookedHours: [2, 3, 5, 7]
   }
 ]
@@ -95,6 +95,17 @@ for(var i = 0; i <highlightTimes.length; i++){
 $("#" + highlightTimes[i]).attr("class","bg-danger text-white")
 }
 
+var today = new Date();
+var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
+var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
+var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
+
+$(".today").text(date);
+$(".tomorrow").text(tomorrow);
+$(".twoDaysFromToday").text(twoDaysFromToday);
+
+// Add CommentCollapse 
+
 $("#add-btn").on("click", function(event) {
   event.preventDefault();
 
@@ -103,15 +114,16 @@ $("#add-btn").on("click", function(event) {
     vehicleMake: $("#vehicleMake").val().trim(),
     vehicleModel: $("#vehicleModel").val().trim(),
     licensePlate: $("#licensePlate").val().trim(),
-    startDates: $("#startDates").val().trim(),
-    endDates: $("#endDates").val().trim(),
-    startHours: $("#startHours").val().trim(),
-    endHour: $("#endHour").val().trim(),
+    startDate: $("#startD").val().trim(),
+    endDate: $("#endD").val().trim(),
+    startHour: $("#startH").val().trim(),
+    endHour: $("#endH").val().trim(),
     note: $("#note").val().trim(),
   };
+  console.log(newReservation);
 
   // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newReservation)
+  $.post("/api/newreservation", newReservation)
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
@@ -123,10 +135,12 @@ $("#add-btn").on("click", function(event) {
   $("#vehicleMake").val("");
   $("#vehicleModel").val("");
   $("#licensePlate").val("");
-  $("#startDates").val("");
-  $("#endDates").val("");
+  $("#startDate").val("");
+  $("#endDate").val("");
   $("#startHours").val("");
   $("#endHour").val("");
   $("#note").val("");  
+
+  
 
 });
