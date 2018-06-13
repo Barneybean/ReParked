@@ -1,4 +1,8 @@
 // $('#day1').val(reservation.bookedDate)
+var userId = sessionStorage.getItem("loggedInAsId");
+var hostId = sessionStorage.getItem("loggedInHostId.data.successId");;
+var locationId = sessionStorage.getItem("clickedListing.data.successId");;
+
 var resultFromDB = [
   {
     id: 1,
@@ -84,6 +88,7 @@ for (var i=0; i<24; i++) {
 }
 
 
+
 var highlightTimes = [];
 for(var i = 0; i < resultFromDB.length; i++){
     // console.log(resultFromDB[i].bookedDates)
@@ -94,6 +99,28 @@ for(var i = 0; i < resultFromDB.length; i++){
 for(var i = 0; i <highlightTimes.length; i++){
 $("#" + highlightTimes[i]).attr("class","bg-danger text-white")
 }
+
+$.get("/api/books/short", function(data) {
+
+  // For each book that our server sends us back
+  for (var i = 0; i < data.length; i++) {
+    // Create a parent div to hold book data
+    var wellSection = $("<div>");
+    // Add a class to this div: 'well'
+    wellSection.addClass("well");
+    // Add an id to the well to mark which well it is
+    wellSection.attr("id", "book-well-" + i);
+    // Append the well to the well section
+    $("#well-section").append(wellSection);
+
+    // Now  we add our book data to the well we just placed on the page
+    $("#book-well-" + i).append("<h2>" + (i + 1) + ". " + data[i].title + "</h2>");
+    $("#book-well-" + i).append("<h3>Author: " + data[i].author + "</h4>");
+    $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
+    $("#book-well-" + i).append("<h3>Pages: " + data[i].pages + "</h4>");
+  }
+});
+
 
 var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
