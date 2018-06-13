@@ -18,7 +18,7 @@ module.exports = function(app) {
             };
             
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
-            cityName = data.results[0];
+            var cityName = data.results[0];
             // console.log(cityName);
 
             res.json({city: cityName});
@@ -42,7 +42,7 @@ module.exports = function(app) {
             //get the city name
             // console.log("here",data.results[0]); 
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
-            cityName = data.results[0];
+            var cityName = data.results[0];
             console.log(cityName);
 
             res.json({city: cityName});
