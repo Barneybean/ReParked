@@ -130,3 +130,12 @@ $("#add-btn").on("click", function(event) {
   $("#note").val("");  
 
 });
+
+var today = new Date();
+var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
+var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
+var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
+
+$(".today").text(date);
+$(".tomorrow").text(tomorrow);
+$(".twoDaysFromToday").text(twoDaysFromToday);
