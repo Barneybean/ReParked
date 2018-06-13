@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-
+var sha256 = require("sha256");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -15,20 +15,22 @@ module.exports = function(app) {
     //======================renter sign up=======
     app.post('/api/renterSignUp', function(req, res){
         console.log(req.body.renterEmail + " renter sign up email");
-        // app.post('/api/renterSignUp', function(req, res) {
-            console.log(req.body.renterPassword + " renter sign up password");
-    
-             db.rentersprofile.create({
-                 RenterName: req.body.renterName,
-                 RenterEmail: req.body.renterEmail,
-                 password: req.body.renterPassword
-                // var hashNewHostPw = sha256(req.body.passport);
-                // console.log(hashNewHostPw);
-             }).then(function(err, data) {
-                 
-                res.json("new renter created");
-             });
-        // });
+        console.log(req.body.renterPassword + " renter sign up password");
+
+        var renterName = req.body.renterName;
+        var renterEmail = req.body.renterEmail;
+        var renterPassword =  sha256(req.body.renterPassword);
+
+        db.rentersprofile.create({
+            RenterName: renterName,
+            RenterEmail: renterEmail,
+            password: renterPassword
+        // var hashNewHostPw = sha256(req.body.passport);
+        // console.log(hashNewHostPw);
+        }).then(function(err, data) {
+            
+        res.json("new renter created");
+        });
     });  
 
 
@@ -39,7 +41,7 @@ module.exports = function(app) {
         // console.log(req.body.Password + " renter login pw");
         // console.log(req.body);
         var renterEmail = req.body.Email;
-        var renterPassword = req.body.Password;
+        var renterPassword =  sha256(req.body.Password);
 
         db.rentersprofile.findOne({
             where: {
