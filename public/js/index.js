@@ -1,4 +1,5 @@
 // var express = require("express");
+ 
 
 $(document).ready(function() {
   //----------Sign up & log in------------------------------
@@ -36,56 +37,187 @@ $(document).ready(function() {
  var newHostName = $("#newHostName");
  var newHostEmail = $("#newHostEmail");
  var newHostPw = $("#newHostPw");
-//  console.log(newHostEmail);
-hostSignUp.on("click", function(event) {
+ console.log(newHostEmail);
+ hostSignUp.on("click", function(event) {
    
-  event.preventDefault();
-  var newHost = {
-    name: newHostName.val().trim(),
-    email: newHostEmail.val().trim(),
-    password: newHostPw.val().trim()
-  };
-  
-  
-  if (!newHost.name || !newHost.email || !newHost.password) {
-   return;
- }
- // If we have an email and password, run the signUpUser function
- signUpHost(newHost.name, newHost.email, newHost.password);
- newHostName.val("");
- newHostEmail.val("");
- newHostPw.val("");
+     event.preventDefault();
+     
+     var newHost = {
+       name: newHostName.val().trim(),
+       email: newHostEmail.val().trim(),
+       password: newHostPw.val().trim()
+     };
+     
+     
+     if (!newHost.name || !newHost.email || !newHost.password) {
+      return;
+    }
+    // If we have an email and password, run the signUpUser function
+    signUpHost(newHost.name, newHost.email, newHost.password);
+    newHostName.val("");
+    newHostEmail.val("");
+    newHostPw.val("");
 });
 
-function signUpHost(name, email, password) {
+  function signUpHost(name, email, password) {
 
-  var hostInfo = {
-    name:name,
-    email:email,
-    password: password
+    var hostInfo = {
+      hostName:name,
+      hostEmail:email,
+      hostPassword: password
+    }
+
+    $.ajax("/api/hostSignUp", {
+      type: "post",
+      data: hostInfo
+     }).then(function(data) {
+       console.log ("posted");
+    }).catch(function(err) {
+       console.log(err);
+    });
+  }
+//----------------------------------------------------
+//---------------------------Sign Up for Renter----------
+var renterSignUp = $("#submit-renter");
+var newRenterName = $("#newRenterName");
+ var newRenterEmail = $("#newRenterEmail");
+ var newRenterPw = $("#newRenterPw");
+ 
+ renterSignUp.on("click", function(event) {
+   
+     event.preventDefault();
+     var newRenter = {
+       name: newRenterName.val().trim(),
+       email: newRenterEmail.val().trim(),
+       password: newRenterPw.val().trim()
+     };
+
+     if (!newRenter.name || !newRenter.email || !newRenter.password) {
+      return;
+    }
+    // If we have an email and password, run the signUpUser function
+    signUpRenter(newRenter.name, newRenter.email, newRenter.password);
+    newRenterName.val("");
+    newRenterEmail.val("");
+    newRenterPw.val("");
+});
+
+  function signUpRenter(name, email, password) {
+
+    var renterInfo = {
+      renterName: name,
+      renterEmail:email,
+      renterPassword: password
+    }
+
+    $.ajax("/api/renterSignUp", {
+      type: "post",
+      data: renterInfo
+    }).then(function(data) {
+      console.log ("posted");
+    }).catch(function(err) {
+      console.log(err);
+    });
   }
 
-  $.ajax("/api/hostSignUp", {
-    type: "post",
-    data: hostInfo
-   }).then(function(data) {
-     console.log ("posted");
-  }).catch(function(err) {
-     console.log(err);
-  });
-}
 
 
 //----------Renter login---------------------------------
-  var loginForm = $("personalModal");
-  var emailInput = $("#comfirmEmail");
-  var passwordInput = $("#comfirmPw");
+ var renterBack = $("#renterBack");
+ var comfirmEmail = $("#comfirmEmail");
+ var comfirmPw = $("#comfirmPw");
 
- $("#userBack").on("click", renterBack());
+ renterBack.on("click", function(event) {
+      console.log("clicked")
+     event.preventDefault();
 
- function renterBack() {
+    
+     var renterLogin = {
+       email: comfirmEmail.val().trim(),
+       password: comfirmPw.val().trim()
+     };
 
+     if (!renterLogin.email || !renterLogin.password) {
+      return;
+    }
+    // If we have an email and password, run the signUpUser function
+    loginRenter(renterLogin.email, renterLogin.password);
+    comfirmEmail.val("");
+    comfirmPw.val("");
+
+
+});
+
+  function loginRenter(email, password) {
+
+    var renterMember = {
+      Email:email,
+      Password: password
+    }
+
+    console.log(renterMember);
+
+    $.ajax("/api/renterLogin", {
+      type: "POST",
+      data: renterMember
+    }).then(function(data) {
+      console.log (data);
+      //write sucessfull login into session
+      sessionStorage.setItem("loggedInAsId", data.successId);
+      sessionStorage.setItem("loggedInAsEmail", data.successEmail);
+
+      $("#logInBtn").text("logged in as: "+ data.successEmail);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+//----------Host login---------------------------------
+var hostBack = $("hostBack");
+var comfirmHostName = $("#comfirmHostName");
+var comfirmHostEmail = $("#comfirmHostEmail");
+var comfirmHostPw = $("#comfirmHostPw");
+
+hostBack.on("click", function(event) {
+  
+    event.preventDefault();
+    var hostLogin = {
+      name: comfirmHostName.val().trim(),
+      email: comfirmHostEmail.val().trim(),
+      password: comfirmHostPw.val().trim()
+    };
+    
+
+    if (!hostLogin.name || !hostLogin.email || !hostLogin.password) {
+     return;
+   }
+   // If we have an email and password, run the signUpUser function
+   loginHost(hostLogin.name, hostLogin.email, hostLogin.password);
+   comfirmHostName.val("");
+   comfirmHostEmail.val("");
+   comfirmHostPw.val("");
+
+});
+
+ function loginHost(name, email, password) {
+
+   var hostMember = {
+     name:name,
+     email:email,
+     password: password
+   }
+
+   $.ajax("/api/hostLogin", {
+     type: "post",
+     data: hostMember
+   }).then(function(data) {
+     console.log ("posted");
+   }).catch(function(err) {
+     console.log(err);
+   });
  }
+
+
 
   //---------------------search Bar----------------------------- 
   //send search result to cookie and redirect to another page
