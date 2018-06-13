@@ -7,29 +7,38 @@
 
 // Requiring our models
 var db = require("../models");
-var passport = require("../config/passport");
+// var sha256 = require("sha256");
+
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+    
+    //=======================host sign up
+    app.post('/api/hostSignUp', function(req, res) {
 
-    // app.post("/api/hostSignUp", function(req, res) {
+        console.log(req.body.password + " host sign up email");
 
-    //     // var hostPw = req.body.password;
-    //     // var hostEmail = req.body.email;
-    //     // console.log(hostPw);
-    //     // console.log(hostEmail);
-    //     console.log(req.body.email);
-    // });
-    app.post('/api/hostSignUp', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/api/hostSignUp' }), function(req, res) {
-
-        console.log(req.body.email);
-        //take email and password
-          //encrypt password
-          //save to database
-          
+         db.rentersProfile.create({
+             RenterName: req.body.name,
+             RenterEmail: req.body.email,
+             password:req.body.password
+            // var hashNewHostPw = sha256(req.body.passport);
+            // console.log(hashNewHostPw);
+         }).then(function(data) {
+            res.json(data);
+         });
     });
+    
 
+
+ 
+    //=========================host login
+    app.post('/api/hostLogin', function(req, res) {
+
+        console.log(req.body.email + " host login email");
+    });
+ 
 
 
 };

@@ -33,43 +33,47 @@ $(document).ready(function() {
  
  //-------------sign up for host---------------------
  var hostSignUp = $("#submit-host");
+ var newHostName = $("#newHostName");
  var newHostEmail = $("#newHostEmail");
  var newHostPw = $("#newHostPw");
 //  console.log(newHostEmail);
- hostSignUp.on("click", function(event) {
+hostSignUp.on("click", function(event) {
    
-     event.preventDefault();
-     var newHost = {
-       email: newHostEmail.val().trim(),
-       password: newHostPw.val().trim()
-     };
-     
-     if (!newHost.email || !newHost.password) {
-      return;
-    }
-    // If we have an email and password, run the signUpUser function
-    signUpHost(newHost.email, newHost.password);
-    
-    newHostEmail.val("");
-    newHostPw.val("");
+  event.preventDefault();
+  var newHost = {
+    name: newHostName.val().trim(),
+    email: newHostEmail.val().trim(),
+    password: newHostPw.val().trim()
+  };
+  
+  
+  if (!newHost.name || !newHost.email || !newHost.password) {
+   return;
+ }
+ // If we have an email and password, run the signUpUser function
+ signUpHost(newHost.name, newHost.email, newHost.password);
+ newHostName.val("");
+ newHostEmail.val("");
+ newHostPw.val("");
 });
 
-  function signUpHost(email, password) {
+function signUpHost(name, email, password) {
 
-    var hostInfo = {
-      email:email,
-      password: password
-    }
-
-    $.ajax("/api/hostSignUp", {
-      type: "post",
-      data: hostInfo
-    }).then(function(data) {
-      console.log ("posted");
-    }).catch(function(err) {
-      console.log(err);
-    });
+  var hostInfo = {
+    name:name,
+    email:email,
+    password: password
   }
+
+  $.ajax("/api/hostSignUp", {
+    type: "post",
+    data: hostInfo
+   }).then(function(data) {
+     console.log ("posted");
+  }).catch(function(err) {
+     console.log(err);
+  });
+}
 
 
 //----------Renter login---------------------------------
