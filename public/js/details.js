@@ -1,5 +1,4 @@
 // $('#day1').val(reservation.bookedDate)
-
 var resultFromDB = [
   {
     id: 1,
@@ -11,20 +10,18 @@ var resultFromDB = [
     bookedDates: "20180613",
     bookedHours: [2, 3, 5, 6]
   },
-  // {
-  //   id:3,
-  //   bookedDates: "20180614",
-  //   bookedHours: [2, 3, 5, 7]
-  // },
-  // {
-  //   id:4,
-  //   bookedDates: "20180615",
-  //   bookedHours: [2, 3, 5, 7]
-  // }
+  {
+    id:3,
+    bookedDates: "20180614",
+    bookedHours: [2, 3, 5, 7]
+  },
+  {
+    id:4,
+    bookedDates: "20180615",
+    bookedHours: [2, 3, 5, 7]
+  }
 ]
-
 result = resultFromDB.slice(0,3);
-
 //to create column name
 for(var i = 0; i <result.length; i++){
   if(i<3) {
@@ -41,44 +38,47 @@ for(var i = 0; i <result.length; i++){
    
 }
 
-
-
 // create 24 hours tr
 for (var i=0; i<24; i++) {
   if(i<24) {
     var index = i+1
-    var bookedDateId = result
     var timeSlot = i+":00-"+(i+1)+":00"
     if(result.length === 3){      
-      var tableRow = $("<tr><td>"+timeSlot+"</td><td>"+timeSlot+"</td><td>"+timeSlot+"</td></tr>");
-      tableRow.attr("id", i+"-"+result[i].bookedDates);
-      $(".table").append(tableRow);
+      var tableRow = $("<tr>");
+      var tableData1 = $("<td>");
+      var tableData2 = $("<td>");
+      var tableData3 = $("<td>");
+      tableData1.text(timeSlot);
+      tableData1.attr("id", i+"-"+result[0].bookedDates);
+      tableData2.text(timeSlot);
+      tableData2.attr("id", i+"-"+result[1].bookedDates);
+      tableData3.text(timeSlot);
+      tableData3.attr("id", i+"-"+result[2].bookedDates);
+      tableRow.append(tableData1);
+      tableRow.append(tableData2);
+      tableRow.append(tableData3);
+      $("#tableBody").append(tableRow);
     } else if(result.length === 2){
-      var tableRow = $("<tr><td>"+timeSlot+"</td><td>"+timeSlot+"</td></tr>");
-      tableRow.attr("id", i+"-"+result[i].bookedDates);
-      $(".table").append(tableRow);
+      var tableRow = $("<tr>");
+      var tableData1 = $("<td>");
+      var tableData2 = $("<td>");
+      tableData1.text(timeSlot);
+      tableData1.attr("id", i+"-"+result[0].bookedDates);
+      tableData2.text(timeSlot);
+      tableData2.attr("id", i+"-"+result[1].bookedDates);
+      tableRow.append(tableData1);
+      tableRow.append(tableData2);
+      $("#tableBody").append(tableRow);
     } else if(result.length === 1){
-      var tableRow = $("<tr><td>"+timeSlot+"</td></tr>");
-      tableRow.attr("id", i+"-"+result[i].bookedDates);
-      $(".table").append(tableRow);
+      var tableRow = $("<tr>");
+      var tableData1 = $("<td>");
+      tableData1.text(timeSlot);
+      tableData1.attr("id", i+"-"+result[0].bookedDates);
+      tableRow.append(tableData1);
+      $("#tableBody").append(tableRow);
     }
   }
   else {
     console.log("display 3 reservations only")
   }
 }
-
-// for(var i=0; i < result.length; i++){
-//   if()
-// }
-
-
-
-// for(var i = 0; i < reservations.bookedHour; i++){
-//   var hour = reservation.bookedHour[i];
-//     $('#1-'+hour).attr('class', highlight)
-// }
-
-
-
-

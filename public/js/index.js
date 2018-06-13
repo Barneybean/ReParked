@@ -35,7 +35,7 @@ $(document).ready(function() {
  var hostSignUp = $("#submit-host");
  var newHostEmail = $("#newHostEmail");
  var newHostPw = $("#newHostPw");
- console.log(newHostEmail);
+//  console.log(newHostEmail);
  hostSignUp.on("click", function(event) {
    
      event.preventDefault();
@@ -44,7 +44,6 @@ $(document).ready(function() {
        password: newHostPw.val().trim()
      };
      
-
      if (!newHost.email || !newHost.password) {
       return;
     }
@@ -64,7 +63,7 @@ $(document).ready(function() {
 
     $.ajax("/api/hostSignUp", {
       type: "post",
-      data: hoscleartInfo
+      data: hostInfo
     }).then(function(data) {
       console.log ("posted");
     }).catch(function(err) {

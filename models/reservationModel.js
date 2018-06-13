@@ -2,47 +2,47 @@ module.exports = function(sequelize, DataTypes) {
     var Reservation = sequelize.define("Reservation", {
       // Giving the Reservation model a name of type STRING
       //id will be auto assigned 
-        vehicleMake: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-            len: [1]
-            }
-        },
-        vehicleModel: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-            len: [1]
-            }
-        },
-        vehicleLicensePlate: {
+      vehicleMake: {
           type: DataTypes.STRING,
           allowNull: false,
           validate: {
           len: [1]
           }
-        },
-        dateStart: {
-          type: DataTypes.DATEONLY,
-          allowNull: false,
-          validate: {
-          len: [2]
-          }
-        },
-        dateEnd: {
-          type: DataTypes.DATEONLY,
+      },
+      vehicleModel: {
+          type: DataTypes.STRING,
           allowNull: false,
           validate: {
           len: [1]
           }
-       },
-       timeStart: {
-        type: DataTypes.TIME,
+      },
+      vehicleLicensePlate: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+        len: [1]
+        }
+      },
+      dateStart: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
         len: [2]
         }
+      },
+      dateEnd: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+        validate: {
+        len: [1]
+        }
+      },
+      timeStart: {
+      type: DataTypes.TIME,
+      allowNull: false,
+      validate: {
+      len: [2]
+      }
       },
       timeEnd: {
         type: DataTypes.TIME,
@@ -50,14 +50,21 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
         len: [1]
         }
-     },
-       totalTime: {
+      },
+      totalTime: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
         len: [1]
         }
-       }
+      },
+      note: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+        len: [1,45]
+        }
+      },
      });
   
     Reservation.associate = function(models) {

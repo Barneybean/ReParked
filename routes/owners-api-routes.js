@@ -24,6 +24,10 @@ module.exports = function(app) {
     app.post('/api/hostSignUp', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/api/hostSignUp' }), function(req, res) {
 
         console.log(req.body.email);
+        //take email and password
+          //encrypt password
+          //save to database
+          
     });
 
 
