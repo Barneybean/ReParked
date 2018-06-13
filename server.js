@@ -32,6 +32,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/listings-api-routes")(app);
 require("./routes/owners-api-routes")(app);
 require("./routes/renters-api-routes")(app);
+require("./routes/reservations-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

@@ -66,81 +66,81 @@
                         </div>
                         <div class="form-group">
                             <label for="licensePlate">License Plate</label>
-                            <input type="text" class="form-control" id="LicensePlate" placeholder="JXB625">
+                            <input type="text" class="form-control" id="licensePlate" placeholder="JXB625">
                         </div>
-                        <div class="form-group">
-                            <label for="startDates">Select Start Day</label>
-                            <select class="form-control" id="startDates">
-                                <option id="today">today</option>
-                                <option id="tomorrow">tomorrow</option>
-                                <option id="tomorrowPlus">two days from today</option>
+                        <div class="form-group" id="startDate">
+                            <label for="startD">Select Start Day</label>
+                            <select class="form-control" id="startD">
+                                <option class="today">today</option>
+                                <option class="tomorrow">tomorrow</option>
+                                <option class="twoDaysFromToday">two days from today</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="endDates">Select End Date (must be same or later than start date)</label>
-                            <select class="form-control" id="endDates">
-                                <option id="today">today</option>
-                                <option id="tomorrow">tomorrow</option>
-                                <option id="tomorrowPlus">two days from today</option>
+                        <div class="form-group" id="endDate">
+                            <label for="end">Select End Date (must be same or later than start date)</label>
+                            <select class="form-control" id="endD">
+                                <option class="today">today</option>
+                                <option class="tomorrow">tomorrow</option>
+                                <option class="twoDaysFromToday">two days from today</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="startHours">Starting Hour</label>
-                            <select class="form-control" id="startHours">
-                                <option>00:00 - 01:00</option>
-                                <option>01:00 - 02:00</option>
-                                <option>02:00 - 03:00</option>
-                                <option>03:00 - 04:00</option>
-                                <option>04:00 - 05:00</option>
-                                <option>05:00 - 06:00</option>
-                                <option>06:00 - 07:00</option>
-                                <option>07:00 - 08:00</option>
-                                <option>08:00 - 09:00</option>
-                                <option>09:00 - 10:00</option>
-                                <option>10:00 - 11:00</option>
-                                <option>11:00 - 12:00</option>
-                                <option>12:00 - 13:00</option>
-                                <option>13:00 - 14:00</option>
-                                <option>14:00 - 15:00</option>
-                                <option>15:00 - 16:00</option>
-                                <option>16:00 - 17:00</option>
-                                <option>17:00 - 18:00</option>
-                                <option>18:00 - 19:00</option>
-                                <option>19:00 - 20:00</option>
-                                <option>20:00 - 21:00</option>
-                                <option>21:00 - 22:00</option>
-                                <option>22:00 - 23:00</option>
-                                <option>23:00 - 24:00</option>
+                        <div class="form-group" id="startHour">
+                            <label for="startH">Starting Hour</label>
+                            <select class="form-control" id="startH">
+                                <option>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="endHour">Ending Hour (must be later than starting hour)</label>
-                            <select class="form-control" id="endHour">
-                                <option>00:00 - 01:00</option>
-                                <option>01:00 - 02:00</option>
-                                <option>02:00 - 03:00</option>
-                                <option>03:00 - 04:00</option>
-                                <option>04:00 - 05:00</option>
-                                <option>05:00 - 06:00</option>
-                                <option>06:00 - 07:00</option>
-                                <option>07:00 - 08:00</option>
-                                <option>08:00 - 09:00</option>
-                                <option>09:00 - 10:00</option>
-                                <option>10:00 - 11:00</option>
-                                <option>11:00 - 12:00</option>
-                                <option>12:00 - 13:00</option>
-                                <option>13:00 - 14:00</option>
-                                <option>14:00 - 15:00</option>
-                                <option>15:00 - 16:00</option>
-                                <option>16:00 - 17:00</option>
-                                <option>17:00 - 18:00</option>
-                                <option>18:00 - 19:00</option>
-                                <option>19:00 - 20:00</option>
-                                <option>20:00 - 21:00</option>
-                                <option>21:00 - 22:00</option>
-                                <option>22:00 - 23:00</option>
-                                <option>23:00 - 24:00</option>
+                        <div class="form-group" id="endHour">
+                            <label for="endH">Ending Hour (must be later than starting hour)</label>
+                            <select class="form-control" id="endH">
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
                             </select>
                         </div>
                        
