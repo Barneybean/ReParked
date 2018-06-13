@@ -102,16 +102,16 @@ $("#add-btn").on("click", function(event) {
   var newReservation = {
     vehicleMake: $("#vehicleMake").val().trim(),
     vehicleModel: $("#vehicleModel").val().trim(),
-    licensePlate: $("#licensePlate").val().trim(),
-    startDates: $("#startDates").val().trim(),
-    endDates: $("#endDates").val().trim(),
-    startHours: $("#startHours").val().trim(),
-    endHour: $("#endHour").val().trim(),
+    licensePlate: $("#licensePlate").val(),
+    dateStart: $("#startDates").val().trim(),
+    dateEnd: $("#endDates").val().trim(),
+    timeStart: $("#startHours").val().trim(),
+    timeEnd: $("#endHour").val().trim(),
     note: $("#note").val().trim(),
   };
 
   // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newReservation)
+  $.post("/api/newreservation/"+userId, newReservation)
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
@@ -142,4 +142,6 @@ $(".twoDaysFromToday").text(twoDaysFromToday);
 
 //Need to prevent user from submitting end date later than start date
 
+
+var userId = 1;
 
