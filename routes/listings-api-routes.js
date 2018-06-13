@@ -12,7 +12,7 @@ module.exports = function(app) {
         var searchString = req.body.address;
         console.log(searchString);
          // // Geocoding
-         geocoder.geocode(searchString, function ( err, data ) {
+        geocoder.geocode(searchString, function ( err, data ) {
             if(err) {
                 res.redirect("/");
             };
@@ -54,7 +54,7 @@ module.exports = function(app) {
     app.get("/api/listings/:city", function (req, res) {
         console.log("back",req.params.city);
 
-        db.Listing.findAll({
+        db.listing.findAll({
             where: {
                 city: req.params.city
             }

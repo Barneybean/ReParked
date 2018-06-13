@@ -19,7 +19,7 @@ module.exports = function(app) {
 
         console.log(req.body.password + " host sign up email");
 
-         db.rentersProfile.create({
+         db.rentersprofile.create({
              RenterName: req.body.name,
              RenterEmail: req.body.email,
              password:req.body.password

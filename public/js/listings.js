@@ -329,7 +329,7 @@ $("#search").on("submit", function(event) {
     else {
       console.log ("from listing", result.city.address_components[3].long_name);
       var cityNameListing = result.city.address_components[3].long_name;
-      sessionStorage.setItem("cityNameListing", "berkeley");
+      sessionStorage.setItem("cityNameListing", cityNameListing);
       // sessionStorage.cityNameListings = result.city.address_components[3].long_name;
       listingsPageSearch();
     }
@@ -346,7 +346,9 @@ function indexPageSearch() {
   var cityNameIndex = sessionStorage.cityNameIndex;
   $.get("/api/listings/"+cityNameIndex, function(data) {
     console.log("front", data);
-    $("#display").prepend("success")
+  
+
+
     
   });
 };
@@ -355,7 +357,9 @@ function listingsPageSearch() {
   var cityNameListings = sessionStorage.getItem("cityNameListing");
   $.get("/api/listings/"+cityNameListings, function(data) {
     console.log("front", data);
-    $("#display").prepend("success")
+    $(".display").prepend("success")
+
+    
     
   });
 }
