@@ -298,7 +298,8 @@ $.ajax("/api/address", {
     console.log ("from homepage", result.city.address_components[3].long_name);
     var cityName = result.city.address_components[3].long_name;
     // write to session storage
-    sessionStorage.cityNameIndex = cityName;
+    sessionStorage.setItem("cityNameIndex", cityName);
+    // sessionStorage.cityNameIndex = cityName;
     // console.log("inhere",cityNameIndex)
     indexPageSearch();
   }
@@ -326,10 +327,11 @@ $("#search").on("submit", function(event) {
       $("#display").prepend("API Error, Please Search Again");
     }
     else {
-      $("#display").prepend("success")
       console.log ("from listing", result.city.address_components[3].long_name);
-      sessionStorage.cityNameListings = result.city.address_components[3].long_name;
-      indexPageSearch();
+      var cityNameListing = result.city.address_components[3].long_name;
+      sessionStorage.setItem("cityNameListing", "berkeley");
+      // sessionStorage.cityNameListings = result.city.address_components[3].long_name;
+      listingsPageSearch();
     }
   });
  
@@ -340,16 +342,21 @@ $("#search").on("submit", function(event) {
 
 // console.log("session", cityNameIndex);
 function indexPageSearch() {
+
   var cityNameIndex = sessionStorage.cityNameIndex;
   $.get("/api/listings/"+cityNameIndex, function(data) {
     console.log("front", data);
+    $("#display").prepend("success")
+    
   });
 };
 
 function listingsPageSearch() {
-  var cityNameListings = sessionStorage.cityNameListing;
+  var cityNameListings = sessionStorage.getItem("cityNameListing");
   $.get("/api/listings/"+cityNameListings, function(data) {
     console.log("front", data);
+    $("#display").prepend("success")
+    
   });
 }
 
