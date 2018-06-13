@@ -277,10 +277,10 @@ marker.addListener('click', function() {
   
     })
 
-//william
+//william's code start******************
 //-------------------from home page--------------------
 //retrieve session storage - search string *******************
-var searchString = sessionStorage.search;
+var searchString = sessionStorage.search; //full address - user input
 // console.log(searchString);
 // send it back to get city name
 var addressString = {
@@ -296,6 +296,12 @@ $.ajax("/api/address", {
   else {
     // $("#display").prepend("success")
     console.log ("from homepage", result.city.address_components[3].long_name);
+    var cityName = result.city.address_components[3].long_name;
+    // write to session storage
+    sessionStorage.setItem("cityNameIndex", cityName);
+    // sessionStorage.cityNameIndex = cityName;
+    // console.log("inhere",cityNameIndex)
+    indexPageSearch();
   }
 });
 //-------------------end home page--------------------
@@ -304,8 +310,6 @@ $("#search").on("submit", function(event) {
   //to prevent submission without value
   event.preventDefault();
   console.log("clicked");
-  //clear sessino storage
-  sessionStorage.clear();
   // get the searched string
   var searchString = $("#listingsAddress").val().trim();
    // send it back to get city name
@@ -323,11 +327,37 @@ $("#search").on("submit", function(event) {
       $("#display").prepend("API Error, Please Search Again");
     }
     else {
-      $("#display").prepend("success")
       console.log ("from listing", result.city.address_components[3].long_name);
+      var cityNameListing = result.city.address_components[3].long_name;
+      sessionStorage.setItem("cityNameListing", "berkeley");
+      // sessionStorage.cityNameListings = result.city.address_components[3].long_name;
+      listingsPageSearch();
     }
   });
  
 });
 //-------------------end listing search-----------------
+//use searchString to do search in listing-api-routes and then database 
 
+
+// console.log("session", cityNameIndex);
+function indexPageSearch() {
+
+  var cityNameIndex = sessionStorage.cityNameIndex;
+  $.get("/api/listings/"+cityNameIndex, function(data) {
+    console.log("front", data);
+    $("#display").prepend("success")
+    
+  });
+};
+
+function listingsPageSearch() {
+  var cityNameListings = sessionStorage.getItem("cityNameListing");
+  $.get("/api/listings/"+cityNameListings, function(data) {
+    console.log("front", data);
+    $("#display").prepend("success")
+    
+  });
+}
+
+//William's code end ********************************nodemon

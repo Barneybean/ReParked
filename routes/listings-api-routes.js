@@ -18,7 +18,7 @@ module.exports = function(app) {
             };
             
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
-            cityName = data.results[0];
+            var cityName = data.results[0];
             // console.log(cityName);
 
             res.json({city: cityName});
@@ -42,8 +42,8 @@ module.exports = function(app) {
             //get the city name
             // console.log("here",data.results[0]); 
             //result will look like: https://developers.google.com/maps/documentation/geocoding/intro?csw=1#JSON
-            cityName = data.results[0];
-            // console.log(cityName);
+            var cityName = data.results[0];
+            console.log(cityName);
 
             res.json({city: cityName});
         });
@@ -51,16 +51,17 @@ module.exports = function(app) {
      
     });
 
+    app.get("/api/listings/:city", function (req, res) {
+        console.log("back",req.params.city);
 
-    app.get("/api/:cityname", function (req, res) {
-        console.log(req.body);
         db.Listing.findAll({
-            // where: query,
-        }).then(function(listings) {
-            // res.json({listings: listings});
-            console.log(listings)
+            where: {
+                city: req.params.city
+            }
+        }).then(function(data) {
+            res.json(data);
         });
-       
+        
     })
-    
+
 };

@@ -11,10 +11,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-    var passport = require("../config/passport");
-    app.post('/api/renterSignUp', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/api/renterSignUp' }));  
- 
-
+    
 
     
 };
