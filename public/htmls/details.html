@@ -11,16 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fjord+One" rel="stylesheet">
     <!-- custom css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/index.css" media="screen" title="no title">
+    <link rel="stylesheet" href="../css/details.css" media="screen" title="no title">
 
 </head>  
 
 <body>
-        <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>       
+        <nav class="navbar navbar-light bg-light">     
             <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <a class="nav-link active btn btn-success" href="/">Home</a>
@@ -59,7 +55,7 @@
             </div>   
             <div class="row">
                 <div>
-                    <form>
+                    <form action="" method="POST" role="form">
                         <div class="form-group">
                             <label for="vehicleMake">Vehicle Make</label>
                             <input type="text" class="form-control" id="vehicleMake" placeholder="Audi">
@@ -75,17 +71,17 @@
                         <div class="form-group">
                             <label for="startDates">Select Start Day</label>
                             <select class="form-control" id="startDates">
-                                <option id="today"></option>
-                                <option id="tomorrow"></option>
-                                <option id="tomorrowPlus"></option>
+                                <option id="today">today</option>
+                                <option id="tomorrow">tomorrow</option>
+                                <option id="tomorrowPlus">two days from today</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="endDates">Select End Date (must be same or later than start date)</label>
                             <select class="form-control" id="endDates">
-                                <option id="today"></option>
-                                <option id="tomorrow"></option>
-                                <option id="tomorrowPlus"></option>
+                                <option id="today">today</option>
+                                <option id="tomorrow">tomorrow</option>
+                                <option id="tomorrowPlus">two days from today</option>
                             </select>
                         </div>
 
@@ -153,10 +149,16 @@
                             <textarea class="form-control" id="note" rows="3"></textarea>
                         </div>
                     </form>
+                    <br>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="submit-book"></span> Submit Booking</button>
+                    </div>
                 </div>
             </div>   
         </div>
       </div>
+
+      <p><td id="12-20180612" class="text-danger"></td></p>
     <!-- footer -->
     <footer>
         <div class="footerHeader" ></div>

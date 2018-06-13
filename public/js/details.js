@@ -82,3 +82,51 @@ for (var i=0; i<24; i++) {
     console.log("display 3 reservations only")
   }
 }
+
+
+var highlightTimes = [];
+for(var i = 0; i < resultFromDB.length; i++){
+    // console.log(resultFromDB[i].bookedDates)
+    for(var j = 0; j < resultFromDB[i].bookedHours.length; j++)
+     highlightTimes.push(resultFromDB[i].bookedHours[j] + "-" + resultFromDB[i].bookedDates);
+}
+
+for(var i = 0; i <highlightTimes.length; i++){
+$("#" + highlightTimes[i]).attr("class","bg-danger text-white")
+}
+
+$("#add-btn").on("click", function(event) {
+  event.preventDefault();
+
+  // Make a newBook object
+  var newReservation = {
+    vehicleMake: $("#vehicleMake").val().trim(),
+    vehicleModel: $("#vehicleModel").val().trim(),
+    licensePlate: $("#licensePlate").val().trim(),
+    startDates: $("#startDates").val().trim(),
+    endDates: $("#endDates").val().trim(),
+    startHours: $("#startHours").val().trim(),
+    endHour: $("#endHour").val().trim(),
+    note: $("#note").val().trim(),
+  };
+
+  // Send an AJAX POST-request with jQuery
+  $.post("/api/new", newReservation)
+    // On success, run the following code
+    .then(function(data) {
+      // Log the data we found
+      console.log(data);
+    });
+
+  // Empty each input box by replacing the value with an empty string
+
+  $("#vehicleMake").val("");
+  $("#vehicleModel").val("");
+  $("#licensePlate").val("");
+  $("#startDates").val("");
+  $("#endDates").val("");
+  $("#startHours").val("");
+  $("#endHour").val("");
+  $("#note").val("");  
+
+});
