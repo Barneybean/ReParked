@@ -78,13 +78,12 @@ module.exports = function(app) {
 
      // jose code****************************************
 
-     app.post("/api/renters+reservation/:renterid", function(req, res){
-        console.log(req.params.renterid);
+     app.get("/api/rentersreservation/:renterid", function(req, res){
         var dataRenterId = req.params.renterid;
         console.log(dataRenterId)
-        db.reservations.findOne({
+        db.reservation.findAll({
             where:{
-            dataRenterId: rentersprofileId    
+            rentersprofileId: dataRenterId    
             }
         }).then(function(results) {
             console.log(results)

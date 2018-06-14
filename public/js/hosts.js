@@ -54,8 +54,8 @@ $("#submitBtn").on("click", function(event) {
           var latitude = sessionStorage.getItem("hostLat");
           var longitude = sessionStorage.getItem("hostLng");
        
-        var profiledId = sessionStorage.getItem("loggedInHostId");
-        console.log("first: " + profiledId);
+        var profileId = sessionStorage.getItem("loggedInHostId");
+        console.log("first: " + profileId);
 
         garageInfoPush(garageInfo.streetnumber, garageInfo.streetname, garageInfo.city, garageInfo.state, garageInfo.zipcode, latitude, longitude, garageInfo.type, garageInfo.hourlyrate, garageInfo.url, profileId);
 
@@ -69,7 +69,7 @@ $("#submitBtn").on("click", function(event) {
         
 
       function garageInfoPush(streetnumber, streetname, city, state, zipcode, latitude, longitude, type, hourlyrate, url, hostsprofileid) {
-        console.log("function run")
+        console.log(hostsprofileid)
           var garages = {
               streetNumber: streetnumber,
               streetName: streetname,

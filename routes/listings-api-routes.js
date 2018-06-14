@@ -63,5 +63,15 @@ module.exports = function(app) {
         });
         
     })
-    
+    app.get("/api/listings/:listingid", function(req,res){
+        console.log("inhere",req.params.listingid);
+        var listingId = req.params.listingid
+        db.listing.findOne({
+            where:{
+                id: listingId
+            }
+        }).then(function(data){
+            res.json(data)
+        })
+        })
 };
