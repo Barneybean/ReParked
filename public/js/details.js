@@ -2,6 +2,11 @@
 var userId = sessionStorage.getItem("loggedInRenterId");
 var hostId = sessionStorage.getItem("loggedInHostId");
 var listingId = sessionStorage.getItem("clickedListingId");
+
+var today = new Date();
+var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
+var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
+var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
 // var userId = 1;
 // var hostId = 2;
 // var listingId =2; 
@@ -88,8 +93,6 @@ $.get("/api/"+listingId, function(data) {
       console.log("display 3 reservations only")
     }
     
-
-    
   }
 
   // create 24 hours tr
@@ -151,11 +154,6 @@ $.get("/api/"+listingId, function(data) {
   }
 });
 
-
-var today = new Date();
-var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
-var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
-var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
 
 $(".today").text(date);
 $(".tomorrow").text(tomorrow);

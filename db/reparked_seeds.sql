@@ -15,11 +15,11 @@ INSERT INTO listings (streetNumber, streetName, city, state, zipcode, latitude, 
 INSERT INTO listings (streetNumber, streetName, city, state, zipcode, latitude, longitude, type, hourlyrate, url, createdAt, updatedAt, hostsProfileId) VALUES (2181, "2181 Shattuck Ave", "Berkeley", "CA", 94704, 37.870290, -122.267733, "driveway", 3, "http://www.minsterpaving.co.uk/wp-content/uploads/2014/03/driveway.png", NOW(), NOW(), 1);
 
 INSERT INTO reservations (vehicleMake, vehicleModel, licensePlate, dateStart, timeStart, timeEnd, note, createdAt, updatedAt, ListingId, rentersProfileId, hostsProfileId)
-    VALUES ("Audi", "A6", "JXH615", "2018-06-15", 6, 15, "boooooked", NOW(), NOW(), 1, 2, 1);
+    VALUES ("Audi", "A6", "JXH615", "2018-06-15", 6, 15, "boooooked", NOW(), NOW(), 1, 4, 1);
 
 INSERT INTO reservations (vehicleMake, vehicleModel, licensePlate, dateStart, timeStart, timeEnd, note, createdAt, updatedAt, ListingId, rentersProfileId, hostsProfileId)
-    VALUES ("Ford", "Mustang", "JXB325", "2018-06-16", 12, 24, "boooooked again", NOW(), NOW(), 2, 2, 1);
+    VALUES ("Ford", "Mustang", "JXB325", "2018-06-16", 12, 24, "boooooked again", NOW(), NOW(), 2, 4, 1);
 
 INSERT INTO reservations (vehicleMake, vehicleModel, licensePlate, dateStart, timeStart, timeEnd, note, createdAt, updatedAt, ListingId, rentersProfileId, hostsProfileId)
-    VALUES ("Chevy", "Silverado", "jjjjj", "2018-07-01", 12, 18, "its a truck", NOW(), NOW(), 2, 3, 3);
+    VALUES ("Chevy", "Silverado", "jjjjj", "2018-07-01", 12, 18, "its a truck", NOW(), NOW(), 2, 5, 3);
 

@@ -32,11 +32,21 @@
  //---------------------New user sign up-----------------------------
  
  //-------------sign up for host---------------------
+function showPW() {
+  // var x = document.getElementByClass("psw");
+  var x = document.getElementById("newHostPw");
+  if (x.type === "password") {
+      x.type = "text";
+  } else {
+      x.type = "password";
+  }
+}
+
  var hostSignUp = $("#submit-host");
  var newHostName = $("#newHostName");
  var newHostEmail = $("#newHostEmail");
  var newHostPw = $("#newHostPw");
- console.log(newHostEmail);
+//  console.log(newHostEmail);
  hostSignUp.on("click", function(event) {
    
      event.preventDefault();
@@ -218,7 +228,7 @@ hostBack.on("click", function(event) {
      type: "POST",
      data: hostMember
    }).then(function(data) {
-    console.log (data);
+    // console.log (data);
     //write sucessfull login into session
     if (data === "Fail Login") {
       $("#hostLogInBtn").text("Login failed, click me to try again");

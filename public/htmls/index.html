@@ -49,11 +49,12 @@
                                             <input type="text" id="newHostName" class="form-control input-lg" placeholder="Host Name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="newHostPw" class="form-control input-lg" placeholder="password">
+                                            <input type="password" id="newHostPw" class="psw form-control input-lg " placeholder="password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                            <input type="password" class="psw form-control input-lg" placeholder="confirm password">
                                         </div>
+                                        <input type="checkbox" onclick="showPW()"> Show Password
                                         <div class="form-group">
                                             <input type="text" id="newHostEmail" class="form-control input-lg" placeholder="Email Address">
                                         </div>
@@ -81,10 +82,11 @@
                                             <input type="text" id="newRenterName"class="form-control input-lg" placeholder="Renter Name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="newRenterPw" class="form-control input-lg" placeholder="password">
+                                            <input type="password" id="newRenterPw" class="form-control input-lg" placeholder="password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" placeholder="confirm password">
+                                            <input type="password" class="form-control input-lg" placeholder="confirm password">
+                                            <!-- <input type="checkbox" onclick="showPW()"> Show Password -->
                                         </div>
                                         <div class="form-group">
                                             <input type="text" id="newRenterEmail" class="form-control input-lg" placeholder="Email Address">
@@ -133,7 +135,7 @@
                                             <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
+                                            <input type="password" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
                                         </div>                                  
                                         <div class="form-group">
                                             <buttom id="renterBack" href="/" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">I'm Back</buttom>
@@ -181,7 +183,7 @@
                                             <input type="text" id="comfirmHostEmail" class="form-control input-lg" placeholder="Email Address">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="comfirmHostPw"class="form-control input-lg" placeholder="host password">
+                                            <input type="password" id="comfirmHostPw"class="form-control input-lg" placeholder="host password">
                                         </div>
                                         <div class="form-group">
                                             <a id="hostBack" href="/hosts" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">I'm Back</a>
