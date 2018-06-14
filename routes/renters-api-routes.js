@@ -13,7 +13,7 @@ var sha256 = require("sha256");
 module.exports = function(app) {
 
     //======================renter sign up=======
-    app.post('/api/renterSignUp', function(req, res){
+    app.post('/api/rentersignup', function(req, res){
         console.log(req.body.renterEmail + " renter sign up email");
         console.log(req.body.renterPassword + " renter sign up password");
 
@@ -36,7 +36,7 @@ module.exports = function(app) {
 
 
     //========================renter login================
-    app.post('/api/renterLogin', function(req, res){
+    app.post('/api/renterlogin', function(req, res){
         // console.log(req.body.Email + "renter login email");
         // console.log(req.body.Password + " renter login pw");
         // console.log(req.body);
@@ -50,13 +50,22 @@ module.exports = function(app) {
                 RenterEmail: renterEmail
             }
         }).then(function(renterObj) {
-            console.log(renterObj.password);
+            // if (err) {
+            //     var failLogin = "Fail Login";
+            //     res.json(failLogin);
+            // }
+            // else {
+            //     console.log(renterObj.password);
+            // }
+            
             // console.log(renterObj.RenterEmail);
             // console.log(renterObj.RenterEmail === renterEmail && renterObj.password === renterPassword)
+
             if (renterObj.RenterEmail === renterEmail && renterObj.password === renterPassword) {
             //    console.log("inhere");
                 var loginAs = {
                     successId: renterObj.id,
+                    successName: renterObj.RenterName,
                     successEmail: renterObj.RenterEmail
                 }
                 res.json(loginAs);
