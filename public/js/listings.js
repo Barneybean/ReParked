@@ -16,14 +16,154 @@ function myFunction() {
 
 //geo code end 
   var neighborhoods = [
-    {lat:37.872124,lng: -122.281677},
-    {lat:37.872368,lng: -122.274612},
-    {lat:37.4122983,lng:-121.9365226},
-    {lat:37.817879,lng:-122.275887}
+    // {lat:37.872124,lng: -122.281677},
   ];
   // for(var k = 0; k < neighborhoods.lenght; k++){
   // var neighborhoodsMore = neighborhoods[k]
   // }
+
+
+  //william's code start******************
+//-------------------from home page--------------------
+//retrieve session storage - search string *******************
+var searchString = sessionStorage.search; //full address - user input
+// console.log(searchString);
+// send it back to get city name
+var addressString = {
+  address: searchString
+};
+$.ajax("/api/address", {
+  type: "post",
+  data: addressString
+}).then(function(result) {
+  if(result.city === undefined){
+    $("#display").html("API Error, Please Search Again");
+  }
+  else {
+    // $("#display").prepend("success")
+    console.log ("from homepage", result.city.address_components[3].long_name);
+    var cityName = result.city.address_components[3].long_name;
+    // write to session storage
+    sessionStorage.setItem("cityNameIndex", cityName);
+    // sessionStorage.cityNameIndex = cityName;
+    // console.log("inhere",cityNameIndex)
+    indexPageSearch();
+  }
+});
+//-------------------end home page--------------------
+//-------------------from listing page--------------------
+$("#search").on("submit", function(event) {
+  //to prevent submission without value
+  event.preventDefault();
+  console.log("clicked");
+  // get the searched string
+  var searchString = $("#listingsAddress").val().trim();
+   // send it back to get city name
+  var addressString = {
+    address: searchString
+  }
+  console.log(addressString);
+  
+  $.ajax("/api/listingsaddress", {
+    type: "post",
+    data: addressString
+  }).then(function(result) {
+    console.log(result);
+    if(result.city === undefined){
+      $("#display").prepend("API Error, Please Search Again");
+    }
+    else {
+      console.log ("from listing", result.city.address_components[3].long_name);
+      var cityNameListing = result.city.address_components[3].long_name;
+      sessionStorage.setItem("cityNameListing", cityNameListing);
+      // sessionStorage.cityNameListings = result.city.address_components[3].long_name;
+      listingsPageSearch();
+    }
+  });
+ 
+});
+//-------------------end listing search-----------------
+//use searchString to do search in listing-api-routes and then database 
+
+function displayImage(data) {
+  for(var i = 0; i < data.length; i++){
+
+    var cardShow = $("<div>");
+      cardShow.addClass("col-sm-6");
+      var cardSm = $("<div>");
+      cardSm.addClass("col-sm");
+      cardShow.append(cardSm);
+      
+      var clickSm = $("<a>");
+      clickSm.attr("href","/details");
+      var image = $('<img>');
+      image.addClass("card-img-top");
+      image.attr("src",data[i].url);
+      clickSm.append(image);
+      cardSm.append(clickSm);
+
+      var bottomLeft = $("<div>");
+      bottomLeft.addClass("bottom-left");
+      var addressBoth = data[i].streetNumber +" "+ data[i].streetName
+      bottomLeft.text(addressBoth)
+      cardSm.append(bottomLeft)
+
+      var bottomRight = $("<div>");
+      bottomRight.addClass("bottom-right");
+      var addressCity = data[i].city
+      bottomRight.text(addressCity);
+      cardSm.append(bottomRight)
+
+      var topP = $("<p>");
+      topP.addClass("card-title");
+      var bottomP = $("<p>");
+      bottomP.addClass("card-text");
+      cardSm.append(topP);
+      cardSm.append(bottomP);
+      $("#display").prepend(cardSm);
+  };
+  
+};
+
+
+// console.log("session", cityNameIndex);
+function indexPageSearch() {
+
+  var cityNameIndex = sessionStorage.cityNameIndex;
+  $.get("/api/listings/"+cityNameIndex, function(data) {
+    console.log("front index", data[0].latitude);
+  
+    displayImage(data);
+    //show in googlemap
+    for (var j=0; j<data.length; j++){
+      var coordinates = {
+        lat: data[j].latitude,
+        lng: data[j].longitude
+      };
+      neighborhoods.push(coordinates);
+    }
+  });
+};
+
+function listingsPageSearch() {
+  var cityNameListings = sessionStorage.getItem("cityNameListing");
+  $.get("/api/listings/"+cityNameListings, function(data) {
+    console.log("front listing", data);
+    $("#display").empty();
+    displayImage(data);
+    //show in googlemap
+    for (var j=0; j<data.length; j++){
+      var coordinates = {
+        lat: data[j].latitude,
+        lng: data[j].longitude
+      };
+      neighborhoods.push(coordinates);
+    }
+  });
+}
+
+//William's code end ********************************nodemon
+
 
   var markers = [];
 
@@ -64,15 +204,11 @@ function myFunction() {
     infowindow.close();
 
     // On click marker will put that address inside the destination location inside the google maps. then u can enter your location
-marker.addListener('click', function() {
-  document.getElementById('destination-input').value = street;
-});
+    marker.addListener('click', function() {
+      document.getElementById('destination-input').value = street;
+    });
     
-
-
-
-
-});
+  });
 
   
  function drop() {
@@ -263,212 +399,5 @@ marker.addListener('click', function() {
       });
     //  window.location.reload()
    }
-  
-  
-  //-------------Create Account---------------------------------
-    $("#submit-host").on("click", function() {
-       
-    })
-  
-    $("submit-renter").on("click", function() {
-  
-  
-    })
-
-//william's code start******************
-//-------------------from home page--------------------
-//retrieve session storage - search string *******************
-var searchString = sessionStorage.search; //full address - user input
-// console.log(searchString);
-// send it back to get city name
-var addressString = {
-  address: searchString
-};
-$.ajax("/api/address", {
-  type: "post",
-  data: addressString
-}).then(function(result) {
-  if(result.city === undefined){
-    $("#display").html("API Error, Please Search Again");
-  }
-  else {
-    // $("#display").prepend("success")
-    console.log ("from homepage", result.city.address_components[3].long_name);
-    var cityName = result.city.address_components[3].long_name;
-    // write to session storage
-    sessionStorage.setItem("cityNameIndex", cityName);
-    // sessionStorage.cityNameIndex = cityName;
-    // console.log("inhere",cityNameIndex)
-    indexPageSearch();
-  }
-});
-//-------------------end home page--------------------
-//-------------------from listing page--------------------
-$("#search").on("submit", function(event) {
-  //to prevent submission without value
-  event.preventDefault();
-  console.log("clicked");
-  // get the searched string
-  var searchString = $("#listingsAddress").val().trim();
-   // send it back to get city name
-  var addressString = {
-    address: searchString
-  }
-  console.log(addressString);
-  
-  $.ajax("/api/listingsaddress", {
-    type: "post",
-    data: addressString
-  }).then(function(result) {
-    console.log(result);
-    if(result.city === undefined){
-      $("#display").prepend("API Error, Please Search Again");
-    }
-    else {
-      console.log ("from listing", result.city.address_components[3].long_name);
-      var cityNameListing = result.city.address_components[3].long_name;
-      sessionStorage.setItem("cityNameListing", cityNameListing);
-      // sessionStorage.cityNameListings = result.city.address_components[3].long_name;
-      listingsPageSearch();
-    }
-  });
- 
-});
-//-------------------end listing search-----------------
-//use searchString to do search in listing-api-routes and then database 
 
 
-// console.log("session", cityNameIndex);
-function indexPageSearch() {
-
-  var cityNameIndex = sessionStorage.cityNameIndex;
-  $.get("/api/listings/"+cityNameIndex, function(data) {
-    console.log("front", data);
-  
-    var iterations;
-
-    if (data.length % 2 === 0) {
-      iterations = data.length / 2;
-    } else {
-      iterations = Math.ceil(data.length / 2);
-    }
-    
-    for(var i = 0; i < iterations; i++){
-      var row = $("<div>")
-      row.addClass("row");
-      row.attr("id","newStuff");
-      var cardRow = $("<div>")
-      cardRow.addClass("row pushLeft");
-      cardRow.attr("id","cardRow");
-       
-      for(var j =0; j < 2; j++){
-        
-        var cardShow = $("<div>");
-        cardShow.addClass("col-sm-6");
-        var cardSm = $("<div>");
-        cardSm.addClass("col-sm");
-        cardShow.append(cardSm);
-        var clickSm = $("<a>");
-        clickSm.attr("href","/details");
-        var image = $('<img>');
-        image.addClass("card-img-top");
-        image.attr("src",data[i].url);
-        clickSm.append(image);
-        cardSm.append(clickSm);
-
-        var bottomLeft = $("<div>");
-        bottomLeft.addClass("bottom-left");
-        var addressBoth = data[i].streetNumber +" "+ data[i].streetName
-        bottomLeft.text(addressBoth)
-        cardSm.append(bottomLeft)
-
-        var bottomRight = $("<div>");
-        bottomRight.addClass("bottom-right");
-        var addressCity = data[i].city
-        bottomRight.text(addressCity);
-        cardSm.append(bottomRight)
-
-        var topP = $("<p>");
-        topP.addClass("card-title");
-        var bottomP = $("<p>");
-        bottomP.addClass("card-text");
-        cardSm.append(topP);
-        cardSm.append(bottomP);
-        cardRow.append(cardShow);
-      }
-      row.prepend(cardRow);
-      $("#display").prepend(row);
-      console.log(row);
-    }
-
-    
-  });
-};
-
-function listingsPageSearch() {
-  var cityNameListings = sessionStorage.getItem("cityNameListing");
-  $.get("/api/listings/"+cityNameListings, function(data) {
-    console.log("front", data);
-
-    $(".display").prepend("success")
-    var iterations;
-
-    if (data.length % 2 === 0) {
-      iterations = data.length / 2;
-    } else {
-      iterations = Math.ceil(data.length / 2);
-    }
-    
-    for(var i = 0; i < iterations; i++){
-      var row = $("<div>")
-      row.addClass("row");
-      row.attr("id","newStuff");
-      var cardRow = $("<div>")
-      cardRow.addClass("row pushLeft");
-      cardRow.attr("id","cardRow");
-       
-      for(var j =0; j < 2; j++){
-        
-        var cardShow = $("<div>");
-        cardShow.addClass("col-sm-6");
-        var cardSm = $("<div>");
-        cardSm.addClass("col-sm");
-        cardShow.append(cardSm);
-        var clickSm = $("<a>");
-        clickSm.attr("href","/details");
-        var image = $('<img>');
-        image.addClass("card-img-top");
-        image.attr("src",data[i].url);
-        clickSm.append(image);
-        cardSm.append(clickSm);
-
-        var bottomLeft = $("<div>");
-        bottomLeft.addClass("bottom-left");
-        var addressBoth = data[i].streetNumber +" "+ data[i].streetName
-        bottomLeft.text(addressBoth)
-        cardSm.append(bottomLeft)
-
-        var bottomRight = $("<div>");
-        bottomRight.addClass("bottom-right");
-        var addressCity = data[i].city
-        bottomRight.text(addressCity);
-        cardSm.append(bottomRight)
-
-        var topP = $("<p>");
-        topP.addClass("card-title");
-        var bottomP = $("<p>");
-        bottomP.addClass("card-text");
-        cardSm.append(topP);
-        cardSm.append(bottomP);
-        cardRow.append(cardShow);
-      }
-      row.prepend(cardRow);
-      $("#display").prepend(row);
-      console.log(row);
-    }
-    
-    
-  });
-}
-
-//William's code end ********************************nodemon
