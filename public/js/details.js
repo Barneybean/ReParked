@@ -81,12 +81,14 @@ $.get("/api/"+listingId, function(data) {
       var index = i+1
       columnName.attr("scope","col");
       columnName.attr("class", "day"+index)
-      columnName.text(result[i].bookedDates)
+      columnName.text(today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+i));
       $("#columnName").append(columnName);
     }
     else {
       console.log("display 3 reservations only")
     }
+    
+
     
   }
 
@@ -174,6 +176,10 @@ $("#add-btn").on("click", function(event) {
     startHour: $("#startH").val().trim(),
     endHour: $("#endH").val().trim(),
     note: $("#note").val().trim(),
+    listingId: listingId,
+    userId: userId,
+    hostId: hostId
+
   };
   console.log(newReservation);
 
