@@ -1,10 +1,10 @@
 // $('#day1').val(reservation.bookedDate)
-// var userId = sessionStorage.getItem("loggedInRenterId");
-// var hostId = sessionStorage.getItem("loggedInHostId");
-// var listingId = sessionStorage.getItem("clickedListingId");
-var userId = 1;
-var hostId = 2;
-var listingId =2; 
+var userId = sessionStorage.getItem("loggedInRenterId");
+var hostId = sessionStorage.getItem("loggedInHostId");
+var listingId = sessionStorage.getItem("clickedListingId");
+// var userId = 1;
+// var hostId = 2;
+// var listingId =2; 
 
 
 

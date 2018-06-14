@@ -1,7 +1,6 @@
 // var express = require("express");
  
 
-$(document).ready(function() {
   //----------Sign up & log in------------------------------
   $("#beHost").on("click", function() {
      //to prevent submission without value
@@ -161,7 +160,7 @@ var newRenterName = $("#newRenterName");
       type: "POST",
       data: renterMember
     }).then(function(data) {
-      console.log (data);
+      // console.log (data);
       //write sucessfull login into session
       if (data === "Fail Login") {
         $("#logInBtn").text("Login failed, click me to try again");
@@ -257,7 +256,6 @@ hostBack.on("click", function(event) {
 
   });
 
-});
 
 
 
