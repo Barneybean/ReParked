@@ -163,61 +163,70 @@ var newRenterName = $("#newRenterName");
     }).then(function(data) {
       console.log (data);
       //write sucessfull login into session
-      sessionStorage.setItem("loggedInAsId", data.successId);
-      sessionStorage.setItem("loggedInAsEmail", data.successEmail);
-
-      $("#logInBtn").text("logged in as: "+ data.successEmail);
+      if (data === undefined) {
+        $("#logInBtn").text("Login failed, click me to try again");
+      }
+      else {
+        sessionStorage.setItem("loggedInRenterId", data.successId);
+        sessionStorage.setItem("loggedInRenterEmail", data.successEmail);
+        $("#logInBtn").text("logged in as Renter: "+ data.successEmail);
+      }
+      
     }).catch(function(err) {
       console.log(err);
     });
   }
 
 //----------Host login---------------------------------
-var hostBack = $("hostBack");
-var comfirmHostName = $("#comfirmHostName");
+var hostBack = $("#hostBack");
 var comfirmHostEmail = $("#comfirmHostEmail");
 var comfirmHostPw = $("#comfirmHostPw");
 
 hostBack.on("click", function(event) {
-  
+    console.log("host clicked")
     event.preventDefault();
     var hostLogin = {
-      name: comfirmHostName.val().trim(),
       email: comfirmHostEmail.val().trim(),
       password: comfirmHostPw.val().trim()
     };
     
 
-    if (!hostLogin.name || !hostLogin.email || !hostLogin.password) {
+    if (!hostLogin.email || !hostLogin.password) {
      return;
    }
    // If we have an email and password, run the signUpUser function
-   loginHost(hostLogin.name, hostLogin.email, hostLogin.password);
-   comfirmHostName.val("");
+   loginHost(hostLogin.email, hostLogin.password);
    comfirmHostEmail.val("");
    comfirmHostPw.val("");
 
 });
 
- function loginHost(name, email, password) {
+ function loginHost(email, password) {
 
    var hostMember = {
-     name:name,
-     email:email,
-     password: password
+     Email:email,
+     Password: password
    }
 
    $.ajax("/api/hostLogin", {
-     type: "post",
+     type: "POST",
      data: hostMember
    }).then(function(data) {
-     console.log ("posted");
+    console.log (data);
+    //write sucessfull login into session
+    if (data === undefined) {
+      $("#hostLogInBtn").text("Login failed, click me to try again");
+    }
+    else {
+      sessionStorage.setItem("loggedInHostId", data.successId);
+      sessionStorage.setItem("loggedInHostEmail", data.successEmail);
+      $("#hostLogInBtn").text("logged in as Host: " + data.successEmail);
+    }
+    
    }).catch(function(err) {
      console.log(err);
    });
  }
-
-
 
   //---------------------search Bar----------------------------- 
   //send search result to cookie and redirect to another page

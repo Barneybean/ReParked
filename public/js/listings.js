@@ -16,30 +16,28 @@ function myFunction() {
 
 //geo code end 
   var neighborhoods = [
-    {lat:37.872578,lng: -122.272927},
-    {lat:37.873827,lng: -122.270386},
-    {lat:37.874790, lng:-122.276636},
-    {lat:37.875035,lng:-122.274702},
-    {lat:37.873845,lng: -122.276870},
-    {lat:37.874537, lng:-122.275694},
-    {lat:37.87942,lng:-122.2597241},
-    {lat:37.8775201,lng:-122.2592817},
-    {lat:37.8683052,lng:-122.2768382},
-    {lat:37.8645197,lng:-122.2784767}
-
+    {lat:37.872124,lng: -122.281677},
+    {lat:37.872368,lng: -122.274612},
+    {lat:37.4122983,lng:-121.9365226},
+    {lat:37.817879,lng:-122.275887}
   ];
+  // for(var k = 0; k < neighborhoods.lenght; k++){
+  // var neighborhoodsMore = neighborhoods[k]
+  // }
 
   var markers = [];
 
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
-      center: {lat: 37.875717, lng: -122.232614},
-      zoom: 14
+      center: {lat: 37.6624, lng: -121.8747},
+      zoom: 10
     });
     // 37.875717,-122.232614
     var street = "hayward,Ca 94544"
     // test
+
+
     var contentString = '<div id="content">'+
     '<div id="siteNotice">'+
     '</div>'+
@@ -347,7 +345,61 @@ function indexPageSearch() {
   $.get("/api/listings/"+cityNameIndex, function(data) {
     console.log("front", data);
   
+    var iterations;
 
+    if (data.length % 2 === 0) {
+      iterations = data.length / 2;
+    } else {
+      iterations = Math.ceil(data.length / 2);
+    }
+    
+    for(var i = 0; i < iterations; i++){
+      var row = $("<div>")
+      row.addClass("row");
+      row.attr("id","newStuff");
+      var cardRow = $("<div>")
+      cardRow.addClass("row pushLeft");
+      cardRow.attr("id","cardRow");
+       
+      for(var j =0; j < 2; j++){
+        
+        var cardShow = $("<div>");
+        cardShow.addClass("col-sm-6");
+        var cardSm = $("<div>");
+        cardSm.addClass("col-sm");
+        cardShow.append(cardSm);
+        var clickSm = $("<a>");
+        clickSm.attr("href","/details");
+        var image = $('<img>');
+        image.addClass("card-img-top");
+        image.attr("src",data[i].url);
+        clickSm.append(image);
+        cardSm.append(clickSm);
+
+        var bottomLeft = $("<div>");
+        bottomLeft.addClass("bottom-left");
+        var addressBoth = data[i].streetNumber +" "+ data[i].streetName
+        bottomLeft.text(addressBoth)
+        cardSm.append(bottomLeft)
+
+        var bottomRight = $("<div>");
+        bottomRight.addClass("bottom-right");
+        var addressCity = data[i].city
+        bottomRight.text(addressCity);
+        cardSm.append(bottomRight)
+
+        var topP = $("<p>");
+        topP.addClass("card-title");
+        var bottomP = $("<p>");
+        bottomP.addClass("card-text");
+        cardSm.append(topP);
+        cardSm.append(bottomP);
+        cardRow.append(cardShow);
+      }
+      row.prepend(cardRow);
+      $("#display").prepend(row);
+      console.log(row);
+    }
 
     
   });
@@ -357,8 +409,63 @@ function listingsPageSearch() {
   var cityNameListings = sessionStorage.getItem("cityNameListing");
   $.get("/api/listings/"+cityNameListings, function(data) {
     console.log("front", data);
-    $(".display").prepend("success")
 
+    $(".display").prepend("success")
+    var iterations;
+
+    if (data.length % 2 === 0) {
+      iterations = data.length / 2;
+    } else {
+      iterations = Math.ceil(data.length / 2);
+    }
+    
+    for(var i = 0; i < iterations; i++){
+      var row = $("<div>")
+      row.addClass("row");
+      row.attr("id","newStuff");
+      var cardRow = $("<div>")
+      cardRow.addClass("row pushLeft");
+      cardRow.attr("id","cardRow");
+       
+      for(var j =0; j < 2; j++){
+        
+        var cardShow = $("<div>");
+        cardShow.addClass("col-sm-6");
+        var cardSm = $("<div>");
+        cardSm.addClass("col-sm");
+        cardShow.append(cardSm);
+        var clickSm = $("<a>");
+        clickSm.attr("href","/details");
+        var image = $('<img>');
+        image.addClass("card-img-top");
+        image.attr("src",data[i].url);
+        clickSm.append(image);
+        cardSm.append(clickSm);
+
+        var bottomLeft = $("<div>");
+        bottomLeft.addClass("bottom-left");
+        var addressBoth = data[i].streetNumber +" "+ data[i].streetName
+        bottomLeft.text(addressBoth)
+        cardSm.append(bottomLeft)
+
+        var bottomRight = $("<div>");
+        bottomRight.addClass("bottom-right");
+        var addressCity = data[i].city
+        bottomRight.text(addressCity);
+        cardSm.append(bottomRight)
+
+        var topP = $("<p>");
+        topP.addClass("card-title");
+        var bottomP = $("<p>");
+        bottomP.addClass("card-text");
+        cardSm.append(topP);
+        cardSm.append(bottomP);
+        cardRow.append(cardShow);
+      }
+      row.prepend(cardRow);
+      $("#display").prepend(row);
+      console.log(row);
+    }
     
     
   });
