@@ -15,7 +15,7 @@ var sha256 = require("sha256");
 module.exports = function(app) {
     
     //=======================host sign up
-    app.post('/api/hostSignUp', function(req, res) {
+    app.post('/api/hostsignup', function(req, res) {
 
         // console.log(req.body.password + " host sign up email");
         var hostName = req.body.hostName;
@@ -38,7 +38,7 @@ module.exports = function(app) {
 
  
     //=========================host login
-    app.post('/api/hostLogin', function(req, res) {
+    app.post('/api/hostlogin', function(req, res) {
 
         var hostEmail = req.body.Email;
         var hostPassword = sha256(req.body.Password);
@@ -48,18 +48,26 @@ module.exports = function(app) {
                 hostEmail: hostEmail
             }
         }).then(function(hostObj) {
-            console.log("inhere",hostObj.hostEmail);
+            // if (err) {
+            //     var failLogin = "Fail Login";
+            //     res.json(failLogin);
+            // }
+            // else {
+            //     console.log("inhere",hostObj.hostEmail);
+            // }
+            
             if (hostObj.hostEmail === hostEmail && hostObj.password === hostPassword) {
-                //    console.log("inhere");
-                    var loginAs = {
-                        successId: hostObj.id,
-                        successEmail: hostObj.hostEmail
-                    }
-                    res.json(loginAs);
-                } else {
-                    var failLogin = "Fail Login";
-                    res.json(failLogin);
+            //    console.log("inhere");
+                var loginAs = {
+                    successId: hostObj.id,
+                    successName: hostObj.hostName,
+                    successEmail: hostObj.hostEmail
                 }
+                res.json(loginAs);
+            } else {
+                var failLogin = "Fail Login";
+                res.json(failLogin);
+            }
         });
     });
 };

@@ -110,7 +110,7 @@ var newRenterName = $("#newRenterName");
       renterPassword: password
     }
 
-    $.ajax("/api/renterSignUp", {
+    $.ajax("/api/rentersignup", {
       type: "post",
       data: renterInfo
     }).then(function(data) {
@@ -128,14 +128,14 @@ var newRenterName = $("#newRenterName");
  var comfirmPw = $("#comfirmPw");
 
  renterBack.on("click", function(event) {
-      console.log("clicked")
-     event.preventDefault();
+    console.log("clicked")
+    event.preventDefault();
 
     
-     var renterLogin = {
-       email: comfirmEmail.val().trim(),
-       password: comfirmPw.val().trim()
-     };
+    var renterLogin = {
+      email: comfirmEmail.val().trim(),
+      password: comfirmPw.val().trim()
+    };
 
      if (!renterLogin.email || !renterLogin.password) {
       return;
@@ -157,19 +157,20 @@ var newRenterName = $("#newRenterName");
 
     console.log(renterMember);
 
-    $.ajax("/api/renterLogin", {
+    $.ajax("/api/renterlogin", {
       type: "POST",
       data: renterMember
     }).then(function(data) {
       console.log (data);
       //write sucessfull login into session
-      if (data === undefined) {
+      if (data === "Fail Login") {
         $("#logInBtn").text("Login failed, click me to try again");
       }
       else {
         sessionStorage.setItem("loggedInRenterId", data.successId);
+        sessionStorage.setItem("loggedInRenterName", data.successName);
         sessionStorage.setItem("loggedInRenterEmail", data.successEmail);
-        $("#logInBtn").text("logged in as Renter: "+ data.successEmail);
+        $("#logInBtn").text("logged in as Renter: " + data.successEmail);
       }
       
     }).catch(function(err) {
@@ -208,17 +209,18 @@ hostBack.on("click", function(event) {
      Password: password
    }
 
-   $.ajax("/api/hostLogin", {
+   $.ajax("/api/hostlogin", {
      type: "POST",
      data: hostMember
    }).then(function(data) {
     console.log (data);
     //write sucessfull login into session
-    if (data === undefined) {
+    if (data === "Fail Login") {
       $("#hostLogInBtn").text("Login failed, click me to try again");
     }
     else {
       sessionStorage.setItem("loggedInHostId", data.successId);
+      sessionStorage.setItem("loggedInHostName", data.successName);
       sessionStorage.setItem("loggedInHostEmail", data.successEmail);
       $("#hostLogInBtn").text("logged in as Host: " + data.successEmail);
     }
