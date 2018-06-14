@@ -1,7 +1,8 @@
+$(document).ready(function() {
 
-  var neighbor = [
-   //coordinates goes here
-  ];
+var neighbor = [
+  //coordinates goes here
+];
  
 
 //william's code start******************
@@ -103,7 +104,7 @@ function displayImage(data) {
       cardSm.append(topP);
       cardSm.append(bottomP);
       //assign lisitng id to cardSm
-      cardSm.attr("data-listinId", data[i].id);
+      image.attr("value", parseInt(data[i].id));
       $("#display").prepend(cardSm);
   };
   
@@ -117,7 +118,7 @@ function indexPageSearch() {
   $.get("/api/listings/"+cityNameIndex, function(data) {
     console.log("front index", data[0].latitude);
     sessionStorage.removeItem("coordinates");
-
+    $("#display").empty();
     displayImage(data);
     //show in googlemap
     neighbor=[];
@@ -153,9 +154,11 @@ function listingsPageSearch() {
   });
 }
 
-
-$(document).on("click", ".listing", function () {
-  var listingId = $(this).
+//store listing id to session storage for details page to load this listing
+$(document).on("click", ".card-img-top", function () {
+  var listingId = $(this).attr("value");
+  console.log(listingId)
+  sessionStorage.setItem("clickedListingId", listingId);
 })
 //William's code end ********************************nodemon
 
@@ -237,7 +240,7 @@ $(document).on("click", ".listing", function () {
    }
 
  
-
+});
   // Makes the map set sticky class
 
   window.onscroll = function() {myFunction()};
