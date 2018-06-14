@@ -21,13 +21,32 @@ module.exports = function(app) {
       vehicleModel: req.body.vehicleModel,
       licensePlate: req.body.licensePlate,
       dateStart: req.body.startDate,
-      dateEnd: req.body.endDate,
+      // dateEnd: req.body.endDate,
       timeStart: req.body.startHour,
       timeEnd: req.body.endHour,
       note: req.body.note,
+      listingId: req.body.listingId,
+      rentersprofileId: req.body.userId,
+      hostsprofileId: req.body.hostId
     }).then(function(results) {
       console.log(results);
     })
   });
     
+  app.get("/api/:listingid", function(req, res) {
+    console.log(req.params.listingid)
+    db.reservation.findAll({
+      where: {
+        // query db for the listing being viewed
+        listingId: req.params.listingid
+        
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+
+
+
 };

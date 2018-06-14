@@ -30,13 +30,13 @@ module.exports = function(sequelize, DataTypes) {
       len: [2]
       }
     },
-    dateEnd: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-      len: [1]
-      }
-    },
+    // dateEnd: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    //   validate: {
+    //   len: [1]
+    //   }
+    // },
     timeStart: {
     type: DataTypes.INTEGER,
     allowNull: true,
