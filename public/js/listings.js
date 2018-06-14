@@ -73,6 +73,7 @@ function displayImage(data) {
       cardShow.addClass("col-sm-6");
       var cardSm = $("<div>");
       cardSm.addClass("col-sm");
+      cardSm.addClass("listing");
       cardShow.append(cardSm);
       
       var clickSm = $("<a>");
@@ -101,6 +102,8 @@ function displayImage(data) {
       bottomP.addClass("card-text");
       cardSm.append(topP);
       cardSm.append(bottomP);
+      //assign lisitng id to cardSm
+      cardSm.attr("data-listinId", data[i].id);
       $("#display").prepend(cardSm);
   };
   
@@ -125,6 +128,7 @@ function indexPageSearch() {
       };
       neighbor.push(coordinates);
     }
+    // console.log(neighbor);
     sessionStorage.setItem("coordinates", JSON.stringify(neighbor));
   });
 };
@@ -145,9 +149,14 @@ function listingsPageSearch() {
       neighbor.push(coordinates);
     };
     sessionStorage.setItem("coordinates", JSON.stringify(neighbor)); 
+  
   });
 }
 
+
+$(document).on("click", ".listing", function () {
+  var listingId = $(this).
+})
 //William's code end ********************************nodemon
 
 

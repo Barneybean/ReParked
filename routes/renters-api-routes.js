@@ -75,4 +75,24 @@ module.exports = function(app) {
             }
         });
     });  
+
+     // jose code****************************************
+
+     app.post("/api/renters+reservation/:renterid", function(req, res){
+        console.log(req.params.renterid);
+        var dataRenterId = req.params.renterid;
+        console.log(dataRenterId)
+        db.reservations.findOne({
+            where:{
+            dataRenterId: rentersprofileId    
+            }
+        }).then(function(results) {
+            console.log(results)
+            res.json(results)
+        })
+    })
+
+
+    // code end*****************************************
+
 };
