@@ -22,3 +22,4 @@ INSERT INTO reservations (vehicleMake, vehicleModel, licensePlate, dateStart, ti
 
 INSERT INTO reservations (vehicleMake, vehicleModel, licensePlate, dateStart, timeStart, timeEnd, note, createdAt, updatedAt, ListingId, rentersProfileId, hostsProfileId)
     VALUES ("Chevy", "Silverado", "jjjjj", "2018-07-01", 12, 18, "its a truck", NOW(), NOW(), 2, 3, 3);
+
