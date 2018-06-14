@@ -171,6 +171,12 @@ var newRenterName = $("#newRenterName");
         sessionStorage.setItem("loggedInRenterName", data.successName);
         sessionStorage.setItem("loggedInRenterEmail", data.successEmail);
         $("#logInBtn").text("logged in as Renter: " + data.successEmail);
+        $("#hostLogInBtn").text("Host Login");
+
+        // after login, user can see profile
+        var renterProfile=$('<a type="button" id="renterProfile" class="btn btn-outline-secondary" href="/renters">');
+        renterProfile.text("Renter Profile");
+        $("#navButton").prepend(renterProfile);
       }
       
     }).catch(function(err) {
@@ -223,8 +229,15 @@ hostBack.on("click", function(event) {
       sessionStorage.setItem("loggedInHostName", data.successName);
       sessionStorage.setItem("loggedInHostEmail", data.successEmail);
       $("#hostLogInBtn").text("logged in as Host: " + data.successEmail);
+      $("#logInBtn").text("Renter Login");
+
+      // after login, user can see profile
+      var hostProfile=$('<a type="button" id="hostProfile" class="btn btn-outline-secondary" href="/hosts">');
+      hostProfile.text("Host Profile");
+      $("#navButton").prepend(hostProfile);
+
     }
-    
+    ç
    }).catch(function(err) {
      console.log(err);
    });
