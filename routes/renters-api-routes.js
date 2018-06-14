@@ -41,21 +41,20 @@ module.exports = function(app) {
         // console.log(req.body.Password + " renter login pw");
         // console.log(req.body);
         var renterEmail = req.body.Email;
-        var renterPassword =  sha256(req.body.Password);
+        var renterPassword = sha256(req.body.Password);
+        
+        console.log(renterPassword);
 
         db.rentersprofile.findOne({
             where: {
                 RenterEmail: renterEmail
             }
-        // var hashNewHostPw = sha256(req.body.passport);
-        // console.log(hashNewHostPw);
         }).then(function(renterObj) {
-            console.log(renterObj.RenterEmail);
-            if(!renterObj.RenterEmail) {
-                var failLogin = "Fail Login";
-                res.json(failLogin);
-            }
-            else if (renterObj.password === req.body.Password) {
+            console.log(renterObj.password);
+            // console.log(renterObj.RenterEmail);
+            // console.log(renterObj.RenterEmail === renterEmail && renterObj.password === renterPassword)
+            if (renterObj.RenterEmail === renterEmail && renterObj.password === renterPassword) {
+            //    console.log("inhere");
                 var loginAs = {
                     successId: renterObj.id,
                     successEmail: renterObj.RenterEmail

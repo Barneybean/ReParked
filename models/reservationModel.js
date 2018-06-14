@@ -57,8 +57,8 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
       len: [1,45]
       }
-    },
-    });
+    }
+  });
 
   Reservation.associate = function(models) {
     // Associating Reservation with hosts
