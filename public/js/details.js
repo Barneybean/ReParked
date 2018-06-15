@@ -87,7 +87,7 @@ $.get("/api/"+listingId+"/"+date+"/"+twoDaysFromToday, function(data) {
       columnName.attr("scope","col");
       columnName.attr("class", "day"+index)
       columnName.text((today.getFullYear()) + "-" + (today.getMonth()+1) + "-" + (today.getDate()+i));
-      $("#columnName").append(columnName);
+      // $("#columnName").append(columnName);
     }
     else {
       console.log("display 3 reservations only")
@@ -131,7 +131,7 @@ $.get("/api/"+listingId+"/"+date+"/"+twoDaysFromToday, function(data) {
         tableData1.text(timeSlot);
         tableData1.attr("id", i+"-"+result[0].bookedDates);
         tableRow.append(tableData1);
-        $("#tableBody").append(tableRow);
+        // $("#tableBody").append(tableRow);
       }
     }
     else {
