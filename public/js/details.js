@@ -1,5 +1,11 @@
+
 // $('#day1').val(reservation.bookedDate)
 var userId = sessionStorage.getItem("loggedInRenterId");
+// if (!sessionStorage.getItem("loggedInHostId")) {
+//   var hostId = sessionStorage.getItem("loggedInHostId");
+// } else {
+//   var hostId = 1;
+// }
 var hostId = sessionStorage.getItem("loggedInHostId");
 var listingId = sessionStorage.getItem("clickedListingId");
 var imageUrl = sessionStorage.getItem("clickedListingUrl");

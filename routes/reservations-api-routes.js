@@ -21,7 +21,6 @@ module.exports = function(app) {
       vehicleModel: req.body.vehicleModel,
       licensePlate: req.body.licensePlate,
       dateStart: req.body.startDate,
-      // dateEnd: req.body.endDate,
       timeStart: req.body.startHour,
       timeEnd: req.body.endHour,
       note: req.body.note,

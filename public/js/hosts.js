@@ -9,11 +9,28 @@ var zipCode = $("#zipcode");
 var type = $("#type");
 var hourlyRate = $("#hourlyRate");
 var url = $("#url"); 
-
 var garageInfo = "";
+//=================================future develop======
+// var hostListingsId = sessionStorage.getItem("loggedInHostId");
+// $.ajax("/api/hostlistings/" + hostListingsId, {
+//     type: "get"
+// }).then(function(data) {
+//     console.log("this is :" + data);
+
+    // var garagePic = $('<img>');
+    // garagePic.attr("src", data.Url);
+    // $("#garagePhoto").append(garagePic);
+
+    // $("#garageInfomation").append('<div><strong>Your  Garage location</strong>: ' + data.streetnumber + ' ' + data.streetname + ', ' + data.City + ', ' + data.State + ', ' + data.zipCode + '.<strong><br>Type</strong>: ' + data.Type + '<strong><br>Hourly Rate</strong>: ' + data.hourlyRate + "<hr>");
+
+
+// });
+
+
 $("#submitBtn").on("click", function(event) {
     event.preventDefault();
 
+    alert("congratulations!!!");
     garageInfo = {
         streetnumber: streetNumber.val().trim(),
         streetname: streetName.val().trim(),
@@ -21,11 +38,18 @@ $("#submitBtn").on("click", function(event) {
         state: state.val().trim(),
         zipcode: parseInt(zipCode.val().trim()),
         hourlyrate: hourlyRate.val().trim(),
-        type: type.val().trim(),
+        type: type.val(),
         url: url.val().trim(),
     }
     console.log(garageInfo.url);
+    
+     var garagePic = $('<img>');
+    garagePic.attr("src", garageInfo.url);
+    garagePic.attr("height", "250");
+    garagePic.attr("width", "250");
+    $("#garagePhoto").append(garagePic);
 
+    $("#garageInfomation").append('<div><strong>Your  Garage location</strong>: ' + garageInfo.streetnumber + ' ' + garageInfo.streetname + ', ' + garageInfo.city + ', ' + garageInfo.state + ', ' + garageInfo.zipcode + '.<strong><br>Type</strong>: ' + garageInfo.type + '<strong><br>Hourly Rate</strong>: ' + garageInfo.hourlyrate + "<hr>");
 
 
     var searchString = garageInfo.streetnumber + " " + garageInfo.streetname + " " + garageInfo.city;
@@ -56,7 +80,7 @@ $("#submitBtn").on("click", function(event) {
        
         var profileId = sessionStorage.getItem("loggedInHostId");
         console.log("first: " + profileId);
-
+    
         garageInfoPush(garageInfo.streetnumber, garageInfo.streetname, garageInfo.city, garageInfo.state, garageInfo.zipcode, latitude, longitude, garageInfo.type, garageInfo.hourlyrate, garageInfo.url, profileId);
 
         streetNumber.val("");
@@ -64,7 +88,7 @@ $("#submitBtn").on("click", function(event) {
         city.val("");
         state.val("");
         zipCode.val("");
-        type.val("");
+        
         url.val("");
         
 
@@ -88,13 +112,20 @@ $("#submitBtn").on("click", function(event) {
               type:"POST",
               data: garages
           }).then(function(data) {
-              console.log("posted");
+            console.log("posted");
+        
+
+
+
+        //       var renterProfile=$('<a type="button" id="renterProfile" class="btn btn-outline-secondary" href="/renters">');
+        // renterProfile.text("Renter Profile");
+        // $("#navButton").prepend(renterProfile);
           }).catch(function(err) {
               console.log(err);
           });
       }
             // sessionStorage.cityNameIndex = cityName;
-            // console.log("inhere",cityNameIndex)
+            // console.log("inhere",cityNameInde
       };
     });
 });

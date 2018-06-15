@@ -15,58 +15,78 @@
 </head>  
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand col-xs-4 col-md-4" href="/">REPARKED</a>
-        <a id="homeBtn" class="btn btn-outline-primary" href="/">Home</a>
-    </nav>
-    <!--DIV for host information-->
-    <section id="hostsInfo" class="container">
-        
-            <!--known-->
+        <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand col-xs-9 col-md-9">REPARKED</a> 
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Edit Infomation
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Change Password</a>
+                        <a class="dropdown-item" href="#">Change Email</a>
+                        <a class="dropdown-item" href="#">Change Personal Information</a>
+                    </div>
+                </div>
+                <a id="homeBtn" class="btn btn-outline-primary" href="/">Home</a>        
+        </nav>
+        <!--DIV for host information-->      
+        <section id="hostsInfo" class="container">        
+                <!--known-->
             <div class="row">
+                <!--input new-->
+                <form class="border border-primary formBorder col-md-8 col-xs-8">
+                    <div class="form-row">
+                        <div class="form-group col-md-3 col-xs-3">
+                            <label for="inputStreetNumber">streetNumber</label>
+                            <input type="text" id="streetNumber"  class="form-control" placeholder="1234 ">
+                        </div>
+                    
+                        <div class="form-group col-md-5 col-xs-5">
+                            <label for="inputStreetName">streetName</label>
+                            <input type="text"  class="form-control" id="streetName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 col-xs-3">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+                        <div class="form-group col-md-4 col-xs-3">
+                            <label for="inputState">State</label>
+                            <input type="text" class="form-control" id="state">
+                        </div>
+                        <div class="form-group col-md-4 col-xs-2">
+                            <label for="inputZipcode">Zipcode</label>
+                            <input type="text" class="form-control" id="zipcode">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                    
+                            <select class="form-control" id="type">
+                                <option>Dirveway</option>
+                                <option>Carport</option>
+                                <option>Garage</option>
+                            </select>
+                        
+                        <div class="form-group col-md-4 col-xs-4">
+                            <label for="inputHourlyRate">Hourly Rate</label>
+                            <input type="text" class="form-control" id="hourlyRate">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-8 col-xs-8">
+                        <label for="inputUrl">Url</label>
+                        <input type="text" class="form-control" id="url">
+                    </div>
+                    <button class="btn btn-primary" id="submitBtn" type="submit" >Button</button>  
+                </form>
+                
                 <!--personal info-->
-                <div></div>
-                <!--posted garage-->
-                <div></div>
+                <div id="garageListing" class="col-md-4 col-xs-4">
+                    <div id="garagePhoto" class=""></div><br>
+                    <div id="garageInfomation" class="row"></div>
+                </div>
             </div>
-            <!--input new-->
-
-            <form>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputStreetNumber">streetNumber</label>
-                    <input type="text" id="streetNumber"  class="form-control" placeholder="1234 ">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputStreetName">streetName</label>
-                    <input type="text"  class="form-control" id="streetName">
-                </div>
-                <div class="form-group col-md-4 col-xs-4">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="city">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="state">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputZipcode">Zipcode</label>
-                    <input type="text" class="form-control" id="zipcode">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputId">Type</label>
-                    <input type="text" class="form-control" placeholder="ex. driveway, carport or garage" id="type">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputHourlyRate">Hourly Rate</label>
-                    <input type="text" class="form-control" id="hourlyRate">
-                </div>
-                <div class="form-group col-md-6 col-xs-6">
-                    <label for="inputUrl">Url</label>
-                    <input type="text" class="form-control" id="url">
-                </div>
-                <button class="btn btn-primary" id="submitBtn" type="submit" >Button</button>  
-            </form>
-    </section>
+        </section>
    
     <!-- footer -->
     <footer>

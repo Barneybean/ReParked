@@ -165,3 +165,19 @@ footer iframe {
   .loginBtn--google:focus {
     background: #E74B37;
   }
+
+  .formBorder{
+    background-image: url('http://www.3kidsandus.com/wp-content/uploads/2017/12/x3b7z9.jpg');
+    background-size: cover;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
+ 
+ #garagePhoto{
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+ }
