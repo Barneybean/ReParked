@@ -15,236 +15,58 @@
 </head>  
 
 <body>
-        <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand col-xs-4 col-md-4">REPARKED</a>
-                <span>
-                <button type="button" id="hostLogInBtn"class="btn btn-outline-secondary" href="becomehost" data-toggle="modal" data-target="#hostLogInModal">I'm Host Login</button>
-                <button type="button" id="logInBtn" class="btn btn-outline-warning" href="login" data-toggle="modal" data-target="#logInModal">Renter Login</button>
-                <button type="button" id="signUpBtn" class="btn btn-outline-primary" href="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
-                </span>
-            </nav>
-                
-        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="signUpModalLabel">Sign Up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <!--form one-->
-                            <div id="hostModal" class="login">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="text-center text-primary">Join Us</h1>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="" class="form col-md-12 center-block">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="Host Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="confirm password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="Email Address">
-                                    </div>
-                                    <div class="form-group">
-                                        <a id="submit-host" class="btn btn-primary btn-lg btn-block" href="/hosts">Create Account</a>
-                                    </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        <!--form two-->
-                        <div id="renterModal" class="login">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="text-center text-primary">Join Us</h1>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="" class="form col-md-12 center-block">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="Renter Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="confirm password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-lg" placeholder="Email Address">
-                                    </div>
-                                    <div class="form-group">
-                                        <a id="submit-renter" class="btn btn-primary btn-lg btn-block" href="/index">Create Account</a>
-                                    </div>
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="beHost" class="btn btn-danger">BECOME A HOST</button>
-                        <button type="button" id="beRenter" class="btn btn-primary">I AM A RENTER</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="logInModalLabel">Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <!--personal information-->
-                            <div id="personalModal" class="login">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="text-center text-warming">Welcome</h1>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="" class="form col-md-12 center-block">
-                                        <div class="form-group">
-                                            <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
-                                        </div>
-                                        <div class="form-group">
-                                            <a id="userBack"href="#">I'm Back</a>
-                                        <hr>
-                                        <button class="loginBtn loginBtn--google">
-                                            Login with Google
-                                        </button>
-                                        <br>
-                                            <span><a href="#">Forgot Password </a></span>
-                                            <span><a href="#" id="findPw" class="pull-right">Sign Up</a></span>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="hostLogInModal" tabindex="-1" role="dialog" aria-labelledby="hostlogInModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="hostlogInModalLabel">Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <!--personal information-->
-                            <div id="hostPersonalModal" class="login">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="text-center text-warming">Welcome</h1>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="" class="form col-md-12 center-block">
-                                        <div class="form-group">
-                                            <input type="text" id="comfirmPw"class="form-control input-lg" placeholder="host password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
-                                        </div>
-                                        <div class="form-group">
-                                            <a id="hostBack" href="/hosts">I'm Back</a>
-                                        <hr>
-                                        <button class="loginBtn loginBtn--google">
-                                            Login with Google
-                                        </button>
-                                        <br>
-                                            <span><a href="#">Forgot Password </a></span>
-                                            <span><a href="#" class="pull-right">Sign Up</a></span>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <!--sign in & new accuout-->
-        <!--DIV for host information-->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand col-xs-4 col-md-4">REPARKED</a>
+        <a id="homeBtn" class="btn btn-outline-primary" href="/">Home</a>
+    </nav>
+    <!--DIV for host information-->
+    <section id="hostsInfo" class="container">
         
-        <section id="hostsInfo" class="container">
-           
-                <!--known-->
-                <div class="row">
-                    <!--personal info-->
-                    <div></div>
-                    <!--posted garage-->
-                    <div></div>
-                </div>
-                <!--input new-->
+            <!--known-->
+            <div class="row">
+                <!--personal info-->
+                <div></div>
+                <!--posted garage-->
+                <div></div>
+            </div>
+            <!--input new-->
 
-                <form>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputStreetNumber">streetNumber</label>
-                        <input type="text" id="streetNumber"  class="form-control" placeholder="1234 ">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputStreetName">streetName</label>
-                        <input type="text"  class="form-control" id="streetName">
-                    </div>
-                    <div class="form-group col-md-4 col-xs-4">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="city">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputState">State</label>
-                        <input type="text" class="form-control" id="state">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputZipcode">Zipcode</label>
-                        <input type="text" class="form-control" id="zipcode">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputId">Type</label>
-                        <input type="text" class="form-control" placeholder="ex. driveway, carport or garage" id="type">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputHourlyRate">Hourly Rate</label>
-                        <input type="text" class="form-control" id="hourlyRate">
-                    </div>
-                    <div class="form-group col-md-6 col-xs-6">
-                        <label for="inputUrl">Url</label>
-                        <input type="text" class="form-control" id="url">
-                    </div>
-                    <button class="btn btn-primary" id="submitBtn" type="submit" >Button</button>  
-                </form>
-                
-            
-        </section>
+            <form>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputStreetNumber">streetNumber</label>
+                    <input type="text" id="streetNumber"  class="form-control" placeholder="1234 ">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputStreetName">streetName</label>
+                    <input type="text"  class="form-control" id="streetName">
+                </div>
+                <div class="form-group col-md-4 col-xs-4">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="city">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputState">State</label>
+                    <input type="text" class="form-control" id="state">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputZipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="zipcode">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputId">Type</label>
+                    <input type="text" class="form-control" placeholder="ex. driveway, carport or garage" id="type">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputHourlyRate">Hourly Rate</label>
+                    <input type="text" class="form-control" id="hourlyRate">
+                </div>
+                <div class="form-group col-md-6 col-xs-6">
+                    <label for="inputUrl">Url</label>
+                    <input type="text" class="form-control" id="url">
+                </div>
+                <button class="btn btn-primary" id="submitBtn" type="submit" >Button</button>  
+            </form>
+    </section>
    
     <!-- footer -->
     <footer>

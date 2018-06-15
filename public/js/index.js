@@ -1,36 +1,60 @@
-// var express = require("express");
- 
+
+// log out buttom to clear session storage
+$("#logout").on("click", function() {
+  $("#hostLogInBtn").text("Host Login");
+  $("#logInBtn").text("Renter Login");
+  sessionStorage.clear();
+})
+
 
   //----------Sign up & log in------------------------------
-  $("#beHost").on("click", function() {
-     //to prevent submission without value
-    //  event.preventDefault();
-    $("#renterModal").hide();
-    $("#logInModal").hide();
-    $("#hostModal").show();
-  });
-
-  $("#beRenter").on("click", function() {
+$("#beHost").on("click", function() {
     //to prevent submission without value
-    // event.preventDefault();
-    $("#hostModal").hide();
-    $("#logInModal").hide();
-    $("#renterModal").show();
- });
-
- $("#logInBtn").on("click", function() {
-  //to prevent submission without value
-  // event.preventDefault();
-  $("#logInModal").show();
+  //  event.preventDefault();
+  $("#renterModal").hide();
+  $("#logInModal").hide();
+  $("#hostModal").show();
 });
 
- $("#hostLogInBtn").on("click", function() {
-   $("#hostLogInModal").show();
- })
+$("#beRenter").on("click", function() {
+  //to prevent submission without value
+  // event.preventDefault();
+  $("#hostModal").hide();
+  $("#logInModal").hide();
+  $("#renterModal").show();
+ });
+
+$("#logInBtn").on("click", function() {
+//to prevent submission without value
+// event.preventDefault();
+$("#logInModal").show();
+});
+
+$("#hostLogInBtn").on("click", function() {
+  $("#hostLogInModal").show();
+})
 
 
  //---------------------New user sign up-----------------------------
  
+ //see who is logged in
+var lastLoggedIn = sessionStorage.getItem("lastLoggedIn");
+if(lastLoggedIn =="renter") {
+  $("#logInBtn").text("logged in as Renter: " + sessionStorage.getItem("loggedInRenterEmail"));
+  $("#hostLogInBtn").text("Host Login");
+  var renterProfile=$('<a type="button" id="renterProfile" class="btn btn-outline-secondary" href="/renters">');
+  renterProfile.text("Renter Profile");
+  $("#profile").html(renterProfile);
+}
+else if(lastLoggedIn =="host") {
+  $("#hostLogInBtn").text("logged in as Host: " + sessionStorage.getItem("loggedInHostEmail"));
+  $("#logInBtn").text("Renter Login");
+  var hostProfile=$('<a type="button" id="hostProfile" class="btn btn-outline-secondary" href="/hosts">');
+  hostProfile.text("Host Profile");
+  $("#profile").html(hostProfile);
+}
+else {
+}
  //-------------sign up for host---------------------
 function showPW() {
   // var x = document.getElementByClass("psw");
@@ -179,18 +203,20 @@ var newRenterName = $("#newRenterName");
         sessionStorage.setItem("loggedInRenterId", data.successId);
         sessionStorage.setItem("loggedInRenterName", data.successName);
         sessionStorage.setItem("loggedInRenterEmail", data.successEmail);
+        sessionStorage.setItem("lastLoggedIn", "renter");
         $("#logInBtn").text("logged in as Renter: " + data.successEmail);
         $("#hostLogInBtn").text("Host Login");
 
         // after login, user can see profile
         var renterProfile=$('<a type="button" id="renterProfile" class="btn btn-outline-secondary" href="/renters">');
         renterProfile.text("Renter Profile");
-        $("#navButton").prepend(renterProfile);
+        $("#profile").html(renterProfile);
       }
       
     }).catch(function(err) {
       console.log(err);
     });
+
   }
 
 //----------Host login---------------------------------
@@ -237,19 +263,21 @@ hostBack.on("click", function(event) {
       sessionStorage.setItem("loggedInHostId", data.successId);
       sessionStorage.setItem("loggedInHostName", data.successName);
       sessionStorage.setItem("loggedInHostEmail", data.successEmail);
+      sessionStorage.setItem("lastLoggedIn", "host");
       $("#hostLogInBtn").text("logged in as Host: " + data.successEmail);
       $("#logInBtn").text("Renter Login");
 
       // after login, user can see profile
       var hostProfile=$('<a type="button" id="hostProfile" class="btn btn-outline-secondary" href="/hosts">');
       hostProfile.text("Host Profile");
-      $("#navButton").prepend(hostProfile);
+      $("#profile").html(hostProfile);
 
-    }
-    ç
+    };
    }).catch(function(err) {
      console.log(err);
    });
+
+   lastLoggedIn = "host";
  }
 
   //---------------------search Bar----------------------------- 
