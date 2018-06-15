@@ -33,15 +33,20 @@ module.exports = function(app) {
     })
   });
     
-  app.get("/api/:listingid", function(req, res) {
+  app.get("/api/:listingid/:startdate/:enddate", function(req, res) {
     console.log(req.params.listingid)
+    console.log(req.params.startdate)
+    console.log(req.params.enddate)
     db.reservation.findAll({
       where: {
         // query db for the listing being viewed
-        listingId: req.params.listingid
-        
-      }
+        listingId: req.params.listingid,
+        dateStart: {
+          $between: ["2018-06-13", "2018-06-17"]
+        }
+      },
     }).then(function(results) {
+      console.log(results.length);
       res.json(results);
     });
   });

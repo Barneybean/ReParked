@@ -1,40 +1,37 @@
-// var resultFromDB = [
-//     {
-//       id: 1,
-//       bookedDates: "2018-06-12",
-//       bookedHours: [2, 4, 5]
-//     },
-//     {
-//       id:2,
-//       bookedDates: "2018-06-13",
-//       bookedHours: [2, 3, 5, 6]
-//     },
-//     {
-//       id:3,
-//       bookedDates: "2018-06-14",
-//       bookedHours: [2, 3, 5, 7]
-//     },
-//     {
-//       id:4,
-//       bookedDates: "2018-06-15",
-//       bookedHours: [2, 3, 5, 7]
-//     }
-//   ]
+var resultFromDB = [
+    {
+      id: 1,
+      bookedDates: "2018-06-12",
+      bookedHours: [2, 4, 5]
+    },
+    {
+      id:2,
+      bookedDates: "2018-06-13",
+      bookedHours: [2, 3, 5, 6]
+    },
+    {
+      id:3,
+      bookedDates: "2018-06-14",
+      bookedHours: [2, 3, 5, 7]
+    },
+    {
+      id:4,
+      bookedDates: "2018-06-15",
+      bookedHours: [2, 3, 5, 7]
+    }
+  ]
 
-// var result = resultFromDB.slice(0,3);
-// var userId = 1;
-// var hostId = 2;
-// var listingId =2; 
-var userId = sessionStorage.getItem("loggedInRenterId");
-var hostId = sessionStorage.getItem("loggedInHostId");
-var listingId = sessionStorage.getItem("clickedListingId");
+var result = resultFromDB.slice(0,3);
+var userId = 1;
+var hostId = 2;
+var listingId =2; 
 var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
 var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
 var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
 
 //get function retrieves 
-$.get("/api/"+listingId, function(data) {
+$.get("/api/"+listingId+"/"+date+"/"+twoDaysFromToday, function(data) {
   console.log("Data from get listing ID:::: ", data);
   var allTime =[];
   for(var j = 0; j < data.length; j++){
