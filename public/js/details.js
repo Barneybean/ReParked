@@ -2,6 +2,14 @@
 var userId = sessionStorage.getItem("loggedInRenterId");
 var hostId = sessionStorage.getItem("loggedInHostId");
 var listingId = sessionStorage.getItem("clickedListingId");
+var imageUrl = sessionStorage.getItem("clickedListingUrl");
+//show image
+var listingImg = $('<img>');
+// src="imageUrl", height="400", width="400"
+listingImg.attr("src", imageUrl);
+listingImg.attr("height", "400");
+listingImg.attr("width", "450");
+$(".showImage").html(listingImg);
 
 var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
@@ -10,9 +18,6 @@ var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + 
 // var userId = 1;
 // var hostId = 2;
 // var listingId =2; 
-
-
-
 
 // var resultFromDB = [
 //   {
@@ -36,49 +41,42 @@ var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + 
   //   bookedHours: [2, 3, 5, 7]
   // }
 // ]
-// result = resultFromDB.slice(0,3);
 
 
+var result = resultFromDB.slice(0,3);
+var userId = 1;
+var hostId = 2;
+var listingId =2; 
+var today = new Date();
+var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
+var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
+var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
 
-
-// function createHightlightTable() {
-
-  
-
-// };
-
-
-$.get("/api/"+listingId, function(data) {
-  console.log(data);
- 
+//get function retrieves 
+$.get("/api/"+listingId+"/"+date+"/"+twoDaysFromToday, function(data) {
+  console.log("Data from get listing ID:::: ", data);
   var allTime =[];
   for(var j = 0; j < data.length; j++){
     allTime[j] = []; 
-
-    for(var i = data[j].timeStart; i < data[j].timeEnd; i++){
-        // console.log("this is j from second loop " + j);
-        // console.log("this is i from second loop " + i);
+      for(var i = data[j].timeStart; i < data[j].timeEnd; i++){
         allTime[j].push(i);
     }
   }
-  console.log(allTime);
+
+  console.log("All time array::::: ", allTime);
 
   // create table and highlight reserved
   var resultFromDB = [];
-  for (var e=0; e<data.length; e++) {
-    resultFromDB[e]={
+  for (var e = 0; e < data.length; e++) {
+    resultFromDB[e] = {
       id: data[e].id,
       bookedDates: data[e].dateStart,
       bookedHours: allTime[e]
     };
-
   }
-  // console.log(resultFromDB);
   result = resultFromDB.slice(0,3);
-  console.log(result);
+  console.log("Result fromDB::: ", result);
 
-
-  // createHightlightTable();
   //to create column name
   for(var i = 0; i <result.length; i++){
     if(i<3) {
@@ -86,13 +84,12 @@ $.get("/api/"+listingId, function(data) {
       var index = i+1
       columnName.attr("scope","col");
       columnName.attr("class", "day"+index)
-      columnName.text(today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+i));
+      columnName.text((today.getFullYear()) + "-" + (today.getMonth()+1) + "-" + (today.getDate()+i));
       $("#columnName").append(columnName);
     }
     else {
       console.log("display 3 reservations only")
     }
-    
   }
 
   // create 24 hours tr
@@ -140,44 +137,55 @@ $.get("/api/"+listingId, function(data) {
     }
   }
 
-
-  //hight light reserved 
-  var highlightTimes = [];
   for(var i = 0; i < resultFromDB.length; i++){
-      // console.log(resultFromDB[i].bookedDates)
-      for(var j = 0; j < resultFromDB[i].bookedHours.length; j++)
-      highlightTimes.push(resultFromDB[i].bookedHours[j] + "-" + resultFromDB[i].bookedDates);
-  }
-
-  for(var i = 0; i <highlightTimes.length; i++){
-  $("#" + highlightTimes[i]).attr("class","bg-danger text-white")
-  }
+    if(resultFromDB[i].startDate === today){
+      highlight()
+      console.log("HIT!!")
+    } 
+    if(resultFromDB[i].startDate === tomorrow){
+      highlight()
+    }
+    if(resultFromDB[i].startDate === twoDaysFromToday){
+      highlight()  
+    }
+  }  
+   
+   //hight light reserved 
+  //  function highlight(){
+    var highlightTimes = [];
+    for(var i = 0; i < resultFromDB.length; i++){
+        // console.log(resultFromDB[i].bookedDates)
+        for(var j = 0; j < resultFromDB[i].bookedHours.length; j++)
+        highlightTimes.push(resultFromDB[i].bookedHours[j] + "-" + resultFromDB[i].bookedDates);
+    }
+    console.log("Should be highlighted ========> ", highlightTimes)
+    for(var i = 0; i <highlightTimes.length; i++){
+    $("#" + highlightTimes[i]).attr("class","bg-danger text-white")
+    }
+  // }
 });
+
+  
 
 
 $(".today").text(date);
 $(".tomorrow").text(tomorrow);
 $(".twoDaysFromToday").text(twoDaysFromToday);
 
-// Add CommentCollapse 
-
 $("#add-btn").on("click", function(event) {
   event.preventDefault();
-
   // Make a newBook object
   var newReservation = {
     vehicleMake: $("#vehicleMake").val().trim(),
     vehicleModel: $("#vehicleModel").val().trim(),
     licensePlate: $("#licensePlate").val().trim(),
     startDate: $("#startD").val().trim(),
-    // endDate: $("#endD").val().trim(),
     startHour: $("#startH").val().trim(),
     endHour: $("#endH").val().trim(),
     note: $("#note").val().trim(),
     listingId: listingId,
     userId: userId,
     hostId: hostId
-
   };
   console.log(newReservation);
 
@@ -199,7 +207,4 @@ $("#add-btn").on("click", function(event) {
   $("#startHours").val("");
   $("#endHour").val("");
   $("#note").val("");  
-
-  
-
 });

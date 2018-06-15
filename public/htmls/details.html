@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>REPARKED</title>
@@ -12,17 +11,14 @@
     <!-- custom css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/details.css" media="screen" title="no title">
-
 </head>  
-
 <body>
-        <nav class="navbar navbar-light bg-light">     
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link active btn btn-success" href="/">Home</a>
-            </ul>
-        </nav>
-        <hr>
+    <nav class="navbar navbar-light bg-light">     
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+            <a class="nav-link active btn btn-success" href="/">Home</a>
+        </ul>
+    </nav>
 <div class="container">
 <!-- Row 1 -->
   <div class="row">
@@ -30,124 +26,123 @@
         <h1>Listing Details - Make Reservation here</h1>
     </div>
   </div>
-
   <div class="row">
-        <div class="col-lg-6">
-          <button type="button" class="btn btn-danger btn-lg btn-block">$30 Book Now!</button>
-          <br>
-          <h2>Available Dates and Times</h2>
-          <table class="table">
-                <thead>
-                  <tr id="columnName">
-                  </tr>
-                </thead>
-                <tbody id="tableBody">
-                </tbody>
-              </table>
-          <br>
-        </div>
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="showImage">
-                    <!-- placeholder -->
-                    <img src="../images/placeholder.jpg">
-                </div>
-            </div>   
-            <div class="row">
-                <div>
-                    <form action="" method="POST" role="form">
-                        <div class="form-group">
-                            <label for="vehicleMake">Vehicle Make</label>
-                            <input type="text" class="form-control" id="vehicleMake" placeholder="Audi">
-                        </div>
-                        <div class="form-group">
-                            <label for="vehicleModel">Vehicle Model</label>
-                            <input type="text" class="form-control" id="vehicleModel" placeholder="A4">
-                        </div>
-                        <div class="form-group">
-                            <label for="licensePlate">License Plate</label>
-                            <input type="text" class="form-control" id="licensePlate" placeholder="JXB625">
-                        </div>
-                        <div class="form-group" id="startDate">
-                            <label for="startD">Select Start Day</label>
-                            <select class="form-control" id="startD">
-                                <option class="today">today</option>
-                                <option class="tomorrow">tomorrow</option>
-                                <option class="twoDaysFromToday">two days from today</option>
-                            </select>
-                        </div>
-                        <!-- <div class="form-group" id="endDate">
-                            <label for="end">Select End Date (must be same or later than start date)</label>
-                            <select class="form-control" id="endD">
-                                <option class="today">today</option>
-                                <option class="tomorrow">tomorrow</option>
-                                <option class="twoDaysFromToday">two days from today</option>
-                            </select>
-                        </div> -->
+    <div class="col-lg-6">
+        <button type="button" class="btn btn-danger btn-lg btn-block">Book Now!</button>
+        <br>
+        <h2>Available Dates and Times</h2>
+        <table class="table">
+            <thead>
+                <tr id="columnName">
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+            </table>
+        <br>
+    </div>
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="showImage">
+                <!-- placeholder -->
+                <img src="../images/placeholder.jpg">
+            </div>
+        </div>   
+        <div class="row">
+            <div>
+                <form action="" method="POST" role="form">
+                    <div class="form-group">
+                        <label for="vehicleMake">Vehicle Make</label>
+                        <input type="text" class="form-control" id="vehicleMake" placeholder="Audi">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleModel">Vehicle Model</label>
+                        <input type="text" class="form-control" id="vehicleModel" placeholder="A4">
+                    </div>
+                    <div class="form-group">
+                        <label for="licensePlate">License Plate</label>
+                        <input type="text" class="form-control" id="licensePlate" placeholder="JXB625">
+                    </div>
+                    <div class="form-group" id="startDate">
+                        <label for="startD">Select Start Day</label>
+                        <select class="form-control" id="startD">
+                            <option class="today">today</option>
+                            <option class="tomorrow">tomorrow</option>
+                            <option class="twoDaysFromToday">two days from today</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group" id="endDate">
+                        <label for="end">Select End Date (must be same or later than start date)</label>
+                        <select class="form-control" id="endD">
+                            <option class="today">today</option>
+                            <option class="tomorrow">tomorrow</option>
+                            <option class="twoDaysFromToday">two days from today</option>
+                        </select>
+                    </div> -->
 
-                        <div class="form-group" id="startHour">
-                            <label for="startH">Starting Hour</label>
-                            <select class="form-control" id="startH">
-                                <option>00</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                                <option>04</option>
-                                <option>05</option>
-                                <option>06</option>
-                                <option>07</option>
-                                <option>08</option>
-                                <option>09</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="endHour">
-                            <label for="endH">Ending Hour (must be later than starting hour)</label>
-                            <select class="form-control" id="endH">
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                                <option>04</option>
-                                <option>05</option>
-                                <option>06</option>
-                                <option>07</option>
-                                <option>08</option>
-                                <option>09</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
-                            </select>
-                        </div>
+                    <div class="form-group" id="startHour">
+                        <label for="startH">Starting Hour</label>
+                        <select class="form-control" id="startH">
+                            <option>00</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="endHour">
+                        <label for="endH">Ending Hour (must be later than starting hour)</label>
+                        <select class="form-control" id="endH">
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                        </select>
+                    </div>
                        
-                        <div class="form-group">
-                            <label for="note">Note for Host</label>
-                            <textarea class="form-control" id="note" rows="3"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="note">Note for Host</label>
+                        <textarea class="form-control" id="note" rows="3"></textarea>
+                    </div>
                     </form>
                     <br>
                     <div class="text-right">
@@ -156,9 +151,8 @@
                 </div>
             </div>   
         </div>
-      </div>
-
-      <p><td id="12-20180612" class="text-danger"></td></p>
+    </div>
+    <p><td id="12-20180612" class="text-danger"></td></p>
     <!-- footer -->
     <footer>
         <div class="footerHeader" ></div>
