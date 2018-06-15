@@ -13,42 +13,35 @@ listingImg.attr("width", "450");
 $(".showImage").html(listingImg);
 $("#price").html("Hourly Rate: $" + hourRate);
 
-var today = new Date();
-var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
-var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
-var twoDaysFromToday = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+2);
 // var userId = 1;
 // var hostId = 2;
 // var listingId =2; 
 
-// var resultFromDB = [
-//   {
-//     id: 1,
-//     bookedDates: "2018-06-12",
-//     bookedHours: [2, 4, 5]
-//   },
-//   {
-//     id:2,
-//     bookedDates: "2018-06-13",
-//     bookedHours: [2, 3, 5, 6]
-//   },
-  // {
-  //   id:3,
-  //   bookedDates: "2018-06-14",
-  //   bookedHours: [2, 3, 5, 7]
-  // },
-  // {
-  //   id:4,
-  //   bookedDates: "2018-06-15",
-  //   bookedHours: [2, 3, 5, 7]
-  // }
-// ]
+var resultFromDB = [
+  {
+    id: 1,
+    bookedDates: "2018-06-12",
+    bookedHours: [2, 4, 5]
+  },
+  {
+    id:2,
+    bookedDates: "2018-06-13",
+    bookedHours: [2, 3, 5, 6]
+  },
+  {
+    id:3,
+    bookedDates: "2018-06-14",
+    bookedHours: [2, 3, 5, 7]
+  },
+  {
+    id:4,
+    bookedDates: "2018-06-15",
+    bookedHours: [2, 3, 5, 7]
+  }
+]
 
 
 var result = resultFromDB.slice(0,3);
-var userId = 1;
-var hostId = 2;
-var listingId =2; 
 var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();
 var tomorrow = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + (today.getDate()+1);
@@ -87,7 +80,7 @@ $.get("/api/"+listingId+"/"+date+"/"+twoDaysFromToday, function(data) {
       columnName.attr("scope","col");
       columnName.attr("class", "day"+index)
       columnName.text((today.getFullYear()) + "-" + (today.getMonth()+1) + "-" + (today.getDate()+i));
-      // $("#columnName").append(columnName);
+      $("#columnName").append(columnName);
     }
     else {
       console.log("display 3 reservations only")
@@ -191,13 +184,13 @@ $("#add-btn").on("click", function(event) {
   };
   console.log(newReservation);
 
-  // Send an AJAX POST-request with jQuery
-  $.post("/api/newreservation", newReservation)
-    // On success, run the following code
-    .then(function(data) {
-      // Log the data we found
-      console.log(data);
-    });
+   // Send an AJAX POST-request with jQuery
+   $.post("/api/newreservation", newReservation)
+   // On success, run the following code
+   .then(function(data) {
+     // Log the data we found
+     console.log(data);
+   });
 
   // Empty each input box by replacing the value with an empty string
 
