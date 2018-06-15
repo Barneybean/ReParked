@@ -3,6 +3,7 @@ var userId = sessionStorage.getItem("loggedInRenterId");
 var hostId = sessionStorage.getItem("loggedInHostId");
 var listingId = sessionStorage.getItem("clickedListingId");
 var imageUrl = sessionStorage.getItem("clickedListingUrl");
+var hourRate = sessionStorage.getItem("clickedListingRate");
 //show image
 var listingImg = $('<img>');
 // src="imageUrl", height="400", width="400"
@@ -10,6 +11,7 @@ listingImg.attr("src", imageUrl);
 listingImg.attr("height", "400");
 listingImg.attr("width", "450");
 $(".showImage").html(listingImg);
+$("#price").html("Hourly Rate: $" + hourRate);
 
 var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate();

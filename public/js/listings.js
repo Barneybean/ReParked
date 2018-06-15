@@ -362,7 +362,7 @@ hostBack.on("click", function(event) {
 
         var bottomRight = $("<div>");
         bottomRight.addClass("bottom-right");
-        var addressCity = data[i].city
+        var addressCity = data[i].city + " " + "$" + data[i].hourlyRate +"/hr";
         bottomRight.text(addressCity);
         cardSm.append(bottomRight)
 
@@ -374,6 +374,7 @@ hostBack.on("click", function(event) {
         cardSm.append(bottomP);
         //assign lisitng id to cardSm
         image.attr("value", parseInt(data[i].id));
+        image.attr("valueRate", parseInt(data[i].hourlyRate));
         $("#display").prepend(cardSm);
     };
     
@@ -426,12 +427,13 @@ hostBack.on("click", function(event) {
   //store listing id to session storage for details page to load this listing
   $(document).on("click", ".card-img-top", function () {
     var listingId = $(this).attr("value");
+    var rate = $(this).attr("valueRate");
     var imageUrl = $(this).attr("src");
     console.log(listingId)
-    //write clicked image id and url into sessionstorage for detail page
-    sessionStorage.setItem("clickedListingUrl", imageUrl);
+    //write clicked rate image id and url into sessionstorage for detail page
     sessionStorage.setItem("clickedListingId", listingId);
-
+    sessionStorage.setItem("clickedListingUrl", imageUrl);
+    sessionStorage.setItem("clickedListingRate", rate);
 
   })
   //William's code end ********************************nodemon

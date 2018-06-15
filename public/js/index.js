@@ -3,6 +3,7 @@
 $("#logout").on("click", function() {
   $("#hostLogInBtn").text("Host Login");
   $("#logInBtn").text("Renter Login");
+  $("#profile").empty();
   sessionStorage.clear();
 })
 
@@ -187,8 +188,6 @@ var newRenterName = $("#newRenterName");
       Email:email,
       Password: password
     }
-
-    console.log(renterMember);
 
     $.ajax("/api/renterlogin", {
       type: "POST",
