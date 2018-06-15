@@ -6,10 +6,20 @@ worried that he would make the long commute only to have difficulty finding park
 solution to this all too common problem.
 
 ##Screenshots
+This is where a screenshot goes
+
 ##Tech Used
+The technologies used in creating the project were html, css, javascript, node, express, SQL, googleAPI
+
 ##Features
+
+
 ##Installation
 ##API Reference
+A googleAPI key is required to run this application.
 ##Contribute
+Many thanks to Hannah, Dani, Mel, and V for helping us work through the many issues that cropped up during the development period.  
+
 ##Credits
+#Authors
 ##License
