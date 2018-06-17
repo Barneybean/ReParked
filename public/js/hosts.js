@@ -43,7 +43,7 @@ $("#submitBtn").on("click", function(event) {
     }
     console.log(garageInfo.url);
     
-     var garagePic = $('<img>');
+    var garagePic = $('<img>');
     garagePic.attr("src", garageInfo.url);
     garagePic.attr("height", "250");
     garagePic.attr("width", "250");
@@ -128,4 +128,23 @@ $("#submitBtn").on("click", function(event) {
             // console.log("inhere",cityNameInde
       };
     });
+});
+
+var hostListingsId = sessionStorage.getItem("loggedInHostId");
+var hostListingsName = sessionStorage.getItem("loggedInHostName");
+console.log(hostListingsName);
+$("#welcome").append('<h3>Nice to Meet You, Dear</h3><h1>' + hostListingsName + "!</h1>")
+
+$.ajax("/api/hostlistings/" + hostListingsId, {
+   type: "get"
+}).then(function(data) {
+   console.log(data);
+   console.log(data[0].type);
+ 
+   var garagePic = $('<img>');
+   garagePic.attr('width: 250px; height: 250px;')
+   garagePic.attr("src", data[0].url);
+   $("#garagePhoto").append(garagePic);
+
+   $("#garageInfomation").append('<div><strong>Your  Garage location</strong>: ' + data[0].streetNumber + ' ' + data[0].streetName + ', ' + data[0].city + ', ' + data[0].state + ', ' + data[0].zipcode + '.<strong><br>Type</strong>: ' + data[0].type + '<strong><br>Hourly Rate</strong>: ' + data[0].hourlyRate + "<hr>");
 });

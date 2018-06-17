@@ -12,62 +12,64 @@
     <!-- custom css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css" media="screen" title="no title">
-</head>  
+</head>
 
 <body>
-        <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand col-xs-9 col-md-9">REPARKED</a> 
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Edit Infomation
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Change Password</a>
-                        <a class="dropdown-item" href="#">Change Email</a>
-                        <a class="dropdown-item" href="#">Change Personal Information</a>
-                    </div>
-                </div>
-                <a id="homeBtn" class="btn btn-outline-primary" href="/">Home</a>        
-        </nav>
-        <!--DIV for host information-->      
-        <section id="hostsInfo" class="container">        
-                <!--known-->
-            <div class="row">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand col-xs-9 col-md-9">REPARKED</a>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Edit Infomation
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Change Password</a>
+                <a class="dropdown-item" href="#">Change Email</a>
+                <a class="dropdown-item" href="#">Change Personal Information</a>
+            </div>
+        </div>
+        <a id="homeBtn" class="btn btn-outline-primary" href="/">Home</a>
+    </nav>
+    <!--DIV for host information-->
+    <section id="hostsInfo" class="container">
+        <!--known-->
+        <div id="welcome">
+        </div>
+        <div class="row">
+            <div class="col-lg">
                 <!--input new-->
-                <form class="border border-primary formBorder col-md-8 col-xs-8">
+                <form class="border border-primary formBorder">
                     <div class="form-row">
                         <div class="form-group col-md-3 col-xs-3">
                             <label for="inputStreetNumber">streetNumber</label>
-                            <input type="text" id="streetNumber"  class="form-control" placeholder="1234 ">
+                            <input type="text" id="streetNumber" class="form-control" placeholder="1234 ">
                         </div>
-                    
+
                         <div class="form-group col-md-5 col-xs-5">
                             <label for="inputStreetName">streetName</label>
-                            <input type="text"  class="form-control" id="streetName">
+                            <input type="text" class="form-control" id="streetName">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4 col-xs-3">
+                        <div class="form-group col-md-4 col-xs-4">
                             <label for="inputCity">City</label>
                             <input type="text" class="form-control" id="city">
                         </div>
-                        <div class="form-group col-md-4 col-xs-3">
+                        <div class="form-group col-md-4 col-xs-4">
                             <label for="inputState">State</label>
                             <input type="text" class="form-control" id="state">
                         </div>
-                        <div class="form-group col-md-4 col-xs-2">
+                        <div class="form-group col-md-4 col-xs-4">
                             <label for="inputZipcode">Zipcode</label>
                             <input type="text" class="form-control" id="zipcode">
                         </div>
                     </div>
                     <div class="form-row">
-                    
-                            <select class="form-control" id="type">
-                                <option>Dirveway</option>
-                                <option>Carport</option>
-                                <option>Garage</option>
-                            </select>
-                        
+                        <select class="form-control" id="type">
+                            <option>Dirveway</option>
+                            <option>Carport</option>
+                            <option>Garage</option>
+                        </select>
                         <div class="form-group col-md-4 col-xs-4">
                             <label for="inputHourlyRate">Hourly Rate</label>
                             <input type="text" class="form-control" id="hourlyRate">
@@ -77,54 +79,79 @@
                         <label for="inputUrl">Url</label>
                         <input type="text" class="form-control" id="url">
                     </div>
-                    <button class="btn btn-primary" id="submitBtn" type="submit" >Button</button>  
+                    <button class="btn btn-primary" id="submitBtn" type="submit">Button</button>
                 </form>
-                
+            </div>
+            <div class="row">
                 <!--personal info-->
                 <div id="garageListing" class="col-md-4 col-xs-4">
-                    <div id="garagePhoto" class=""></div><br>
-                    <div id="garageInfomation" class="row"></div>
+                    <div class="row">
+                        <div id="garagePhoto" class="col-md"></div>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <div id="garageInfomation" class="col-md"></div>
+                    </div>
                 </div>
             </div>
-        </section>
-   
+        </div>
+    </section>
+
     <!-- footer -->
     <footer>
-        <div class="footerHeader" ></div>
+        <div class="footerHeader"></div>
         <div class="container">
             <div class="row">
-            <div class="col-md-4" >
-                <h3>Our Mission</h3>
-                <p>
-                We are here to Change the Industry Parking garage industry , and help you avoid those insane Parking prices by giving you the power of being able to park in any Host's Drive way. Saving you money , and also making you income if you choose to become a REPARK HOST Member! 
-                </p>
+                <div class="col-md-4">
+                    <h3>Our Mission</h3>
+                    <p>
+                        We are here to Change the Industry Parking garage industry , and help you avoid those insane Parking prices by giving you
+                        the power of being able to park in any Host's Drive way. Saving you money , and also making you income
+                        if you choose to become a REPARK HOST Member!
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Our Location</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Phone: 510-REP-ARKED</li>
+                        <li>E-mail: Reparked@gmail.com </li>
+                        <li>Fax: 123-REP-ARKED</li>
+                    </ul>
+                    <ul class="sm">
+                        <li>
+                            <a href="#">
+                                <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="col-md-4">
-                <h3>Our Location</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-4" >
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>Phone: 510-REP-ARKED</li>
-                    <li>E-mail: Reparked@gmail.com </li>
-                    <li>Fax: 123-REP-ARKED</li>
-                </ul>
-                <ul class="sm">
-                    <li><a href="#" ><img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"></a></li>
-                    <li><a href="#" ><img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive" ></a></li>
-                    <li><a href="#" ><img src="http://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"  ></a></li>
-                </ul>
-            </div>
-        </div>
         </div>
     </footer>
     <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-                 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
     <!-- Custom Script -->
     <script src="../js/hosts.js" type="text/javascript"></script>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>REPARKED</title>
@@ -11,104 +12,104 @@
     <!-- custom css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css" media="screen" title="no title">
-</head>  
+</head>
 
 <body>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand col-xs-4 col-md-4" href="/">REPARKED</a>
         <span id="navButton">
-        <span id="profile">
-            <!-- profile button goes here  -->
-        </span>
-        <button type="button" id="hostLogInBtn" class="btn btn-outline-secondary" href="becomehost" data-toggle="modal" data-target="#hostLogInModal">I'm Host Login</button>
-        <button type="button" id="logInBtn" class="btn btn-outline-warning" href="login" data-toggle="modal" data-target="#logInModal">Renter Login</button>
-        <button type="button" id="signUpBtn" class="btn btn-outline-primary" href="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
-        <button type="button" id="logout" class="btn btn-outline-primary">logout</button>
+            <span id="profile">
+                <!-- profile button goes here  -->
+            </span>
+            <button type="button" id="hostLogInBtn" class="btn btn-outline-secondary" href="becomehost" data-toggle="modal" data-target="#hostLogInModal">I'm Host Login</button>
+            <button type="button" id="logInBtn" class="btn btn-outline-warning" href="login" data-toggle="modal" data-target="#logInModal">Renter Login</button>
+            <button type="button" id="signUpBtn" class="btn btn-outline-primary" href="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+            <button type="button" id="logout" class="btn btn-outline-primary">logout</button>
         </span>
     </nav>
-            
+
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title text-primary" id="signUpModalLabel">Sign Up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <!--form one-->
-                <div id="hostModal" class="login">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="text-center text-primary">Join Us</h1>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--form one-->
+                    <div id="hostModal" class="login">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="text-center text-primary">Join Us</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" id="newHostName" class="form-control input-lg" placeholder="Host Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="newHostPw" class="psw form-control input-lg " placeholder="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="psw form-control input-lg" placeholder="confirm password">
+                                        </div>
+                                        <input type="checkbox" onclick="showPW()"> Show Password
+                                        <div class="form-group">
+                                            <input type="text" id="newHostEmail" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div id="hostNotice">
+                                            <!-- notice goes here -->
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="submit-host" href="/hosts" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Create Account</a>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form action="" class="form col-md-12 center-block">
-                                <div class="form-group">
-                                    <input type="text" id="newHostName" class="form-control input-lg" placeholder="Host Name">
+                        </div>
+                    </div>
+                    <!--form two-->
+                    <div id="renterModal" class="login">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="text-center text-primary">Join Us</h1>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" id="newHostPw" class="psw form-control input-lg " placeholder="password">
+                                <div class="modal-body">
+                                    <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" id="newRenterName" class="form-control input-lg" placeholder="Renter Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="newRenterPw" class="form-control input-lg" placeholder="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control input-lg" placeholder="confirm password">
+                                            <!-- <input type="checkbox" onclick="showPW()"> Show Password -->
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="newRenterEmail" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div id="renterNotice">
+                                            <!-- notice goes here -->
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="submit-renter" href="/renters" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Create Account</a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="psw form-control input-lg" placeholder="confirm password">
-                                </div>
-                                <input type="checkbox" onclick="showPW()"> Show Password
-                                <div class="form-group">
-                                    <input type="text" id="newHostEmail" class="form-control input-lg" placeholder="Email Address">
-                                </div>
-                                <div id="hostNotice">
-                                        <!-- notice goes here -->
-                                </div>
-                                <div class="form-group">
-                                    <a id="submit-host" href="/hosts" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Create Account</a>
-                                </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--form two-->
-                <div id="renterModal" class="login">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="text-center text-primary">Join Us</h1>
-                            </div>
-                            <div class="modal-body">
-                                <form action="" class="form col-md-12 center-block">
-                                <div class="form-group">
-                                    <input type="text" id="newRenterName"class="form-control input-lg" placeholder="Renter Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" id="newRenterPw" class="form-control input-lg" placeholder="password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control input-lg" placeholder="confirm password">
-                                    <!-- <input type="checkbox" onclick="showPW()"> Show Password -->
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="newRenterEmail" class="form-control input-lg" placeholder="Email Address">
-                                </div>
-                                <div id="renterNotice">
-                                    <!-- notice goes here -->
-                                </div>
-                                <div class="form-group">
-                                    <a id="submit-renter" href="/renters" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Create Account</a>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" id="beHost" class="btn btn-danger">BECOME A HOST</button>
+                    <button type="button" id="beRenter" class="btn btn-primary">I AM A RENTER</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" id="beHost" class="btn btn-danger">BECOME A HOST</button>
-                <button type="button" id="beRenter" class="btn btn-primary">I AM A RENTER</button>
-            </div>
-        </div>
         </div>
     </div>
 
@@ -116,43 +117,47 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title text-primary" id="logInModalLabel">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <h5 class="modal-title text-primary" id="logInModalLabel">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <!--personal information-->
                     <div id="personalModal" class="login">
                         <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="text-center text-warming">Welcome</h1>
-                            </div>
-                            <div class="modal-body">
-                                <form action="" class="form col-md-12 center-block">
-                                <div class="form-group">
-                                    <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="text-center text-warming">Welcome</h1>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" id="comfirmPw"class="form-control input-lg" placeholder="renter password">
-                                </div>                                  
-                                <div class="form-group">
-                                    <buttom id="renterBack" href="/" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">I'm Back</buttom>
-                                <hr>
-                                <button class="loginBtn loginBtn--google">
-                                    Login with Google
-                                </button>
-                                <br>
-                                    <span><a href="#">Forgot Password </a></span>
-                                    <span style="float:right;"><a href="#" id="findPw" class="pull-right">Sign Up</a></span>
+                                <div class="modal-body">
+                                    <form action="" class="form col-md-12 center-block">
+                                        <div class="form-group">
+                                            <input type="text" id="comfirmEmail" class="form-control input-lg" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="comfirmPw" class="form-control input-lg" placeholder="renter password">
+                                        </div>
+                                        <div class="form-group">
+                                            <buttom id="renterBack" href="/" data-dismiss="modal" class="btn btn-primary btn-lg btn-block">I'm Back</buttom>
+                                            <hr>
+                                            <button class="loginBtn loginBtn--google">
+                                                Login with Google
+                                            </button>
+                                            <br>
+                                            <span>
+                                                <a href="#">Forgot Password </a>
+                                            </span>
+                                            <span style="float:right;">
+                                                <a href="#" id="findPw" class="pull-right">Sign Up</a>
+                                            </span>
+                                        </div>
+                                    </form>
                                 </div>
-                                </form>
+                                <div class="modal-footer">
+
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -163,10 +168,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title text-primary" id="hostlogInModalLabel">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <h5 class="modal-title text-primary" id="hostlogInModalLabel">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <!--personal information-->
@@ -182,7 +187,7 @@
                                             <input type="text" id="comfirmHostEmail" class="form-control input-lg" placeholder="Email Address">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" id="comfirmHostPw"class="form-control input-lg" placeholder="host password">
+                                            <input type="password" id="comfirmHostPw" class="form-control input-lg" placeholder="host password">
                                         </div>
                                         <div class="form-group">
                                             <a id="hostBack" href="/hosts" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">I'm Back</a>
@@ -191,8 +196,12 @@
                                                 Login with Google
                                             </button>
                                             <br>
-                                            <span><a href="#">Forgot Password </a></span>
-                                            <span style="float:right;"><a href="#" class="pull-right">Sign Up</a></span>
+                                            <span>
+                                                <a href="#">Forgot Password </a>
+                                            </span>
+                                            <span style="float:right;">
+                                                <a href="#" class="pull-right">Sign Up</a>
+                                            </span>
                                         </div>
                                     </form>
                                 </div>
@@ -212,30 +221,33 @@
             <h3 class="font-weight-bold">Looking for hourly parking in someone's drive ways, carports, or garages?</h3>
             <form id="searchBar">
                 <div class="form-group">
-                    <label for="cityInput font-weight-bold">What City and State are you going?</label>
-                    <input type="text" class="form-control" id="address" placeholder="ex: 1995 University Ave Berkeley">
+                    <label for="cityInput font-weight-bold">Please enter the address you are going</label>
+                    <input type="text" class="form-control" id="address" placeholder="ex: 1995 University Ave Berkeley -- Address only, city search coming soon">
                 </div>
-                <button type="submit" class="btn btn-success btn-lg" onClick="window.location='listings';" >Search</a>
+                <button type="submit" class="btn btn-success btn-lg" onClick="window.location='listings';">Search</a>
             </form>
         </div>
-    </div>   
+    </div>
     <!-- footer -->
     <footer>
-        <div class="footerHeader" ></div>
+        <div class="footerHeader"></div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <h3>Our Mission</h3>
                     <p>
-                    We are here to Change the Industry Parking garage industry , and help you avoid those insane Parking prices by giving you the power of being able to park in any Host's Drive way. Saving you money , and also making you income if you choose to become a REPARK HOST Member! 
+                        We are here to Change the Industry Parking garage industry , and help you avoid those insane Parking prices by giving you
+                        the power of being able to park in any Host's Drive way. Saving you money , and also making you income
+                        if you choose to become a REPARK HOST Member!
                     </p>
                 </div>
-                
+
                 <div class="col-md-4">
                     <h3>Our Location</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12597.997570687636!2d-122.2712579!3d37.8720023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x877ed0412bbfc2d0!2sUC+Berkeley+Extension!5e0!3m2!1sen!2sus!4v1528647835417"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <h3>Contact Us</h3>
                     <ul>
                         <li>Phone: 510-REP-ARKED</li>
@@ -243,9 +255,22 @@
                         <li>Fax: 123-REP-ARKED</li>
                     </ul>
                     <ul class="sm">
-                        <li><a href="#" ><img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive"></a></li>
-                        <li><a href="#" ><img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive" ></a></li>
-                        <li><a href="#" ><img src="https://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive"  ></a></li>
+                        <li>
+                            <a href="#">
+                                <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300"
+                                    class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="https://playbookathlete.com/wp-content/uploads/2016/10/twitter-logo-4.png" class="img-responsive">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -253,9 +278,12 @@
     </footer>
     <!-- js -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
     <!-- Custom Script -->
     <script src="../js/index.js" type="text/javascript"></script>
 
