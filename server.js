@@ -39,6 +39,6 @@ require("./routes/reservations-api-routes")(app);
 // db.sequelize.sync({forece:true}).then(function() {  //force:true to drop table content everytime
 db.sequelize.sync({}).then(function() {  //force:true to drop table content everytime
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT " + PORT); //var PORT = process.env.PORT || 7070;
   });
 });

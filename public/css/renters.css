@@ -1,7 +1,7 @@
 /* footer */
 footer {
     background-color: rgba(44, 62, 80, 1.0);
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     bottom: 0;
     font-weight: lighter;
@@ -45,7 +45,3 @@ footer iframe {
 /* footer */
 
 
-/* hr */
-hr{
-    /* width: 300px; */
-}
