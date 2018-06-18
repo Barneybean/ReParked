@@ -322,7 +322,7 @@ $(document).ready(function () {
     }).then(function (result) {
       console.log(result);
       if (result.city === undefined) {
-        $("#display").prepend("API Error, Please Search Again");
+        $("#display").html("API Error, Please Refresh");
       }
       else {
         console.log("from listing", result.city.address_components[3].long_name);
@@ -336,50 +336,6 @@ $(document).ready(function () {
   });
   //-------------------end listing search-----------------
   //use searchString to do search in listing-api-routes and then database 
-
-  function displayImage(data) {
-    for (var i = 0; i < data.length; i++) {
-      var cardShow = $("<div>");
-      cardShow.addClass("col-sm-6");
-      var cardSm = $("<div>");
-      cardSm.addClass("col-sm");
-      cardSm.addClass("listing");
-      cardShow.append(cardSm);
-
-      var clickSm = $("<a>");
-      clickSm.attr("href", "/details");
-      var image = $('<img>');
-      image.addClass("card-img-top");
-      image.attr("src", data[i].url);
-      clickSm.append(image);
-      cardSm.append(clickSm);
-
-      var bottomLeft = $("<div>");
-      bottomLeft.addClass("bottom-left");
-      var addressBoth = data[i].streetNumber + " " + data[i].streetName
-      bottomLeft.text(addressBoth)
-      cardSm.append(bottomLeft)
-
-      var bottomRight = $("<div>");
-      bottomRight.addClass("bottom-right");
-      var addressCity = data[i].city + " " + "$" + data[i].hourlyRate + "/hr";
-      bottomRight.text(addressCity);
-      cardSm.append(bottomRight)
-
-      var topP = $("<p>");
-      topP.addClass("card-title");
-      var bottomP = $("<p>");
-      bottomP.addClass("card-text");
-      cardSm.append(topP);
-      cardSm.append(bottomP);
-      //assign lisitng id to cardSm
-      image.attr("value", parseInt(data[i].id));
-      image.attr("valueRate", parseInt(data[i].hourlyRate));
-      $("#display").prepend(cardSm);
-    };
-
-  };
-
 
   // console.log("session", cityNameIndex);
   function indexPageSearch() {
@@ -424,17 +380,62 @@ $(document).ready(function () {
     });
   }
 
+  function displayImage(data) {
+    for (var i = 0; i < data.length; i++) {
+      var cardShow = $("<div>");
+      cardShow.addClass("col-sm-6");
+      var cardSm = $("<div>");
+      cardSm.addClass("col-sm");
+      cardSm.addClass("listing");
+      cardShow.append(cardSm);
+
+      var clickSm = $("<a>");
+      clickSm.attr("href", "/details");
+      var image = $('<img>');
+      image.addClass("card-img-top clickMe");
+      image.attr("src", data[i].url);
+      clickSm.append(image);
+      cardSm.append(clickSm);
+
+      var bottomLeft = $("<div>");
+      bottomLeft.addClass("bottom-left");
+      var addressBoth = data[i].streetNumber + " " + data[i].streetName
+      bottomLeft.text(addressBoth)
+      cardSm.append(bottomLeft)
+
+      var bottomRight = $("<div>");
+      bottomRight.addClass("bottom-right");
+      var addressCity = data[i].city + " " + "$" + data[i].hourlyRate + "/hr";
+      bottomRight.text(addressCity);
+      cardSm.append(bottomRight)
+
+      var topP = $("<p>");
+      topP.addClass("card-title");
+      var bottomP = $("<p>");
+      bottomP.addClass("card-text");
+      cardSm.append(topP);
+      cardSm.append(bottomP);
+      //assign lisitng id to cardSm
+      image.attr("listingId", parseInt(data[i].id));
+      image.attr("hostId", parseInt(data[i].hostsprofileId));
+      image.attr("valueRate", parseInt(data[i].hourlyRate));
+      $("#display").prepend(cardSm);
+    };
+  };
+
+
   //store listing id to session storage for details page to load this listing
-  $(document).on("click", ".card-img-top", function () {
-    var listingId = $(this).attr("value");
+  $(document).on("click", ".clickMe", function () {
+    var listingId = $(this).attr("listingId");
+    var hostId = $(this).attr("hostId");
     var rate = $(this).attr("valueRate");
     var imageUrl = $(this).attr("src");
     console.log(listingId)
     //write clicked rate image id and url into sessionstorage for detail page
     sessionStorage.setItem("clickedListingId", listingId);
+    sessionStorage.setItem("clickedhostId", hostId);
     sessionStorage.setItem("clickedListingUrl", imageUrl);
     sessionStorage.setItem("clickedListingRate", rate);
-
   })
   //William's code end ********************************nodemon
 

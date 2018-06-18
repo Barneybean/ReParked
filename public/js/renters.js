@@ -2,45 +2,33 @@ var dataId = sessionStorage.getItem("loggedInRenterId")
 var dataName = sessionStorage.getItem("loggedInRenterName")
 var dataEmail = sessionStorage.getItem("loggedInRenterEmail")
 
-console.log(dataId)
+console.log(dataId);
 
 
 var nameDisplay = $("#name");
-nameDisplay.append(dataName)
+nameDisplay.append(dataName);
 
 var emailDisplay = $("#email");
-emailDisplay.append(dataEmail)
+emailDisplay.append(dataEmail);
 
-
+// display all reservations of this user
 $.ajax("/api/rentersreservation/" + dataId, {
   type: "GET"
 }).then(function (data) {
   console.log(data);
-
+  // display result in table
   for (var i = 0; i < data.length; i++) {
-    var datestart = data[i].dateStart
-    var locationDisplay = $("#dateClass");
-    locationDisplay.append(datestart + "<br>" + "<hr>");
-
-    var timestart = data[i].timeStart
-    var timeEnd = data[i].timeEnd
-    var calculation = (timeEnd - timestart)
-    var timeDisplay = $("#locationClass")
-    timeDisplay.append(timestart + ":00 - " + timeEnd + ":00" + "   You Have " + calculation + " hrs Reserved<br>" + "<hr>")
-
-    var listingId = data[i].listingId
-    console.log("this", listingId);
-
-    $.ajax("/api/listings/" + listingId, {
-      type: "GET"
-    }).then(function (data) {
-      console.log(data);
-    }).catch(function (err) {
-      console.log(err);
-    });
+    var tableRow = $("<tr>");
+    var tableData1 = $("<td>");
+    var tableData2 = $("<td>");
+    var tableData3 = $("<td>");
+    tableData1.text(data[i].listing.city + ", " +data[i].listing.state);
+    tableData2.text(data[i].dateStart);
+    tableData3.text(data[i].timeStart+":00 - "+data[i].timeEnd+":00");
+    tableRow.append(tableData1);
+    tableRow.append(tableData2);
+    tableRow.append(tableData3);
+    $("#tableBody").append(tableRow);
   }
-
-}).catch(function (err) {
-  console.log(err);
-});
+})
 

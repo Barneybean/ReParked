@@ -26,26 +26,31 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h4>Name:</h4>
-                <h6 id="name"></h6>
+                <h4>Dear:</h4>
+                <h5 id="name">
                 <h4>Email:</h4>
-                <h6 id="email"></h6>
+                <h5 id="email">
             </div>
         </div>
         <hr>
+        <h2>You have following reservations:</h2>
+        <hr>
         <div class="row">
-            <div class="col-6">
-                <h3>Date:</h3>
-                <p id="dateClass">2018-06-16</p>
-                <hr>
-            </div>
-            <div class="col-6">
-                <h3>Time Start - Time End:</h3>
-                <p id="locationClass"> 10:00 - 12:00 in Berkeley</p>
-                <hr>
-            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Location</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
         </div>
+        <hr>
     </div>
+    <br>
     <footer>
         <div class="footerHeader"></div>
         <div class="container">
@@ -79,8 +84,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300"
-                                    class="img-responsive">
+                                <img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive">
                             </a>
                         </li>
                         <li>

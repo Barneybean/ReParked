@@ -125,12 +125,15 @@ function createCard(data) {
         width: "200"
     });
     var cardBody = $('<div>');
-    var type = $("<h>");
+    var type = $("<h6>");
     type.text("Type: "+data.type);
     var details = $("<p>");
-    details.text(data.streetNumber+" "+data.streetName+" "+data.city+" "+data.state+" "+data.zipCode+" "+"Hourly Rate $"+data.hourlyRate+"/hr");
+    details.text(data.streetNumber+" "+data.streetName+" "+data.city+" "+data.state+" "+data.zipCode);
+    var price = $("<p>");
+    price.text("Hourly Rate $"+data.hourlyRate+"/hr");
     cardBody.append(type);
     cardBody.append(details);
+    cardBody.append(price);
     newListing.append(newImage);
     newListing.append(cardBody);
     $("#existingListings").prepend(newListing);

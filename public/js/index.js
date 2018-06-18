@@ -38,8 +38,10 @@ $("#hostLogInBtn").on("click", function() {
 
  //---------------------New user sign up-----------------------------
  
- //see who is logged in
+//see who is logged in
 var lastLoggedIn = sessionStorage.getItem("lastLoggedIn");
+
+//to stay logged in when going back to home page
 if(lastLoggedIn =="renter") {
   $("#logInBtn").text("logged in as Renter: " + sessionStorage.getItem("loggedInRenterEmail"));
   $("#hostLogInBtn").text("Host Login");
@@ -56,6 +58,7 @@ else if(lastLoggedIn =="host") {
 }
 else {
 }
+
  //-------------sign up for host---------------------
 function showPW() {
   // var x = document.getElementByClass("psw");
@@ -179,7 +182,6 @@ var newRenterName = $("#newRenterName");
     comfirmEmail.val("");
     comfirmPw.val("");
 
-
 });
 
   function loginRenter(email, password) {
@@ -210,6 +212,7 @@ var newRenterName = $("#newRenterName");
         var renterProfile=$('<a type="button" id="renterProfile" class="btn btn-outline-secondary" href="/renters">');
         renterProfile.text("Renter Profile");
         $("#profile").html(renterProfile);
+        //clear host info
       }
       
     }).catch(function(err) {
@@ -239,7 +242,6 @@ hostBack.on("click", function(event) {
    loginHost(hostLogin.email, hostLogin.password);
    comfirmHostEmail.val("");
    comfirmHostPw.val("");
-
 });
 
  function loginHost(email, password) {
@@ -270,7 +272,7 @@ hostBack.on("click", function(event) {
       var hostProfile=$('<a type="button" id="hostProfile" class="btn btn-outline-secondary" href="/hosts">');
       hostProfile.text("Host Profile");
       $("#profile").html(hostProfile);
-
+      //clear renter info
     };
    }).catch(function(err) {
      console.log(err);
@@ -292,7 +294,6 @@ hostBack.on("click", function(event) {
     sessionStorage.search = searchString;    
 
   });
-
 
 
 

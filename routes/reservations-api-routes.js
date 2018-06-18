@@ -25,7 +25,7 @@ module.exports = function (app) {
       timeEnd: req.body.endHour,
       note: req.body.note,
       listingId: req.body.listingId,
-      rentersprofileId: req.body.userId,
+      rentersprofileId: req.body.renterId,
       hostsprofileId: req.body.hostId
     }).then(function (results) {
       console.log(results);

@@ -84,14 +84,13 @@ module.exports = function (app) {
         db.reservation.findAll({
             where: {
                 rentersprofileId: dataRenterId
-            }
+            },
+            include: [db.listing] //to get listing city and state
         }).then(function (results) {
             console.log(results)
             res.json(results)
         })
     })
-
-
     // code end*****************************************
 
 };
