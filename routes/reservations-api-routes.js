@@ -10,9 +10,9 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-    
-  app.post("/api/newreservation", function(req, res) {
+module.exports = function (app) {
+
+  app.post("/api/newreservation", function (req, res) {
     console.log("Reservation Data:");
     console.log(req.body);
     console.log(db)
@@ -27,12 +27,12 @@ module.exports = function(app) {
       listingId: req.body.listingId,
       rentersprofileId: req.body.userId,
       hostsprofileId: req.body.hostId
-    }).then(function(results) {
+    }).then(function (results) {
       console.log(results);
     })
   });
-    
-  app.get("/api/:listingid/:startdate/:enddate", function(req, res) {
+
+  app.get("/api/:listingid/:startdate/:enddate", function (req, res) {
     console.log(req.params.listingid)
     console.log(req.params.startdate)
     console.log(req.params.enddate)
@@ -44,7 +44,7 @@ module.exports = function(app) {
           $between: ["2018-06-13", "2018-06-17"]
         }
       },
-    }).then(function(results) {
+    }).then(function (results) {
       console.log(results.length);
       res.json(results);
     });

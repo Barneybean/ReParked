@@ -21,33 +21,33 @@ var sha256 = require("sha256");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-    
+module.exports = function (app) {
+
     //=======================host sign up
-    app.post('/api/hostsignup', function(req, res) {
+    app.post('/api/hostsignup', function (req, res) {
 
         // console.log(req.body.password + " host sign up email");
         var hostName = req.body.hostName;
         var hostEmail = req.body.hostEmail;
         var hostPassword = sha256(req.body.hostPassword);
 
-         db.hostsprofile.create({
-             hostName: hostName,
-             hostEmail: hostEmail,
-             password: hostPassword
+        db.hostsprofile.create({
+            hostName: hostName,
+            hostEmail: hostEmail,
+            password: hostPassword
             // var hashNewHostPw = sha256(req.body.passport);
             // console.log(hashNewHostPw);
-         }).then(function(err, data) {
+        }).then(function (err, data) {
 
             res.json("new host created");
-         });
+        });
     });
-    
 
 
- 
+
+
     //=========================host login
-    app.post('/api/hostlogin', function(req, res) {
+    app.post('/api/hostlogin', function (req, res) {
 
         var hostEmail = req.body.Email;
         var hostPassword = sha256(req.body.Password);
@@ -56,7 +56,7 @@ module.exports = function(app) {
             where: {
                 hostEmail: hostEmail
             }
-        }).then(function(hostObj) {
+        }).then(function (hostObj) {
             // if (err) {
             //     var failLogin = "Fail Login";
             //     res.json(failLogin);
@@ -64,9 +64,9 @@ module.exports = function(app) {
             // else {
             //     console.log("inhere",hostObj.hostEmail);
             // }
-            
+
             if (hostObj.hostEmail === hostEmail && hostObj.password === hostPassword) {
-            //    console.log("inhere");
+                //    console.log("inhere");
                 var loginAs = {
                     successId: hostObj.id,
                     successName: hostObj.hostName,
@@ -81,19 +81,19 @@ module.exports = function(app) {
     });
 
     //======get hostListingsID===========================
-    app.get("/api/hostlistings/:id", function(req, res) {
+    app.get("/api/hostlistings/:id", function (req, res) {
         var hostListingsId = req.params.id;
         db.listing.findAll({
-            where:{
+            where: {
                 id: hostListingsId
             }
-        }).then(function(result) {
+        }).then(function (result) {
             console.log(result)
             res.json(result);
         })
     });
-    
-    app.post('/api/garagesinfo', function(req, res) {
+
+    app.post('/api/listinginfo', function (req, res) {
         var streetNumber = parseInt(req.body.streetNumber);
         var streetName = req.body.streetName;
         var city = req.body.City;
@@ -120,25 +120,28 @@ module.exports = function(app) {
             hourlyRate: hourlyRate,
             url: url,
             hostsprofileId: hostsProfileId
-        }).then(function(err, data) {
-            
+        }).then(function (data) {
+
             res.json(data);
-            
+
         });
     });
 
     //======get hostListingsID===========================
-   app.get("/api/hostlistings/:id", function(req, res) {
-       var hostListingsId = req.params.id;
-       db.listing.findAll({
-           where:{
-               id: hostListingsId
-           }
-       }).then(function(result) {
-           console.log(result)
-           res.json(result);
-       })
-   });
+    app.get("/api/host/:id", function (req, res) {
+        var hostId = req.params.id;
+        db.listing.findAll({
+            where: {
+                hostsprofileId: hostId
+            },
+            order:[
+                ['updatedAt', 'DESC']
+            ]
+        }).then(function (result) {
+            console.log("existing",result)
+            res.json(result);
+        })
+    });
 };
 
 

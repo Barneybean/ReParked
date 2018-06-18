@@ -35,27 +35,28 @@
         <!--known-->
         <div id="welcome">
         </div>
+        <hr>
         <div class="row">
-            <div class="col-lg">
+            <div class="col-lg-6">
                 <!--input new-->
                 <form class="border border-primary formBorder">
                     <div class="form-row">
                         <div class="form-group col-md-3 col-xs-3">
-                            <label for="inputStreetNumber">streetNumber</label>
-                            <input type="text" id="streetNumber" class="form-control" placeholder="1234 ">
+                            <label for="inputStreetNumber">St. Number</label>
+                            <input type="text" id="streetNumber" class="form-control">
                         </div>
 
-                        <div class="form-group col-md-5 col-xs-5">
-                            <label for="inputStreetName">streetName</label>
+                        <div class="form-group col-md-9 col-xs-5">
+                            <label for="inputStreetName">Street Name</label>
                             <input type="text" class="form-control" id="streetName">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4 col-xs-4">
+                        <div class="form-group col-md-5 col-xs-5">
                             <label for="inputCity">City</label>
                             <input type="text" class="form-control" id="city">
                         </div>
-                        <div class="form-group col-md-4 col-xs-4">
+                        <div class="form-group col-md-3 col-xs-3">
                             <label for="inputState">State</label>
                             <input type="text" class="form-control" id="state">
                         </div>
@@ -65,32 +66,38 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <select class="form-control" id="type">
-                            <option>Dirveway</option>
-                            <option>Carport</option>
-                            <option>Garage</option>
-                        </select>
+                        <div class="form-group col-md-4 col-xs-4">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="type">
+                                <option>Dirveway</option>
+                                <option>Carport</option>
+                                <option>Garage</option>
+                            </select>
+                        </div>
                         <div class="form-group col-md-4 col-xs-4">
                             <label for="inputHourlyRate">Hourly Rate</label>
                             <input type="text" class="form-control" id="hourlyRate">
                         </div>
                     </div>
-                    <div class="form-group col-md-8 col-xs-8">
-                        <label for="inputUrl">Url</label>
-                        <input type="text" class="form-control" id="url">
+                    <div class="form-row">
+                        <div class="form-group col-md col-xs">
+                            <label for="inputUrl">Url</label>
+                            <input type="text" class="form-control" id="url">
+                        </div>
                     </div>
-                    <button class="btn btn-primary" id="submitBtn" type="submit">Button</button>
+                    <button class="btn btn-primary" id="addListing" type="submit">Button</button>
+                    <p id="notice"></p>
                 </form>
-            </div>
-            <div class="row">
-                <!--personal info-->
-                <div id="garageListing" class="col-md-4 col-xs-4">
-                    <div class="row">
-                        <div id="garagePhoto" class="col-md"></div>
-                        <br>
+                <div class="row">
+                    <div class="col-md" id="AllBooking">
+                        All Bookings: <!-- existing reservations goes here --> 
                     </div>
-                    <div class="row">
-                        <div id="garageInfomation" class="col-md"></div>
+                </div>
+            </div>
+            <div class="col-lg-6" id="currentInfo"> Your Lisitngs:
+                <div class="row">
+                    <div class="col-md" id="existingListings">
+                        <!-- existing and newlisting goes here -->
                     </div>
                 </div>
             </div>
