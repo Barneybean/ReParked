@@ -289,7 +289,7 @@ $(document).ready(function () {
     data: addressString
   }).then(function (result) {
     if (result.city === undefined) {
-      $("#display").html("API Error, Please Search Again");
+      $("#display").html("API Error, Please refresh couple times! I will fix this issue as soon as the other MERN stack project is completed. Thanks for your patient");
     }
     else {
       // $("#display").prepend("success")
